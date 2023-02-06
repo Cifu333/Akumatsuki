@@ -5,15 +5,16 @@ using UnityEngine;
 public class HorizontalMovement : MonoBehaviour
 {
     public enum Direction { NONE, LEFT, RIGHT };
-
+    
     public SpriteRenderer sr;
     public Animator anim;
     public GroundDetector ground;
     public Direction dir = Direction.NONE;
     public float currentSpeed = 0.0f;
     public float speed = 5;
-    public float dashSpeed = 3;
-    private bool dash;
+    public float dashSpeed = 5000;
+    public float dashTime = 0.2f;
+    private bool dash = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,19 +44,19 @@ public class HorizontalMovement : MonoBehaviour
             transform.localScale = new Vector3(1,-1,1);
             dir = Direction.LEFT;
         }
-        if (Input.GetButtonDown("LeftShift"))
+        if (Input.GetButton("LeftShift") && dash == true)
         {
             if (horizontal > 0)
             {
-                transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime * dashSpeed, 0, 0);
+                Dash_corrutine();
             }
             if (horizontal < 0)
             {
-                transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime * dashSpeed, 0, 0);
+                Dash_corrutine();
             }
             else
             {
-                transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime * dashSpeed, 0, 0);
+                Dash_corrutine();
             }
         }
         anim.SetBool("Moving", horizontal != 0);
@@ -64,6 +65,8 @@ public class HorizontalMovement : MonoBehaviour
 
     IEnumerator Dash_corrutine()
     {
+        transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime * dashSpeed, 0, 0);
+        yield return new WaitForSeconds(dashTime);
         dash = false;
         yield return new WaitForSeconds(2);
         dash = true;

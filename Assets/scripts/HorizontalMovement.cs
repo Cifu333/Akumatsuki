@@ -77,21 +77,24 @@ public class HorizontalMovement : MonoBehaviour
             dashCoolCounter -= Time.deltaTime;
         }
 
-
-        int count = 0;
-        for (int i = 0; i < rays.Count; i++)
+        if (dash == true)
         {
-            Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
-            if (hit.collider != null)
+            int countt = 0;
+            for (int i = 0; i < rays.Count; i++)
             {
-                count++;
-                Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
+                Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
+                if (hit.collider != null)
+                {
+                    countt++;
+                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
+                }
             }
-        }
-        if (count > 0)
-        {
-            currentSpeed = 0;
+            if (countt > 0)
+            {
+                horizontal = Input.GetAxis("Horizontal");
+                currentSpeed = horizontal * speed;
+            }
         }
     }
 

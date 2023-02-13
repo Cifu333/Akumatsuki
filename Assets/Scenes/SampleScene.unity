@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 78544756}
   - component: {fileID: 78544755}
   - component: {fileID: 78544754}
+  - component: {fileID: 78544757}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -283,6 +284,8 @@ MonoBehaviour:
   dir: 0
   currentSpeed: 0
   speed: 10
+  dashSpeed: 5000
+  dashTime: 0.2
 --- !u!114 &78544756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +307,19 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &78544757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78544749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2277cda17ffbd4f912d3de2d608771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

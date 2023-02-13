@@ -44,6 +44,7 @@ public class HorizontalMovement : MonoBehaviour
             transform.localScale = new Vector3(1,-1,1);
             dir = Direction.LEFT;
         }
+        /*
         if (Input.GetButton("LeftShift") && dash == true)
         {
             if (horizontal > 0)
@@ -59,8 +60,10 @@ public class HorizontalMovement : MonoBehaviour
                 Dash_corrutine();
             }
         }
+        
         anim.SetBool("Moving", horizontal != 0);
         anim.SetBool("Grounded", ground.grounded);
+        */
     }
 
     IEnumerator Dash_corrutine()

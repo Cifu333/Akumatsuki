@@ -116,33 +116,9 @@ public class HorizontalMovement : MonoBehaviour
             transform.localScale = new Vector3(1,-1,1);
             dir = Direction.LEFT;
         }
-<<<<<<< HEAD
-        /*
-        if (Input.GetButton("LeftShift") && dash == true)
-        {
-            if (horizontal > 0)
-            {
-                Dash_corrutine();
-            }
-            if (horizontal < 0)
-            {
-                Dash_corrutine();
-            }
-            else
-            {
-                Dash_corrutine();
-            }
-        }
-        
-        anim.SetBool("Moving", horizontal != 0);
-        anim.SetBool("Grounded", ground.grounded);
-        */
-    }
-=======
+
 
         anim.SetBool("Moving", horizontal != 0);
         anim.SetBool("Grounded", ground.grounded);
->>>>>>> 391e6c53bfcbec2bd10685152154d58dc95a75e8
-
     }
 }

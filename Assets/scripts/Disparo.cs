@@ -6,6 +6,7 @@ public class Disparo : MonoBehaviour {
 
     public GameObject bulletPrefab;
     private Camera cam;
+    public float bulletTime;
     private Vector2 mouseWorldPoint;
 
     // Start is called before the first frame update
@@ -25,9 +26,10 @@ public class Disparo : MonoBehaviour {
     }
 
     private void Shoot() {
-        GameObject bullet = Instantiate(this.bulletPrefab, this.transform.position, this.transform.rotation);
-        Bullet bulletComponent = bullet.GetComponent<Bullet>();
-        Vector2 playerPos = new Vector2(transform.position.x, transform.position.y);
-        bulletComponent.Project((mouseWorldPoint - playerPos).normalized);
+        Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPosition.z = 0;
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        bullet.transform.right = mouseWorldPosition - transform.position;
+        Destroy(bullet, bulletTime);
     }
 }

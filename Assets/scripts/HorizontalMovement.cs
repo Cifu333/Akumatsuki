@@ -113,7 +113,7 @@ public class HorizontalMovement : MonoBehaviour
         }
         if(horizontal < 0)
         {
-            transform.localScale = new Vector3(1,-1,1);
+            transform.localScale = new Vector3(-1,1,1);
             dir = Direction.LEFT;
         }
 

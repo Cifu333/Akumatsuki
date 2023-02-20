@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -45,26 +48,6 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         int jumps = 0;
-        currentSpeed = speed;
-        float dif = transform.position.x - target.transform.position.x;
-        if (dif < 0) { dif = -dif; }
-
-        if (transform.position.x < target.transform.position.x && dif > distance && dif < detect)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-
-            transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
-
-            dir = Direction.RIGHT;
-        }
-        if (transform.position.x > target.transform.position.x && dif > distance && dif < detect)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-
-            transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
-
-            dir = Direction.LEFT;
-        }
 
         int count = 0;
         if (dir == Direction.LEFT)
@@ -116,8 +99,29 @@ public class EnemyMovement : MonoBehaviour
         }
 
 
-        anim.SetBool("Moving", speed != 0);
-        anim.SetBool("Grounded", ground.grounded);
+        //anim.SetBool("Moving", speed != 0);
+        //anim.SetBool("Grounded", ground.grounded);
+    }
 
+    private void FixedUpdate()
+    {
+        currentSpeed = speed;
+        float dif = transform.position.x - target.transform.position.x;
+        if (dif < 0) { dif = -dif; }
+        if (transform.position.x < target.transform.position.x && dif > distance && dif < detect)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
+            dir = Direction.RIGHT;
+        }
+        if (transform.position.x > target.transform.position.x && dif > distance && dif < detect)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+
+            transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
+
+            dir = Direction.LEFT;
+        }
     }
 }
+

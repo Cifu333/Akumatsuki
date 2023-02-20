@@ -367,11 +367,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f4786ac7f2a0240b466e8de667d4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 7785200339810103699, guid: 0cb0ba6d0e52e7544a2ba606e1fd39de, type: 3}
+  weapon: {fileID: 9214318533906294543, guid: 0cb0ba6d0e52e7544a2ba606e1fd39de, type: 3}
   vRotation: 10
-  bc: {fileID: 0}
-  time: 2
-  angle: 50
+  offset: 1.1
+  lightAttack: 0
+  heavyAttack: 0
+  lightAttackDuration: 0.25
+  lightAttackTime: 0.25
+  heavyAttackDuration: 0.5
+  heavyAttackTime: 0.5
+  heavyAttackCharge: 0.3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +761,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
-  speed: 1
+  speed: 5
   distance: 2
   detect: 15
   numJumps: 1

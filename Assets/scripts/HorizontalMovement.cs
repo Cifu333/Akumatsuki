@@ -42,83 +42,88 @@ public class HorizontalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-
-        if (Input.GetKeyDown("left shift"))
+        if (GetComponent<PlayerAttack>().lightAttack == false && GetComponent<PlayerAttack>().heavyAttack == false)
         {
-            if (dashCoolCounter <= 0 && dashCounter <= 0)
+            float horizontal = Input.GetAxis("Horizontal");
+            if (Input.GetKeyDown("left shift"))
             {
-                dash = true;
-                if (dir == Direction.RIGHT)
+                if (dashCoolCounter <= 0 && dashCounter <= 0)
                 {
-                    currentSpeed = dashSpeed;
-                }
-                if (dir == Direction.LEFT)
-                {
-                    currentSpeed = -dashSpeed;
-                }
-                dashCounter = dashDuration;
-            }
-        }
-
-        if (dashCounter > 0)
-        {
-            dashCounter -= Time.deltaTime;
-            if (dashCounter <= 0)
-            {
-                currentSpeed = horizontal * speed;
-                dashCoolCounter = dashTime;
-                dash = false;
-            }
-        }
-
-        if (dashCoolCounter > 0)
-        {
-            dashCoolCounter -= Time.deltaTime;
-        }
-
-        if (dash == true)
-        {
-            int countt = 0;
-            for (int i = 0; i < rays.Count; i++)
-            {
-                Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
-                if (hit.collider != null)
-                {
-                    countt++;
-                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
+                    dash = true;
+                    if (dir == Direction.RIGHT)
+                    {
+                        currentSpeed = dashSpeed;
+                    }
+                    if (dir == Direction.LEFT)
+                    {
+                        currentSpeed = -dashSpeed;
+                    }
+                    dashCounter = dashDuration;
                 }
             }
-            if (countt > 0)
+
+            if (dashCounter > 0)
             {
-                horizontal = Input.GetAxis("Horizontal");
-                currentSpeed = horizontal * speed;
+                dashCounter -= Time.deltaTime;
+                if (dashCounter <= 0)
+                {
+                    currentSpeed = horizontal * speed;
+                    dashCoolCounter = dashTime;
+                    dash = false;
+                }
+            }
+
+            if (dashCoolCounter > 0)
+            {
+                dashCoolCounter -= Time.deltaTime;
+            }
+
+            if (dash == true)
+            {
+                int countt = 0;
+                for (int i = 0; i < rays.Count; i++)
+                {
+                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
+                    if (hit.collider != null)
+                    {
+                        countt++;
+                        Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
+                    }
+                }
+                if (countt > 0)
+                {
+                    horizontal = Input.GetAxis("Horizontal");
+                    currentSpeed = horizontal * speed;
+                }
             }
         }
     }
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-
-        if (dash == false) { currentSpeed = horizontal * speed; }
-
-        transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
-
-        if(horizontal > 0)
+        if (GetComponent<PlayerAttack>().lightAttack == false && GetComponent<PlayerAttack>().heavyAttack == false)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            dir = Direction.RIGHT;
-        }
-        if(horizontal < 0)
-        {
-            transform.localScale = new Vector3(-1,1,1);
-            dir = Direction.LEFT;
-        }
+            float horizontal = Input.GetAxis("Horizontal");
+
+            if (dash == false) { currentSpeed = horizontal * speed; }
+
+            transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
+
+            if (horizontal > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                dir = Direction.RIGHT;
+            }
+            if (horizontal < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                dir = Direction.LEFT;
+            }
 
 
-        anim.SetBool("Moving", horizontal != 0);
-        anim.SetBool("Grounded", ground.grounded);
+            anim.SetBool("Moving", horizontal != 0);
+            anim.SetBool("Grounded", ground.grounded);
+        }
     }
 }

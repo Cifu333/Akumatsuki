@@ -36,7 +36,7 @@ public class HorizontalMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         ground = GetComponent<GroundDetector>();
-        dir = Direction.NONE;
+        dir = Direction.RIGHT;
     }
 
     // Update is called once per frame
@@ -49,11 +49,11 @@ public class HorizontalMovement : MonoBehaviour
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 dash = true;
-                if (horizontal > 0)
+                if (dir == Direction.RIGHT)
                 {
                     currentSpeed = dashSpeed;
                 }
-                if (horizontal < 0)
+                if (dir == Direction.LEFT)
                 {
                     currentSpeed = -dashSpeed;
                 }

@@ -6,9 +6,13 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject weapon;
     public float vRotation;
-    public BoxCollider2D bc;
-    public float time;
-    public float angle;
+    public float offset;
+    public bool lightAttack;
+
+    private float lightAttackCoolCounter;
+    private float lightAttackCounter;
+    public float lightAttackDuration;
+    public float lightAttackTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,22 +22,39 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject temp = weapon;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GameObject temp;
-            if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+            if (lightAttackCoolCounter <= 0 && lightAttackCounter <= 0)
             {
-                temp = Instantiate(weapon, transform.position + new Vector3(-0.766f,0,0), transform.rotation);
+                lightAttack = true;
+                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+                {
+                    temp = Instantiate(weapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                }
+                else
+                {
+                    temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+                }
+                temp.transform.parent = transform;
+                lightAttackCounter = lightAttackDuration;
+                Destroy(temp, lightAttackDuration);
             }
-            else
+        }
+
+        if (lightAttackCounter > 0)
+        {
+            lightAttackCounter -= Time.deltaTime;
+            if (lightAttackCounter <= 0)
             {
-                temp = Instantiate(weapon, transform.position + new Vector3(0.766f, 0, 0), transform.rotation);
+                lightAttackCoolCounter = lightAttackTime;
+                lightAttack = false;
             }
-            temp.transform.parent = transform;
+        }
 
-            temp.transform.eulerAngles = Vector3.forward * angle;
-
-            Destroy(temp, time);
+        if (lightAttackCounter > 0)
+        {
+            lightAttackCounter -= Time.deltaTime;
         }
 
     }

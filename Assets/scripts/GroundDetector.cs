@@ -13,7 +13,7 @@ public class GroundDetector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -57,7 +57,7 @@ public class GroundDetector : MonoBehaviour
         }
         if (grounded == false)
         {
-            rb.gravityScale = 1;
+            rb.gravityScale = 8;
         }
     }
 }

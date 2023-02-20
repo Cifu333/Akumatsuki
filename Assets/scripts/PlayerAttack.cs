@@ -23,11 +23,11 @@ public class PlayerAttack : MonoBehaviour
             GameObject temp;
             if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
             {
-                temp = Instantiate(weapon, transform.position + new Vector3(-0.4f,0.7f,0.2f), transform.rotation);
+                temp = Instantiate(weapon, transform.position + new Vector3(-0.766f,0,0), transform.rotation);
             }
             else
             {
-                temp = Instantiate(weapon, transform.position + new Vector3(0.4f, 0.7f, 0.2f), transform.rotation);
+                temp = Instantiate(weapon, transform.position + new Vector3(0.766f, 0, 0), transform.rotation);
             }
             temp.transform.parent = transform;
 

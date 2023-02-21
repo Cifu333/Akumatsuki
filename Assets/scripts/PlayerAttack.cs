@@ -5,18 +5,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject weapon;
-<<<<<<< HEAD
-    public float vRotation = 10;
+
     public float offset = 1.1f;
-    public bool lightAttack = false;
-    public bool heavyAttack = false;
-=======
+
     public GameObject heavyWeapon;
-    public float vRotation;
-    public float offset;
     public bool lightAttack;
     public bool heavyAttack;
->>>>>>> 45ba78656cad6ca9974e5f686a88121b8cce4867
 
     private float lightAttackCoolCounter;
     private float lightAttackCounter;
@@ -34,6 +28,8 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         charge = true;
+        lightAttack = false;
+        heavyAttack = false;
     }
 
     // Update is called once per frame

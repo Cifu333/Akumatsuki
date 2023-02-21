@@ -5,28 +5,31 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject weapon;
+
+    public float offset = 1.1f;
+
     public GameObject heavyWeapon;
-    public float vRotation;
-    public float offset;
     public bool lightAttack;
     public bool heavyAttack;
 
     private float lightAttackCoolCounter;
     private float lightAttackCounter;
-    public float lightAttackDuration;
-    public float lightAttackTime;
+    public float lightAttackDuration = 0.25f;
+    public float lightAttackTime = 0.25f;
 
     private bool charge;
     private float heavyAttackCoolCounter;
     private float heavyAttackCounter;
     private float heavyAttackChargeCounter;
-    public float heavyAttackDuration;
-    public float heavyAttackTime;
-    public float heavyAttackCharge;
+    public float heavyAttackDuration = 0.5f;
+    public float heavyAttackTime = 0.5f;
+    public float heavyAttackCharge = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
         charge = true;
+        lightAttack = false;
+        heavyAttack = false;
     }
 
     // Update is called once per frame

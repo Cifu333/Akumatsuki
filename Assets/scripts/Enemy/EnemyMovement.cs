@@ -9,8 +9,6 @@ public class EnemyMovement : MonoBehaviour
 {
     public enum Direction { NONE, LEFT, RIGHT };
 
-    public CapsuleCollider2D cd;
-
     public float force;
 
     public GameObject target;
@@ -79,23 +77,22 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-        if (count > 0 && jumps < (numJumps - 1))
+        if (count > 0 && jumps > 0)
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * force);
-            jumps++;
+            jumps--;
         }
 
         ground = GetComponent<GroundDetector>();
 
         if (ground.grounded == true)
         {
-            jumps = 0;
+            jumps = numJumps;
             if (count > 0)
             {
                 rb.velocity = Vector2.zero;
                 rb.AddForce(Vector2.up * force);
-                jumps++;
             }
         }
 
@@ -122,6 +119,19 @@ public class EnemyMovement : MonoBehaviour
             transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
 
             dir = Direction.LEFT;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
+        }
+
+        if (collision.gameObject.tag == "Enemys")
+        {
+            Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
         }
     }
 }

@@ -9,10 +9,7 @@ public class WeaponDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
 
-=======
->>>>>>> 7288fe169b7f1111e78a622c8aa4ad6ce2e35853
     }
 
     // Update is called once per frame

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject weapon;
+    public GameObject heavyWeapon;
     public float vRotation;
     public float offset;
     public bool lightAttack;
@@ -97,11 +98,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp = Instantiate(weapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                    temp = Instantiate(heavyWeapon, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
                 }
                 else
                 {
-                    temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+                    temp = Instantiate(heavyWeapon, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
                 }
                 heavyAttackCounter = heavyAttackDuration;
                 temp.transform.parent = transform;

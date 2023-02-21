@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1008867589617027542}
   - component: {fileID: 6857232421532240298}
   - component: {fileID: 529533886823427535}
+  - component: {fileID: -6664146416040290375}
   m_Layer: 7
   m_Name: bala
   m_TagString: Bullet
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.86, y: 5.6}
+    oldSize: {x: 1.2703704, y: 1.037037}
     newSize: {x: 6.86, y: 5.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,3 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5000
+--- !u!114 &-6664146416040290375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267826678335507695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3115c125ea253644a8b5a86768647c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5

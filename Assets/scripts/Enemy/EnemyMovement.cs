@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     public float currentSpeed = 0.0f;
     public float speed = 5;
     public float distance;
+    public float dif;
     public float detect;
 
     public int numJumps;
@@ -106,7 +107,7 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         currentSpeed = speed;
-        float dif = transform.position.x - target.transform.position.x;
+        dif = transform.position.x - target.transform.position.x;
         if (dif < 0) { dif = -dif; }
         if (transform.position.x < target.transform.position.x && dif > distance && dif < detect)
         {

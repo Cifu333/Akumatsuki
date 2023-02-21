@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 78544757}
   - component: {fileID: 78544758}
   - component: {fileID: 78544759}
+  - component: {fileID: 78544760}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -453,7 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 9214318533906294543, guid: 0cb0ba6d0e52e7544a2ba606e1fd39de, type: 3}
   offset: 1.1
-  heavyWeapon: {fileID: 3080568868063993926, guid: a56a3f2d39bbfea4c988f40e493205a1, type: 3}
+  heavyWeapon: {fileID: 7117357109559082843, guid: ac8c5dd27e621ab49baf3952fad729f0, type: 3}
   lightAttack: 0
   heavyAttack: 0
   lightAttackDuration: 0.25
@@ -461,6 +462,21 @@ MonoBehaviour:
   heavyAttackDuration: 0.5
   heavyAttackTime: 0.5
   heavyAttackCharge: 0.3
+--- !u!114 &78544760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78544749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0ee3164360dfc43a296be2143a8183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  maxHP: 100
+  respawn: {x: 0, y: 0, z: 0}
 --- !u!1 &212072969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 100
 --- !u!1 &1917281907
 GameObject:
   m_ObjectHideFlags: 0

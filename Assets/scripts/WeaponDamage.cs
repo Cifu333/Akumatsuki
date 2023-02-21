@@ -20,13 +20,13 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" && hazardus == false)
+        if (collision.gameObject.tag == "Enemy" && hazardus == false)
         {
-            collision.GetComponent<EnemyLife>().hp -= damage;
+            collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
         }
-        if (collision.tag == "Player" && hazardus == true)
+        if (collision.gameObject.tag == "Player" && hazardus == true)
         {
-            collision.GetComponent<PlayerLife>().hp -= damage;
+            collision.gameObject.GetComponent<PlayerLife>().hp -= damage;
         }
     }
 }

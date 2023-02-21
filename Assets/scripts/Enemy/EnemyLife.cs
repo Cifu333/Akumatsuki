@@ -14,8 +14,14 @@ public class EnemyLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Muerte();
     }
 
-
+    private void Muerte()
+    {
+        if (hp <= 0)
+        {
+            Destroy(gameObject, 0);
+        }
+    }
 }

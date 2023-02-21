@@ -368,8 +368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 9214318533906294543, guid: 0cb0ba6d0e52e7544a2ba606e1fd39de, type: 3}
-  vRotation: 10
-  offset: 0
+  offset: 1.1
+  heavyWeapon: {fileID: 3080568868063993926, guid: a56a3f2d39bbfea4c988f40e493205a1, type: 3}
   lightAttack: 0
   heavyAttack: 0
   lightAttackDuration: 0.25
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1428781371}
   m_Layer: 3
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 1640286098}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

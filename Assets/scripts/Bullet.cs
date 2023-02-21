@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour {
             collision.GetComponent<EnemyLife>().hp -= damage;
             Destroy(gameObject);
         }
-        if (collision.tag == "Structure") {
+        if (collision.gameObject.layer == 3) {
             Destroy(gameObject);
         }
     }

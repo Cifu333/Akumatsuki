@@ -9,12 +9,14 @@ public class Jump : MonoBehaviour
     public GameObject target;
     Rigidbody2D rb;
     public float force;
+    public Animator anim;
     public bool fall = false;
 
     private GroundDetector targetGroundDetectorComponent;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -28,6 +30,7 @@ public class Jump : MonoBehaviour
         {
             fall = false;
         }
+        anim.SetFloat("VelocityY",rb.velocity.y);
     }
     // Update is called once per frame
     void Update()

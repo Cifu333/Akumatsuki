@@ -117,18 +117,19 @@ public class HorizontalMovement : MonoBehaviour
 
             if (horizontal > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                if (transform.localScale.x < 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
                 dir = Direction.RIGHT;
             }
             if (horizontal < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
                 dir = Direction.LEFT;
             }
 
 
             anim.SetBool("Moving", horizontal != 0);
             anim.SetBool("Grounded", ground.grounded);
+            anim.SetBool("Dashed", dash);
         }
     }
 }

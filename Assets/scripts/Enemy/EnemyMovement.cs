@@ -131,7 +131,7 @@ public class EnemyMovement : MonoBehaviour
             Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
         }
 
-        if (collision.gameObject.tag == "Enemys")
+        if (collision.gameObject.tag == "Enemy")
         {
             Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
         }

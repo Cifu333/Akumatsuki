@@ -40,7 +40,6 @@ public class EnemyAttack : MonoBehaviour
                     charge = false;
                 }
             }
-            
         }
 
         if (attackChargeCounter > 0)

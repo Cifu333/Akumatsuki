@@ -18,7 +18,6 @@ public class EnemyMovement : MonoBehaviour
     EnemyAttack ea;
 
     public SpriteRenderer sr;
-    public Animator anim;
     GroundDetector ground;
     public Direction dir = Direction.NONE;
     public float currentSpeed = 0.0f;
@@ -39,7 +38,6 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
         ground = GetComponent<GroundDetector>();
         dir = Direction.NONE;
         rb = GetComponent<Rigidbody2D>();
@@ -111,12 +109,12 @@ public class EnemyMovement : MonoBehaviour
             dif = transform.position.x - target.transform.position.x;
             if (dif < 0) { dif = -dif; }
             if (transform.position.x < target.transform.position.x && dif > distance && dif < detect) {
-                transform.localScale = new Vector3(1, 1, 1);
+                if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
                 transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
                 dir = Direction.RIGHT;
             }
             if (transform.position.x > target.transform.position.x && dif > distance && dif < detect) {
-                transform.localScale = new Vector3(-1, 1, 1);
+                if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
 
                 transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
 

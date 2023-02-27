@@ -8,6 +8,8 @@ public class HorizontalMovement : MonoBehaviour
 
     public CapsuleCollider2D cd;
 
+    Rigidbody2D rb;
+
     public SpriteRenderer sr;
     public Animator anim;
     public GroundDetector ground;
@@ -36,6 +38,7 @@ public class HorizontalMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         ground = GetComponent<GroundDetector>();
+        rb = GetComponent<Rigidbody2D>();
         dir = Direction.RIGHT;
     }
 
@@ -105,6 +108,8 @@ public class HorizontalMovement : MonoBehaviour
         if (GetComponent<PlayerAttack>().lightAttack == false && GetComponent<PlayerAttack>().heavyAttack == false)
         {
             float horizontal = Input.GetAxis("Horizontal");
+
+            rb.velocity *= new Vector3(0,1,0);
 
             if (dash == false) { currentSpeed = horizontal * speed; }
 

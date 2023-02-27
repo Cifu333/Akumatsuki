@@ -15,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
+    EnemyAttack ea;
+
     public SpriteRenderer sr;
     public Animator anim;
     GroundDetector ground;
@@ -41,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
         ground = GetComponent<GroundDetector>();
         dir = Direction.NONE;
         rb = GetComponent<Rigidbody2D>();
+        ea = GetComponent<EnemyAttack>();   
     }
 
     // Update is called once per frame
@@ -103,22 +106,23 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        currentSpeed = speed;
-        dif = transform.position.x - target.transform.position.x;
-        if (dif < 0) { dif = -dif; }
-        if (transform.position.x < target.transform.position.x && dif > distance && dif < detect)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
-            dir = Direction.RIGHT;
-        }
-        if (transform.position.x > target.transform.position.x && dif > distance && dif < detect)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
+        if (ea.attack == false) {
+            currentSpeed = speed;
+            dif = transform.position.x - target.transform.position.x;
+            if (dif < 0) { dif = -dif; }
+            if (transform.position.x < target.transform.position.x && dif > distance && dif < detect) {
+                transform.localScale = new Vector3(1, 1, 1);
+                transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
+                dir = Direction.RIGHT;
+            }
+            if (transform.position.x > target.transform.position.x && dif > distance && dif < detect) {
+                transform.localScale = new Vector3(-1, 1, 1);
 
-            transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
+                transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
 
-            dir = Direction.LEFT;
+                dir = Direction.LEFT;
+            }
+
         }
     }
 

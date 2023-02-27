@@ -45,7 +45,7 @@ public class HorizontalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<PlayerAttack>().lightAttack == false && GetComponent<PlayerAttack>().heavyAttack == false)
+        if (GetComponent<PlayerAttack>().attack == false)
         {
             float horizontal = Input.GetAxis("Horizontal");
             if (Input.GetKeyDown("left shift"))
@@ -105,7 +105,7 @@ public class HorizontalMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GetComponent<PlayerAttack>().lightAttack == false && GetComponent<PlayerAttack>().heavyAttack == false)
+        if (GetComponent<PlayerAttack>().attack == false)
         {
             float horizontal = Input.GetAxis("Horizontal");
 

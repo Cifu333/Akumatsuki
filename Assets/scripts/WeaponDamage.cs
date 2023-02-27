@@ -24,14 +24,17 @@ public class WeaponDamage : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && hazardus == false)
         {
             collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
-            collision.GetComponent<EnemyMovement>().stunned = true;
-            if (collision.transform.position.x > collision.GetComponent<EnemyMovement>().target.transform.position.x)
+            if (gameObject.tag != "Bullet")
             {
-                collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
-            }
-            else
-            {
-                collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                collision.GetComponent<EnemyMovement>().stunned = true;
+                if (collision.transform.position.x > collision.GetComponent<EnemyMovement>().target.transform.position.x)
+                {
+                    collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                }
+                else
+                {
+                    collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                }
             }
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)

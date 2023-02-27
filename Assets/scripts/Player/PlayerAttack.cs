@@ -36,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
     public float tentacleAttackDuration = 0.75f;
     public float tentacleAttackTime = 0.5f;
     public float tentacleAttackCharge = 0.2f;
+    public float tentacleTranslation;
 
 
     // Start is called before the first frame update
@@ -153,6 +154,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
     }
+
     /*
     private void TentacleAttack()
     {
@@ -195,13 +197,13 @@ public class PlayerAttack : MonoBehaviour
             tentacleAttackCounter -= Time.deltaTime;
             if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
             {
-                temp.transform.localScale += new Vector3(1, 0, 0) * Time.fixedDeltaTime;
-                temp.transform.position += new Vector3(-1,0,0) * Time.fixedDeltaTime;
+                temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position += new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             else
             {
-                temp.transform.localScale += new Vector3(1, 0, 0) * Time.fixedDeltaTime;
-                temp.transform.position += new Vector3(1, 0, 0) * Time.fixedDeltaTime;
+                temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             if (tentacleAttackCounter <= 0)
             {
@@ -216,18 +218,17 @@ public class PlayerAttack : MonoBehaviour
 
             if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
             {
-                //temp.transform.localScale -= new Vector3(1, 0, 0) * Time.fixedDeltaTime;
-                //temp.transform.position -= new Vector3(-1, 0, 0) * Time.fixedDeltaTime;
+                temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position -= new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             else
             {
-                //temp.transform.localScale -= new Vector3(1, 0, 0) * Time.fixedDeltaTime;
-                //temp.transform.position -= new Vector3(1, 0, 0) * Time.fixedDeltaTime;
+                temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             attack = false;
             charge = true;
         }
-
     }*/
 }
 

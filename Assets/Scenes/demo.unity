@@ -1181,7 +1181,6 @@ MonoBehaviour:
   force: 800
   target: {fileID: 1097629273}
   sr: {fileID: 308991385}
-  anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 5
@@ -3264,7 +3263,6 @@ MonoBehaviour:
   force: 800
   target: {fileID: 1097629273}
   sr: {fileID: 1010576780}
-  anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 5
@@ -3641,7 +3639,6 @@ MonoBehaviour:
   force: 800
   target: {fileID: 1097629273}
   sr: {fileID: 1096456869}
-  anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 5
@@ -4205,7 +4202,6 @@ MonoBehaviour:
   force: 800
   target: {fileID: 1097629273}
   sr: {fileID: 1219166503}
-  anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 5
@@ -4582,7 +4578,6 @@ MonoBehaviour:
   force: 800
   target: {fileID: 1097629273}
   sr: {fileID: 1271344749}
-  anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 5
@@ -4805,11 +4800,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
-  enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
+  enemyWeapon: {fileID: 6918179921206949154, guid: 25a23d2b72c74a84fa3a8c1c497bbe7b, type: 3}
   attack: 0
   attackDuration: 0.4
   attackTime: 0.4
-  attackCharge: 0.2
+  attackCharge: 0.4
 --- !u!114 &1324544252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4875,7 +4870,6 @@ MonoBehaviour:
   force: 800
   target: {fileID: 1097629273}
   sr: {fileID: 1324544257}
-  anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 5
@@ -5168,7 +5162,6 @@ MonoBehaviour:
   force: 800
   target: {fileID: 1097629273}
   sr: {fileID: 1397072248}
-  anim: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 5

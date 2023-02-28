@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyLife : MonoBehaviour
 {
     public float hp = 50;
+    public Door d;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class EnemyLife : MonoBehaviour
     {
         if (hp <= 0)
         {
+            d.numEnemys--;
             Destroy(gameObject, 0);
         }
     }

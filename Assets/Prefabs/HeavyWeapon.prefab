@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   hazardus: 0
+  force: 75
 --- !u!212 &-1227749369319304388
 SpriteRenderer:
   m_ObjectHideFlags: 0

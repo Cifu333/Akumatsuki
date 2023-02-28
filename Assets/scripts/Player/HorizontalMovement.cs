@@ -45,7 +45,7 @@ public class HorizontalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<PlayerAttack>().lightAttack == false && GetComponent<PlayerAttack>().heavyAttack == false)
+        if (GetComponent<PlayerAttack>().attack == false)
         {
             float horizontal = Input.GetAxis("Horizontal");
             if (Input.GetKeyDown("left shift"))
@@ -105,7 +105,7 @@ public class HorizontalMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GetComponent<PlayerAttack>().lightAttack == false && GetComponent<PlayerAttack>().heavyAttack == false)
+        if (GetComponent<PlayerAttack>().attack == false)
         {
             float horizontal = Input.GetAxis("Horizontal");
 
@@ -117,18 +117,19 @@ public class HorizontalMovement : MonoBehaviour
 
             if (horizontal > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                if (transform.localScale.x < 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
                 dir = Direction.RIGHT;
             }
             if (horizontal < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
                 dir = Direction.LEFT;
             }
 
 
             anim.SetBool("Moving", horizontal != 0);
             anim.SetBool("Grounded", ground.grounded);
+            anim.SetBool("Dashed", dash);
         }
     }
 }

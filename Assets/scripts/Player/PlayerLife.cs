@@ -23,8 +23,7 @@ public class PlayerLife : MonoBehaviour
     {
         if (hp <= 0)
         {
-            transform.position = respawn;
-            hp = maxHP;
+            Destroy(gameObject);
         }
     }
 }

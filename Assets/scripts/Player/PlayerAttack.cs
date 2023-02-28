@@ -8,28 +8,45 @@ public class PlayerAttack : MonoBehaviour
 
     public float offset = 1.1f;
 
+    private Disparo bullet;
+
     public GameObject heavyWeapon;
+    public bool attack;
     public bool lightAttack;
     public bool heavyAttack;
+    public bool tentacleAttack;
 
     private float lightAttackCoolCounter;
     private float lightAttackCounter;
     public float lightAttackDuration = 0.25f;
     public float lightAttackTime = 0.25f;
 
-    private bool charge;
+    public bool charge;
+
     private float heavyAttackCoolCounter;
     private float heavyAttackCounter;
     private float heavyAttackChargeCounter;
     public float heavyAttackDuration = 0.5f;
     public float heavyAttackTime = 0.5f;
     public float heavyAttackCharge = 0.3f;
+
+    public float tentacleAttackCoolCounter;
+    public float tentacleAttackCounter;
+    public float tentacleAttackChargeCounter;
+    public float tentacleAttackDuration = 0.75f;
+    public float tentacleAttackTime = 0.5f;
+    public float tentacleAttackCharge = 0.2f;
+    public float tentacleTranslation;
+
+
     // Start is called before the first frame update
     void Start()
     {
         charge = true;
         lightAttack = false;
         heavyAttack = false;
+        tentacleAttack = false;
+        bullet = GetComponent<Disparo>();
     }
 
     // Update is called once per frame
@@ -37,17 +54,18 @@ public class PlayerAttack : MonoBehaviour
     {
         LightAttack();
         HeavyAttack();
-
+        //TentacleAttack();
     }
 
     private void LightAttack()
     {
         GameObject temp;
-        if (Input.GetKeyDown(KeyCode.E) && heavyAttack == false)
+        if (Input.GetKeyDown(KeyCode.E) && attack == false && bullet.bullet == false)
         {
             if (lightAttackCoolCounter <= 0 && lightAttackCounter <= 0)
             {
                 lightAttack = true;
+                attack = true;
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
                     temp = Instantiate(weapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
@@ -75,19 +93,24 @@ public class PlayerAttack : MonoBehaviour
         if (lightAttackCoolCounter > 0f)
         {
             lightAttackCoolCounter -= Time.deltaTime;
+            if (lightAttackCoolCounter <= 0)
+            {
+                attack = false;
+            }
         }
     }
 
     private void HeavyAttack()
     {
         GameObject temp;
-        if (Input.GetKeyDown(KeyCode.Q) && lightAttack == false)
+        if (Input.GetKeyDown(KeyCode.Q) && attack == false && bullet.bullet == false)
         {
             if (heavyAttackCoolCounter <= 0 && heavyAttackCounter <= 0)
             {
                 if (charge == true)
                 {
                     heavyAttack = true;
+                    attack = true;
                     heavyAttackChargeCounter = heavyAttackCharge;
                     charge = false;
                 }
@@ -127,7 +150,86 @@ public class PlayerAttack : MonoBehaviour
         {
             heavyAttackCoolCounter -= Time.deltaTime;
             charge = true;
+            attack = false;
         }
 
     }
+
+    /*
+    private void TentacleAttack()
+    {
+        GameObject temp = null;
+        if (Input.GetKeyDown(KeyCode.F) && attack == false && bullet.bullet == false)
+        {
+            if (tentacleAttackCoolCounter <= 0 && tentacleAttackCounter <= 0)
+            {
+                if (charge == true)
+                {
+                    tentacleAttack = true;
+                    attack = true;
+                    tentacleAttackChargeCounter = tentacleAttackCharge;
+                    charge = false;
+                }
+
+            }
+        }
+        if (tentacleAttackChargeCounter > 0)
+        {
+            tentacleAttackChargeCounter -= Time.deltaTime;
+            if (tentacleAttackChargeCounter <= 0)
+            {
+                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+                {
+                    temp = Instantiate(weapon, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
+                }
+                else
+                {
+                    temp = Instantiate(weapon, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
+                }
+                tentacleAttackCounter = tentacleAttackDuration;
+                temp.transform.parent = transform;
+                Destroy(temp, tentacleAttackDuration + tentacleAttackTime);
+            }
+        }
+
+        if (tentacleAttackCounter > 0)
+        {
+            tentacleAttackCounter -= Time.deltaTime;
+            if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+            {
+                temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position += new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+            }
+            else
+            {
+                temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+            }
+            if (tentacleAttackCounter <= 0)
+            {
+                tentacleAttackCoolCounter = tentacleAttackTime;
+                tentacleAttack = false;
+            }
+        }
+
+        if (tentacleAttackCoolCounter > 0f)
+        {
+            tentacleAttackCoolCounter -= Time.deltaTime;
+
+            if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+            {
+                temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position -= new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+            }
+            else
+            {
+                temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                temp.transform.position -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+            }
+            attack = false;
+            charge = true;
+        }
+    }*/
 }
+
+

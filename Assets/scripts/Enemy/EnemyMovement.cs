@@ -11,6 +11,10 @@ public class EnemyMovement : MonoBehaviour
 
     public float force;
 
+    public bool stunned;
+    public float stunTime;
+    public float stunTimeCounter = 0.5f;
+
     public GameObject target;
 
     Rigidbody2D rb;
@@ -41,86 +45,105 @@ public class EnemyMovement : MonoBehaviour
         ground = GetComponent<GroundDetector>();
         dir = Direction.NONE;
         rb = GetComponent<Rigidbody2D>();
-        ea = GetComponent<EnemyAttack>();   
+        ea = GetComponent<EnemyAttack>();
+        stunned = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        int jumps = 0;
-
-        int count = 0;
-        if (dir == Direction.LEFT)
+        if (!stunned)
         {
-            for (int i = 0; i < rays.Count; i++)
-            {
-                Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
+            int jumps = 0;
 
-                if (hit.collider != null)
+            int count = 0;
+            if (dir == Direction.LEFT)
+            {
+                for (int i = 0; i < rays.Count; i++)
                 {
-                    count++;
-                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
+                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
+
+                    if (hit.collider != null)
+                    {
+                        count++;
+                        Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
+                    }
                 }
             }
-        }
-        if (dir == Direction.RIGHT)
-        {
-            for (int i = 0; i < rays.Count; i++)
+            if (dir == Direction.RIGHT)
             {
-                Debug.DrawRay(transform.position + rays[i], transform.right * 1 * wallDistance, Color.red);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * 1, wallDistance, groundMask);
-
-                if (hit.collider != null)
+                for (int i = 0; i < rays.Count; i++)
                 {
-                    count++;
-                    Debug.DrawRay(transform.position + rays[i], transform.right * 1 * hit.distance, Color.green);
+                    Debug.DrawRay(transform.position + rays[i], transform.right * 1 * wallDistance, Color.red);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * 1, wallDistance, groundMask);
+
+                    if (hit.collider != null)
+                    {
+                        count++;
+                        Debug.DrawRay(transform.position + rays[i], transform.right * 1 * hit.distance, Color.green);
+                    }
                 }
             }
-        }
-        if (count > 0 && jumps > 0)
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * force);
-            jumps--;
-        }
-
-        ground = GetComponent<GroundDetector>();
-
-        if (ground.grounded == true)
-        {
-            jumps = numJumps;
-            if (count > 0)
+            if (count > 0 && jumps > 0)
             {
                 rb.velocity = Vector2.zero;
                 rb.AddForce(Vector2.up * force);
+                jumps--;
+            }
+
+            ground = GetComponent<GroundDetector>();
+
+            if (ground.grounded == true)
+            {
+                jumps = numJumps;
+                if (count > 0)
+                {
+                    rb.velocity = Vector2.zero;
+                    rb.AddForce(Vector2.up * force);
+                }
             }
         }
-
-
+        
         //anim.SetBool("Moving", speed != 0);
         //anim.SetBool("Grounded", ground.grounded);
     }
 
     private void FixedUpdate()
     {
-        if (ea.attack == false) {
-            currentSpeed = speed;
-            dif = transform.position.x - target.transform.position.x;
-            if (dif < 0) { dif = -dif; }
-            if (transform.position.x < target.transform.position.x && dif > distance && dif < detect) {
-                if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
-                dir = Direction.RIGHT;
+        if (!stunned)
+        {
+            rb.velocity *= new Vector3(0, 1, 0);
+            stunTime = stunTimeCounter;
+            if (ea.attack == false)
+            {
+                currentSpeed = speed;
+                dif = transform.position.x - target.transform.position.x;
+                if (dif < 0) { dif = -dif; }
+                if (transform.position.x < target.transform.position.x && dif > distance && dif < detect)
+                {
+                    if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
+                    transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
+                    dir = Direction.RIGHT;
+                }
+                if (transform.position.x > target.transform.position.x && dif > distance && dif < detect)
+                {
+                    if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
+
+                    transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
+
+                    dir = Direction.LEFT;
+                }
+
             }
-            if (transform.position.x > target.transform.position.x && dif > distance && dif < detect) {
-                if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-
-                transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
-
-                dir = Direction.LEFT;
+        }
+        else
+        {
+            stunTime -= Time.deltaTime;
+            if (stunTime <= 0)
+            {
+                stunned = false;
             }
-
         }
     }
 
@@ -131,7 +154,7 @@ public class EnemyMovement : MonoBehaviour
             Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
         }
 
-        if (collision.gameObject.tag == "Enemys")
+        if (collision.gameObject.tag == "Enemy")
         {
             Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
         }

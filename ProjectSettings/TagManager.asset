@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Structure
   - bg
+  - Weapon
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class WeaponDamage : MonoBehaviour
     public float damage;
     public bool  hazardus;
     public float force;
+    public float playerStun;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,6 @@ public class WeaponDamage : MonoBehaviour
             collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
             if (gameObject.tag != "Bullet")
             {
-                collision.GetComponent<EnemyMovement>().stunned = true;
                 if (collision.transform.position.x > collision.GetComponent<EnemyMovement>().target.transform.position.x)
                 {
                     collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
@@ -35,11 +35,34 @@ public class WeaponDamage : MonoBehaviour
                 {
                     collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
                 }
+                collision.GetComponent<EnemyMovement>().stunned = true;
+                collision.GetComponent<EnemyMovement>().stunTimeCounter = collision.GetComponent<EnemyMovement>().stunTime;
+            }
+            if (collision.gameObject.GetComponent<EnemyLife>().hp <= 0)
+            {
+                gameObject.transform.parent.gameObject.GetComponent<PlayerLife>().money += collision.gameObject.GetComponent<EnemyLife>().money;
             }
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
         {
-            collision.gameObject.GetComponent<PlayerLife>().hp -= damage;
+            if (collision.gameObject.GetComponent<PlayerLife>().invulneravility == false)
+            {
+                collision.gameObject.GetComponent<PlayerLife>().hp -= damage;
+
+                if (collision.transform.position.x > gameObject.transform.parent.gameObject.transform.position.x)
+                {
+                    collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                }
+                else
+                {
+                    collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                }
+                collision.gameObject.GetComponent<HorizontalMovement>().stun = true;
+                collision.gameObject.GetComponent<HorizontalMovement>().stunCounter = playerStun;
+
+                collision.gameObject.GetComponent<PlayerLife>().invulneravility = true;
+                collision.gameObject.GetComponent<PlayerLife>().invulneravilityCounter = collision.gameObject.GetComponent<PlayerLife>().invulneravilityFrames;
+            }
         }
     }
 }

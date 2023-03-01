@@ -6,6 +6,7 @@ public class EnemyLife : MonoBehaviour
 {
     public float hp = 50;
     public Door d;
+    public int money = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,8 @@ public class EnemyLife : MonoBehaviour
     {
         Muerte();
     }
+
+
 
     private void Muerte()
     {

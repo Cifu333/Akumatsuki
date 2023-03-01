@@ -12,8 +12,8 @@ public class EnemyMovement : MonoBehaviour
     public float force;
 
     public bool stunned;
-    public float stunTime;
-    public float stunTimeCounter = 0.5f;
+    public float stunTime = 0.5f;
+    public float stunTimeCounter;
 
     public GameObject target;
 
@@ -114,7 +114,6 @@ public class EnemyMovement : MonoBehaviour
         if (!stunned)
         {
             rb.velocity *= new Vector3(0, 1, 0);
-            stunTime = stunTimeCounter;
             if (ea.attack == false)
             {
                 currentSpeed = speed;
@@ -139,8 +138,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            stunTime -= Time.deltaTime;
-            if (stunTime <= 0)
+            stunTimeCounter -= Time.deltaTime;
+            if (stunTimeCounter <= 0)
             {
                 stunned = false;
             }

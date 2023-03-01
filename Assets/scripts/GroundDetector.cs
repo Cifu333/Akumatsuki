@@ -51,11 +51,11 @@ public class GroundDetector : MonoBehaviour
             grounded = false;
             transform.parent = null;
         }
-        if (grounded == true)
+        if (grounded == true && Input.GetAxis("Horizontal") == 0)
         {
             rb.gravityScale = 0;
         }
-        if (grounded == false)
+        else
         {
             rb.gravityScale = 8;
         }

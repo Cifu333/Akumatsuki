@@ -59,6 +59,7 @@ public class HorizontalMovement : MonoBehaviour
                     if (dashCoolCounter <= 0 && dashCounter <= 0)
                     {
                         dash = true;
+                        rb.gravityScale = 0;
                         if (dir == Direction.RIGHT)
                         {
                             currentSpeed = dashSpeed;
@@ -79,6 +80,7 @@ public class HorizontalMovement : MonoBehaviour
                         currentSpeed = horizontal * speed;
                         dashCoolCounter = dashTime;
                         dash = false;
+                        rb.gravityScale = 8;
                     }
                 }
 

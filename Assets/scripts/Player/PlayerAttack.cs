@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
 
     private Disparo bullet;
 
+    PlayerAbilitys pa;
+
     public GameObject heavyWeapon;
     public bool attack;
     public bool lightAttack;
@@ -30,13 +32,12 @@ public class PlayerAttack : MonoBehaviour
     public float heavyAttackTime = 0.5f;
     public float heavyAttackCharge = 0.3f;
 
-    public float tentacleAttackCoolCounter;
-    public float tentacleAttackCounter;
-    public float tentacleAttackChargeCounter;
+    private float tentacleAttackCoolCounter;
+    private float tentacleAttackCounter;
+    private float tentacleAttackChargeCounter;
     public float tentacleAttackDuration = 0.75f;
     public float tentacleAttackTime = 0.5f;
     public float tentacleAttackCharge = 0.2f;
-    public float tentacleTranslation;
 
 
     // Start is called before the first frame update
@@ -47,6 +48,7 @@ public class PlayerAttack : MonoBehaviour
         heavyAttack = false;
         tentacleAttack = false;
         bullet = GetComponent<Disparo>();
+        pa = GetComponent<PlayerAbilitys>();
     }
 
     // Update is called once per frame
@@ -54,7 +56,7 @@ public class PlayerAttack : MonoBehaviour
     {
         LightAttack();
         HeavyAttack();
-        //TentacleAttack();
+        TentacleAttack();
     }
 
     private void LightAttack()
@@ -155,11 +157,10 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-    /*
     private void TentacleAttack()
     {
         GameObject temp = null;
-        if (Input.GetKeyDown(KeyCode.F) && attack == false && bullet.bullet == false)
+        if (Input.GetKeyDown(KeyCode.F) && attack == false && bullet.bullet == false && pa.demon[0] == true)
         {
             if (tentacleAttackCoolCounter <= 0 && tentacleAttackCounter <= 0)
             {
@@ -197,13 +198,13 @@ public class PlayerAttack : MonoBehaviour
             tentacleAttackCounter -= Time.deltaTime;
             if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
             {
-                temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                temp.transform.position += new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.position += new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             else
             {
-                temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                temp.transform.position += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.position += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             if (tentacleAttackCounter <= 0)
             {
@@ -218,18 +219,18 @@ public class PlayerAttack : MonoBehaviour
 
             if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
             {
-                temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                temp.transform.position -= new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.position -= new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             else
             {
-                temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                temp.transform.position -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                //temp.transform.position -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
             }
             attack = false;
             charge = true;
         }
-    }*/
+    }
 }
 
 

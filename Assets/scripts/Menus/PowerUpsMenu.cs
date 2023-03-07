@@ -62,17 +62,17 @@ public class PowerUpsMenu : MonoBehaviour
     }
     public void AbilityD2()
     {
-        if (pa.human[2] != true)
+        if (pa.human[2] != true && pa.demon[0] == true)
             pa.demon[1] = true;
     }
     public void AbilityD3()
     {
-        if (pa.human[1] != true)
+        if (pa.human[1] != true && pa.demon[1] == true)
             pa.demon[2] = true;
     }
     public void AbilityD4()
     {
-        if (pa.human[0] != true)
+        if (pa.human[0] != true && pa.demon[2] == true)
             pa.demon[3] = true;
     }
 
@@ -86,17 +86,17 @@ public class PowerUpsMenu : MonoBehaviour
     }
     public void AbilityH2()
     {
-        if (pa.demon[2] != true)
+        if (pa.demon[2] != true && pa.human[0] == true)
             pa.human[1] = true;
     }
     public void AbilityH3()
     {
-        if (pa.demon[1] != true)
+        if (pa.demon[1] != true && pa.human[1] == true)
             pa.human[2] = true;
     }
     public void AbilityH4()
     {
-        if (pa.demon[0] != true)
+        if (pa.demon[0] != true && pa.human[2] == true)
             pa.human[3] = true;
     }
 }

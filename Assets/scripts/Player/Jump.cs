@@ -35,24 +35,27 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetGroundDetectorComponent = target.GetComponent<GroundDetector>();
-        if (targetGroundDetectorComponent.grounded == true)
+        if (GetComponent<PlayerAttack>().attack == false && GetComponent<Disparo>().bullet == false)
         {
-            jumps = 0;
-            if (Input.GetButtonDown("Jump"))
+            targetGroundDetectorComponent = target.GetComponent<GroundDetector>();
+            if (targetGroundDetectorComponent.grounded == true)
             {
-                rb.velocity = Vector2.zero;
-                rb.AddForce(Vector2.up * force);
-                jumps++;
+                jumps = 0;
+                if (Input.GetButtonDown("Jump"))
+                {
+                    rb.velocity = Vector2.zero;
+                    rb.AddForce(Vector2.up * force);
+                    jumps++;
+                }
             }
-        }
-        else
-        {
-            if (Input.GetButtonDown("Jump") && jumps < (numJumps - 1))
+            else
             {
-                rb.velocity = Vector2.zero;
-                rb.AddForce(Vector2.up * force);
-                jumps++;
+                if (Input.GetButtonDown("Jump") && jumps < (numJumps - 1))
+                {
+                    rb.velocity = Vector2.zero;
+                    rb.AddForce(Vector2.up * force);
+                    jumps++;
+                }
             }
         }
     }

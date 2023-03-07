@@ -6292,8 +6292,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2267826678335507695, guid: 6fe9b2427b8415f429f0af181b7642f0, type: 3}
   bulletLifeTime: 2
   bullet: 0
-  bulletDuration: 0.25
-  bulletTime: 0.25
+  bulletDuration: 0.1
+  bulletTime: 0.1
 --- !u!114 &1097629278
 MonoBehaviour:
   m_ObjectHideFlags: 0

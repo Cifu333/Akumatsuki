@@ -116,7 +116,7 @@ public class HorizontalMovement : MonoBehaviour
     {
         if (!stun)
         {
-            if (GetComponent<PlayerAttack>().attack == false)
+            if (GetComponent<PlayerAttack>().attack == false && GetComponent<Disparo>().bullet == false)
             {
                 float horizontal = Input.GetAxis("Horizontal");
 

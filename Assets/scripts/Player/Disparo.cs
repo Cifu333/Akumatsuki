@@ -29,20 +29,22 @@ public class Disparo : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         mouseWorldPoint = cam.ScreenToViewportPoint(Input.mousePosition);
-
-        if (Input.GetMouseButtonDown(0) && pa.attack == false && bullet == false) {
-            if (bulletCoolCounter <= 0 && bulletCounter <= 0)
+        if (GetComponent<HorizontalMovement>().dash == false)
+        {
+            if (Input.GetMouseButtonDown(0) && pa.attack == false && bullet == false)
             {
-                bullet = true;
-                bulletCounter = bulletDuration;
+                if (bulletCoolCounter <= 0 && bulletCounter <= 0)
+                {
+                    bullet = true;
+                    bulletCounter = bulletDuration;
+                }
+                Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+                mouseWorldPosition.z = 0;
+                GameObject b = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                b.transform.right = mouseWorldPosition - transform.position;
+                Destroy(b, bulletLifeTime);
             }
-            Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPosition.z = 0;
-            GameObject b = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            b.transform.right = mouseWorldPosition - transform.position;
-            Destroy(b, bulletLifeTime);
         }
-
 
         if (bulletCounter > 0)
         {

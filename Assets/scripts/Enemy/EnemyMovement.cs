@@ -119,18 +119,18 @@ public class EnemyMovement : MonoBehaviour
                 currentSpeed = speed;
                 dif = transform.position.x - target.transform.position.x;
                 if (dif < 0) { dif = -dif; }
-                if (transform.position.x < target.transform.position.x && dif > distance && dif < detect)
+                if (transform.position.x < target.transform.position.x && dif < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
+                    if (dif > distance)
+                        transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
                     dir = Direction.RIGHT;
                 }
-                if (transform.position.x > target.transform.position.x && dif > distance && dif < detect)
+                if (transform.position.x > target.transform.position.x && dif < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-
-                    transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
-
+                    if (dif > distance)
+                        transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
                     dir = Direction.LEFT;
                 }
 

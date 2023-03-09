@@ -77,6 +77,11 @@ public class PlayerAttack : MonoBehaviour
                     temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
                 }
                 lightAttackCounter = lightAttackDuration;
+                if (GetComponent<GroundDetector>().grounded == false)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
+                }
                 temp.transform.parent = transform;
                 Destroy(temp, lightAttackDuration);
             }
@@ -116,7 +121,12 @@ public class PlayerAttack : MonoBehaviour
                     heavyAttackChargeCounter = heavyAttackCharge;
                     charge = false;
                 }
-                
+                if (GetComponent<GroundDetector>().grounded == false)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
+                }
+
             }
         }
         if (heavyAttackChargeCounter > 0)
@@ -170,6 +180,11 @@ public class PlayerAttack : MonoBehaviour
                     attack = true;
                     tentacleAttackChargeCounter = tentacleAttackCharge;
                     charge = false;
+                }
+                if (GetComponent<GroundDetector>().grounded == false)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
                 }
 
             }

@@ -42,6 +42,11 @@ public class Disparo : MonoBehaviour {
                 mouseWorldPosition.z = 0;
                 GameObject b = Instantiate(bulletPrefab, transform.position, transform.rotation);
                 b.transform.right = mouseWorldPosition - transform.position;
+                if (GetComponent<GroundDetector>().grounded == false)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
+                }
                 Destroy(b, bulletLifeTime);
             }
         }

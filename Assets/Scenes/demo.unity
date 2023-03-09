@@ -1534,6 +1534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
+  attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackDuration: 0.4
@@ -5223,6 +5224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
+  attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackDuration: 0.4
@@ -6006,6 +6008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
+  attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackDuration: 0.4
@@ -6330,9 +6333,9 @@ MonoBehaviour:
   dir: 0
   currentSpeed: 0
   speed: 14
-  dashSpeed: 125
+  dashSpeed: 60
   dashTime: 1
-  dashDuration: 0.07
+  dashDuration: 0.12
   dash: 0
   stun: 0
   stunCounter: 0
@@ -6873,6 +6876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
+  attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackDuration: 0.4
@@ -7658,6 +7662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
+  attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackDuration: 0.4
@@ -8089,6 +8094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
+  attackHeight: 5
   enemyWeapon: {fileID: 6918179921206949154, guid: 25a23d2b72c74a84fa3a8c1c497bbe7b, type: 3}
   attack: 0
   attackDuration: 0.4
@@ -8520,6 +8526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 1.1
+  attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackDuration: 0.4

@@ -60,6 +60,8 @@ public class HorizontalMovement : MonoBehaviour
                     {
                         dash = true;
                         rb.gravityScale = 0;
+                        rb.velocity = Vector3.zero;
+                        rb.angularVelocity = 0;
                         if (dir == Direction.RIGHT)
                         {
                             currentSpeed = dashSpeed;
@@ -150,6 +152,17 @@ public class HorizontalMovement : MonoBehaviour
             {
                 stun = false;
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Weapon")
+        {
+            if (dash == true)
+                Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
+            else
+                Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), false);
         }
     }
 }

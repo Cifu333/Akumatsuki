@@ -55,6 +55,11 @@ public class GroundDetector : MonoBehaviour
         {
             rb.gravityScale = 0;
         }
+        else if (gameObject.tag == "Player")
+        {
+            if (GetComponent<HorizontalMovement>().dash == false)
+                rb.gravityScale = 8;
+        }
         else
         {
             rb.gravityScale = 8;

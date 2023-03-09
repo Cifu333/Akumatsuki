@@ -6,6 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     EnemyMovement em;
     public float offset = 1.1f;
+    public float attackHeight = 2.25f;
 
     public GameObject enemyWeapon;
     public bool attack;
@@ -29,7 +30,7 @@ public class EnemyAttack : MonoBehaviour
     {
         GameObject temp;
         em = GetComponent<EnemyMovement>();
-        if (em.dif <= em.distance)
+        if (em.dif <= em.distance && (transform.position.y + attackHeight) >= GetComponent<EnemyMovement>().target.transform.position.y && (transform.position.y - attackHeight) <= GetComponent<EnemyMovement>().target.transform.position.y)
         {
             if (attackCoolCounter <= 0 && attackCounter <= 0)
             {

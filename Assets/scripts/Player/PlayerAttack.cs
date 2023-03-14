@@ -38,6 +38,8 @@ public class PlayerAttack : MonoBehaviour
     public float tentacleAttackDuration = 0.75f;
     public float tentacleAttackTime = 0.5f;
     public float tentacleAttackCharge = 0.2f;
+    public float tentacleTranslation = 0.3f;
+    private GameObject temp;
 
 
     // Start is called before the first frame update
@@ -61,7 +63,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void LightAttack()
     {
-        GameObject temp;
         if (Input.GetKeyDown(KeyCode.E) && attack == false && bullet.bullet == false)
         {
             if (lightAttackCoolCounter <= 0 && lightAttackCounter <= 0)
@@ -83,7 +84,6 @@ public class PlayerAttack : MonoBehaviour
                     GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
                 }
                 temp.transform.parent = transform;
-                Destroy(temp, lightAttackDuration);
             }
         }
 
@@ -94,6 +94,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 lightAttackCoolCounter = lightAttackTime;
                 lightAttack = false;
+                Destroy(temp, 0);
             }
         }
 
@@ -109,7 +110,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void HeavyAttack()
     {
-        GameObject temp;
         if (Input.GetKeyDown(KeyCode.Q) && attack == false && bullet.bullet == false)
         {
             if (heavyAttackCoolCounter <= 0 && heavyAttackCounter <= 0)
@@ -144,7 +144,6 @@ public class PlayerAttack : MonoBehaviour
                 }
                 heavyAttackCounter = heavyAttackDuration;
                 temp.transform.parent = transform;
-                Destroy(temp, heavyAttackDuration);
             }
         }
 
@@ -155,6 +154,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 heavyAttackCoolCounter = heavyAttackTime;
                 heavyAttack = false;
+                Destroy(temp, 0);
             }
         }
 
@@ -169,7 +169,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void TentacleAttack()
     {
-        GameObject temp = null;
         if (Input.GetKeyDown(KeyCode.F) && attack == false && bullet.bullet == false && pa.demon[0] == true)
         {
             if (tentacleAttackCoolCounter <= 0 && tentacleAttackCounter <= 0)
@@ -204,27 +203,43 @@ public class PlayerAttack : MonoBehaviour
                 }
                 tentacleAttackCounter = tentacleAttackDuration;
                 temp.transform.parent = transform;
-                Destroy(temp, tentacleAttackDuration + tentacleAttackTime);
             }
         }
 
         if (tentacleAttackCounter > 0)
         {
             tentacleAttackCounter -= Time.deltaTime;
-            if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+            if (tentacleAttackCounter > tentacleAttackDuration / 2)
             {
-                //temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                //temp.transform.position += new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+                {
+                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position += new Vector3(-tentacleTranslation / 10, 0, 0);
+                }
+                else
+                {
+                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position += new Vector3(tentacleTranslation / 10, 0, 0);
+                }
             }
-            else
+            else if (tentacleAttackCounter < tentacleAttackDuration / 2)
             {
-                //temp.transform.localScale += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                //temp.transform.position += new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
+                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+                {
+                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position -= new Vector3(-tentacleTranslation / 10, 0, 0);
+                }
+                else
+                {
+                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position -= new Vector3(tentacleTranslation / 10, 0, 0);
+                }
             }
             if (tentacleAttackCounter <= 0)
             {
                 tentacleAttackCoolCounter = tentacleAttackTime;
                 tentacleAttack = false;
+                Destroy(temp, 0);
             }
         }
 
@@ -232,16 +247,7 @@ public class PlayerAttack : MonoBehaviour
         {
             tentacleAttackCoolCounter -= Time.deltaTime;
 
-            if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
-            {
-                //temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                //temp.transform.position -= new Vector3(-tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-            }
-            else
-            {
-                //temp.transform.localScale -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-                //temp.transform.position -= new Vector3(tentacleTranslation * Time.fixedDeltaTime, 0, 0);
-            }
+
             attack = false;
             charge = true;
         }

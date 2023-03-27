@@ -5,52 +5,41 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject weapon;
+    private GameObject temp;
 
     public float offset = 1.1f;
 
-    private Disparo bullet;
+    PlayerStatus ps;
 
-    PlayerAbilitys pa;
+    Rigidbody2D rb;
+
+    private float time;
 
     public GameObject heavyWeapon;
     public bool attack;
     public bool lightAttack;
     public bool heavyAttack;
-    public bool tentacleAttack;
 
     private float lightAttackCoolCounter;
-    private float lightAttackCounter;
-    public float lightAttackDuration = 0.25f;
-    public float lightAttackTime = 0.25f;
+    public float lightAttackTime = 0.5f;
 
     public bool charge;
 
     private float heavyAttackCoolCounter;
-    private float heavyAttackCounter;
     private float heavyAttackChargeCounter;
-    public float heavyAttackDuration = 0.5f;
-    public float heavyAttackTime = 0.5f;
+    public float heavyAttackTime = 1f;
     public float heavyAttackCharge = 0.3f;
-
-    private float tentacleAttackCoolCounter;
-    private float tentacleAttackCounter;
-    private float tentacleAttackChargeCounter;
-    public float tentacleAttackDuration = 0.75f;
-    public float tentacleAttackTime = 0.5f;
-    public float tentacleAttackCharge = 0.2f;
-    public float tentacleTranslation = 0.3f;
-    private GameObject temp;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        time = 0;
         charge = true;
         lightAttack = false;
         heavyAttack = false;
-        tentacleAttack = false;
-        bullet = GetComponent<Disparo>();
-        pa = GetComponent<PlayerAbilitys>();
+        ps = GetComponent<PlayerStatus>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -58,14 +47,13 @@ public class PlayerAttack : MonoBehaviour
     {
         LightAttack();
         HeavyAttack();
-        TentacleAttack();
     }
 
     private void LightAttack()
     {
-        if (Input.GetKeyDown(KeyCode.E) && attack == false && bullet.bullet == false)
+        if (Input.GetKeyDown(KeyCode.E) && ps.free == true)
         {
-            if (lightAttackCoolCounter <= 0 && lightAttackCounter <= 0)
+            if (lightAttackCoolCounter <= 0)
             {
                 lightAttack = true;
                 attack = true;
@@ -77,25 +65,24 @@ public class PlayerAttack : MonoBehaviour
                 {
                     temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
                 }
-                lightAttackCounter = lightAttackDuration;
-                if (GetComponent<GroundDetector>().grounded == false)
-                {
-                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
-                }
+                lightAttackCoolCounter = lightAttackTime;
                 temp.transform.parent = transform;
             }
         }
 
-        if (lightAttackCounter > 0)
+        if (GetComponent<GroundDetector>().grounded == false && attack == true)
         {
-            lightAttackCounter -= Time.deltaTime;
-            if (lightAttackCounter <= 0)
-            {
-                lightAttackCoolCounter = lightAttackTime;
-                lightAttack = false;
-                Destroy(temp, 0);
-            }
+            rb.velocity = Vector3.zero;
+            rb.gravityScale = 0;
+            time += Time.deltaTime;
+            if (time >= 0.3)
+                rb.gravityScale = 8;
+        }
+
+        if (lightAttack == true)
+        {
+            lightAttack = false;
+            Destroy(temp, Time.fixedDeltaTime);
         }
 
         if (lightAttackCoolCounter > 0f)
@@ -110,9 +97,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void HeavyAttack()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && attack == false && bullet.bullet == false)
+        if (Input.GetKeyDown(KeyCode.Q) && ps.free == true)
         {
-            if (heavyAttackCoolCounter <= 0 && heavyAttackCounter <= 0)
+            if (heavyAttackCoolCounter <= 0)
             {
                 if (charge == true)
                 {
@@ -121,14 +108,19 @@ public class PlayerAttack : MonoBehaviour
                     heavyAttackChargeCounter = heavyAttackCharge;
                     charge = false;
                 }
-                if (GetComponent<GroundDetector>().grounded == false)
-                {
-                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
-                }
 
             }
         }
+
+        if (GetComponent<GroundDetector>().grounded == false && attack == true)
+        {
+            rb.velocity = Vector3.zero;
+            rb.gravityScale = 0;
+            time += Time.deltaTime;
+            if (time >= 0.3)
+                rb.gravityScale = 8;
+        }
+
         if (heavyAttackChargeCounter > 0)
         {
             heavyAttackChargeCounter -= Time.deltaTime;
@@ -142,20 +134,15 @@ public class PlayerAttack : MonoBehaviour
                 {
                     temp = Instantiate(heavyWeapon, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
                 }
-                heavyAttackCounter = heavyAttackDuration;
+                heavyAttackCoolCounter = heavyAttackTime;
                 temp.transform.parent = transform;
             }
         }
 
-        if (heavyAttackCounter > 0)
+        if (heavyAttack == true)
         {
-            heavyAttackCounter -= Time.deltaTime;
-            if (heavyAttackCounter <= 0)
-            {
-                heavyAttackCoolCounter = heavyAttackTime;
-                heavyAttack = false;
-                Destroy(temp, 0);
-            }
+            heavyAttack = false;
+            Destroy(temp, Time.fixedDeltaTime);
         }
 
         if (heavyAttackCoolCounter > 0f)
@@ -167,91 +154,7 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-    private void TentacleAttack()
-    {
-        if (Input.GetKeyDown(KeyCode.F) && attack == false && bullet.bullet == false && pa.demon[0] == true)
-        {
-            if (tentacleAttackCoolCounter <= 0 && tentacleAttackCounter <= 0)
-            {
-                if (charge == true)
-                {
-                    tentacleAttack = true;
-                    attack = true;
-                    tentacleAttackChargeCounter = tentacleAttackCharge;
-                    charge = false;
-                }
-                if (GetComponent<GroundDetector>().grounded == false)
-                {
-                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 4));
-                }
-
-            }
-        }
-        if (tentacleAttackChargeCounter > 0)
-        {
-            tentacleAttackChargeCounter -= Time.deltaTime;
-            if (tentacleAttackChargeCounter <= 0)
-            {
-                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
-                {
-                    temp = Instantiate(weapon, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
-                }
-                else
-                {
-                    temp = Instantiate(weapon, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
-                }
-                tentacleAttackCounter = tentacleAttackDuration;
-                temp.transform.parent = transform;
-            }
-        }
-
-        if (tentacleAttackCounter > 0)
-        {
-            tentacleAttackCounter -= Time.deltaTime;
-            if (tentacleAttackCounter > tentacleAttackDuration / 2)
-            {
-                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
-                {
-                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
-                    temp.gameObject.transform.position += new Vector3(-tentacleTranslation / 10, 0, 0);
-                }
-                else
-                {
-                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
-                    temp.gameObject.transform.position += new Vector3(tentacleTranslation / 10, 0, 0);
-                }
-            }
-            else if (tentacleAttackCounter < tentacleAttackDuration / 2)
-            {
-                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
-                {
-                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
-                    temp.gameObject.transform.position -= new Vector3(-tentacleTranslation / 10, 0, 0);
-                }
-                else
-                {
-                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
-                    temp.gameObject.transform.position -= new Vector3(tentacleTranslation / 10, 0, 0);
-                }
-            }
-            if (tentacleAttackCounter <= 0)
-            {
-                tentacleAttackCoolCounter = tentacleAttackTime;
-                tentacleAttack = false;
-                Destroy(temp, 0);
-            }
-        }
-
-        if (tentacleAttackCoolCounter > 0f)
-        {
-            tentacleAttackCoolCounter -= Time.deltaTime;
-
-
-            attack = false;
-            charge = true;
-        }
-    }
+    
 }
 
 

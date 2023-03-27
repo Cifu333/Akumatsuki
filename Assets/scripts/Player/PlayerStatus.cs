@@ -14,6 +14,7 @@ public class PlayerStatus : MonoBehaviour
     PlayerAttack pa;
     DemonAbilities demonA;
     HorizontalMovement hm;
+    HumanAbilities humanA;
 
     public float invulneravilityFrames = 1;
     public bool invulneravility;
@@ -28,6 +29,7 @@ public class PlayerStatus : MonoBehaviour
         d = GetComponent<Disparo>();
         pa = GetComponent<PlayerAttack>();
         hm = GetComponent<HorizontalMovement>();
+        humanA = GetComponent<HumanAbilities>();
     }
 
     // Update is called once per frame
@@ -51,7 +53,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void FreeViability()
     {
-        if (d.bullet == false && pa.attack == false && demonA.ability == false && hm.stun == false)
+        if (d.bullet == false && pa.attack == false && demonA.ability == false && hm.stun == false && humanA.ability == false)
             free = true;
         else
             free = false;

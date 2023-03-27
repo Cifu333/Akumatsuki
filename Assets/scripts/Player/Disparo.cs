@@ -6,7 +6,7 @@ public class Disparo : MonoBehaviour {
 
     public GameObject bulletPrefab;
     private Camera cam;
-    private PlayerAttack pa;
+    PlayerStatus player;
     public float bulletLifeTime;
     public bool bullet;
     private Vector2 mouseWorldPoint;
@@ -19,9 +19,8 @@ public class Disparo : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-
+        player = GetComponent<PlayerStatus>();
         cam = Camera.main;
-        pa = GetComponent<PlayerAttack>();
         bullet = false;
     }
    
@@ -31,7 +30,7 @@ public class Disparo : MonoBehaviour {
         mouseWorldPoint = cam.ScreenToViewportPoint(Input.mousePosition);
         if (GetComponent<HorizontalMovement>().dash == false)
         {
-            if (Input.GetMouseButtonDown(0) && pa.attack == false && bullet == false)
+            if (Input.GetMouseButtonDown(0) && player.free == true && Time.timeScale != 0)
             {
                 if (bulletCoolCounter <= 0 && bulletCounter <= 0)
                 {

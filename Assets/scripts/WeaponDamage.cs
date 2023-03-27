@@ -37,10 +37,6 @@ public class WeaponDamage : MonoBehaviour
                 collision.GetComponent<EnemyMovement>().stunned = true;
                 collision.GetComponent<EnemyMovement>().stunTimeCounter = collision.GetComponent<EnemyMovement>().stunTime;
             }
-            if (collision.gameObject.GetComponent<EnemyLife>().hp <= 0)
-            {
-                gameObject.transform.parent.gameObject.GetComponent<PlayerStatus>().money += collision.gameObject.GetComponent<EnemyLife>().money;
-            }
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
         {

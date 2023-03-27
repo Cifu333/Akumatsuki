@@ -55,6 +55,7 @@ public class DemonAbilities : MonoBehaviour
         ability = false;
         ps = GetComponent<PlayerStatus>();
         pa = GetComponent<PlayerAbilitys>();
+        rb = GetComponent<Rigidbody2D>();
 
     }
 

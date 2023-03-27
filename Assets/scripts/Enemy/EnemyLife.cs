@@ -25,8 +25,9 @@ public class EnemyLife : MonoBehaviour
     {
         if (hp <= 0)
         {
+            GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().money += money;
             d.numEnemys--;
-            Destroy(gameObject, Time.fixedDeltaTime);
+            Destroy(gameObject, Time.deltaTime * 4);
         }
     }
 }

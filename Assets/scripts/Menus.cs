@@ -7,7 +7,7 @@ public class Menus : MonoBehaviour
 {
     public static Menus instance;
     public GameObject pauseMenu;
-    public PlayerLife pl;
+    public PlayerStatus ps;
     public Door d;
     public bool isPaused
     {
@@ -29,7 +29,7 @@ public class Menus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pl.hp <= 0)
+        if (ps.hp <= 0)
         {
             pauseMenu.SetActive(true);
         }

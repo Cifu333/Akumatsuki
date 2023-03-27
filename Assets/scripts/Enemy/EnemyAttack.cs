@@ -23,59 +23,62 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         charge = true;
+        em = GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
         GameObject temp;
-        em = GetComponent<EnemyMovement>();
-        if (em.dif <= em.distance && (transform.position.y + attackHeight) >= GetComponent<EnemyMovement>().target.transform.position.y && (transform.position.y - attackHeight) <= GetComponent<EnemyMovement>().target.transform.position.y)
+        if (em.target != null)
         {
-            if (attackCoolCounter <= 0 && attackCounter <= 0)
+            if (em.dif <= em.distance && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
             {
-                if (charge == true)
+                if (attackCoolCounter <= 0 && attackCounter <= 0)
                 {
-                    attack = true;
-                    attackChargeCounter = attackCharge;
-                    charge = false;
+                    if (charge == true)
+                    {
+                        attack = true;
+                        attackChargeCounter = attackCharge;
+                        charge = false;
+                    }
                 }
             }
-        }
 
-        if (attackChargeCounter > 0)
-        {
-            attackChargeCounter -= Time.deltaTime;
-            if (attackChargeCounter <= 0)
+            if (attackChargeCounter > 0)
             {
-                if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+                attackChargeCounter -= Time.deltaTime;
+                if (attackChargeCounter <= 0)
                 {
-                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                    if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+                    {
+                        temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                    }
+                    else
+                    {
+                        temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+                    }
+                    attackCounter = attackDuration;
+                    temp.transform.parent = transform;
+                    Destroy(temp, attackDuration);
                 }
-                else
-                {
-                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
-                }
-                attackCounter = attackDuration;
-                temp.transform.parent = transform;
-                Destroy(temp, attackDuration);
             }
-        }
 
-        if (attackCounter > 0)
-        {
-            attackCounter -= Time.deltaTime;
-            if (attackCounter <= 0)
+            if (attackCounter > 0)
             {
-                attackCoolCounter = attackTime;
-                attack = false;
+                attackCounter -= Time.deltaTime;
+                if (attackCounter <= 0)
+                {
+                    attackCoolCounter = attackTime;
+                    attack = false;
+                }
             }
-        }
 
-        if (attackCoolCounter > 0f)
-        {
-            attackCoolCounter -= Time.deltaTime;
-            charge = true;
+            if (attackCoolCounter > 0f)
+            {
+                attackCoolCounter -= Time.deltaTime;
+                charge = true;
+            }
         }
     }
 }

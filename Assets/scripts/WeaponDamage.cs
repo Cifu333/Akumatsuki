@@ -11,7 +11,6 @@ public class WeaponDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -40,14 +39,14 @@ public class WeaponDamage : MonoBehaviour
             }
             if (collision.gameObject.GetComponent<EnemyLife>().hp <= 0)
             {
-                gameObject.transform.parent.gameObject.GetComponent<PlayerLife>().money += collision.gameObject.GetComponent<EnemyLife>().money;
+                gameObject.transform.parent.gameObject.GetComponent<PlayerStatus>().money += collision.gameObject.GetComponent<EnemyLife>().money;
             }
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
         {
-            if (collision.gameObject.GetComponent<PlayerLife>().invulneravility == false)
+            if (collision.gameObject.GetComponent<PlayerStatus>().invulneravility == false)
             {
-                collision.gameObject.GetComponent<PlayerLife>().hp -= damage;
+                collision.gameObject.GetComponent<PlayerStatus>().hp -= damage;
 
                 if (collision.transform.position.x > gameObject.transform.parent.gameObject.transform.position.x)
                 {
@@ -60,8 +59,8 @@ public class WeaponDamage : MonoBehaviour
                 collision.gameObject.GetComponent<HorizontalMovement>().stun = true;
                 collision.gameObject.GetComponent<HorizontalMovement>().stunCounter = playerStun;
 
-                collision.gameObject.GetComponent<PlayerLife>().invulneravility = true;
-                collision.gameObject.GetComponent<PlayerLife>().invulneravilityCounter = collision.gameObject.GetComponent<PlayerLife>().invulneravilityFrames;
+                collision.gameObject.GetComponent<PlayerStatus>().invulneravility = true;
+                collision.gameObject.GetComponent<PlayerStatus>().invulneravilityCounter = collision.gameObject.GetComponent<PlayerStatus>().invulneravilityFrames;
             }
         }
     }

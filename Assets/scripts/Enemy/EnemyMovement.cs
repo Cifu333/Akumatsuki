@@ -113,27 +113,30 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!stunned)
         {
-            rb.velocity *= new Vector3(0, 1, 0);
-            if (ea.attack == false)
+            if (target != null)
             {
-                currentSpeed = speed;
-                dif = transform.position.x - target.transform.position.x;
-                if (dif < 0) { dif = -dif; }
-                if (transform.position.x < target.transform.position.x && dif < detect)
+                rb.velocity *= new Vector3(0, 1, 0);
+                if (ea.attack == false)
                 {
-                    if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    if (dif > distance)
-                        transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
-                    dir = Direction.RIGHT;
-                }
-                if (transform.position.x > target.transform.position.x && dif < detect)
-                {
-                    if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                    if (dif > distance)
-                        transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
-                    dir = Direction.LEFT;
-                }
+                    currentSpeed = speed;
+                    dif = transform.position.x - target.transform.position.x;
+                    if (dif < 0) { dif = -dif; }
+                    if (transform.position.x < target.transform.position.x && dif < detect)
+                    {
+                        if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
+                        if (dif > distance)
+                            transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
+                        dir = Direction.RIGHT;
+                    }
+                    if (transform.position.x > target.transform.position.x && dif < detect)
+                    {
+                        if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
+                        if (dif > distance)
+                            transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
+                        dir = Direction.LEFT;
+                    }
 
+                }
             }
         }
         else

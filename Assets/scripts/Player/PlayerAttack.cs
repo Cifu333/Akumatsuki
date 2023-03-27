@@ -17,8 +17,6 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject heavyWeapon;
     public bool attack;
-    public bool lightAttack;
-    public bool heavyAttack;
 
     private float lightAttackCoolCounter;
     public float lightAttackTime = 0.5f;
@@ -36,8 +34,7 @@ public class PlayerAttack : MonoBehaviour
     {
         time = 0;
         charge = true;
-        lightAttack = false;
-        heavyAttack = false;
+        attack = false;
         ps = GetComponent<PlayerStatus>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -55,7 +52,6 @@ public class PlayerAttack : MonoBehaviour
         {
             if (lightAttackCoolCounter <= 0)
             {
-                lightAttack = true;
                 attack = true;
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
@@ -79,11 +75,7 @@ public class PlayerAttack : MonoBehaviour
                 rb.gravityScale = 8;
         }
 
-        if (lightAttack == true)
-        {
-            lightAttack = false;
-            Destroy(temp, Time.fixedDeltaTime);
-        }
+        Destroy(temp, Time.fixedDeltaTime);
 
         if (lightAttackCoolCounter > 0f)
         {
@@ -103,7 +95,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (charge == true)
                 {
-                    heavyAttack = true;
                     attack = true;
                     heavyAttackChargeCounter = heavyAttackCharge;
                     charge = false;
@@ -138,18 +129,17 @@ public class PlayerAttack : MonoBehaviour
                 temp.transform.parent = transform;
             }
         }
-
-        if (heavyAttack == true)
-        {
-            heavyAttack = false;
-            Destroy(temp, Time.fixedDeltaTime);
-        }
+        
+        Destroy(temp, Time.fixedDeltaTime);
 
         if (heavyAttackCoolCounter > 0f)
         {
             heavyAttackCoolCounter -= Time.deltaTime;
-            charge = true;
-            attack = false;
+            if (heavyAttackCoolCounter <= 0)
+            {
+                charge = true;
+                attack = false;
+            }
         }
 
     }

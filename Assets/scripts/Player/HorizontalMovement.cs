@@ -51,7 +51,7 @@ public class HorizontalMovement : MonoBehaviour
     {
         if (!stun)
         {
-            if (GetComponent<PlayerAttack>().attack == false)
+            if (GetComponent<PlayerStatus>().free == true)
             {
                 float horizontal = Input.GetAxis("Horizontal");
                 if (Input.GetKeyDown("left shift"))
@@ -118,7 +118,7 @@ public class HorizontalMovement : MonoBehaviour
     {
         if (!stun)
         {
-            if (GetComponent<PlayerAttack>().attack == false && GetComponent<Disparo>().bullet == false)
+            if (GetComponent<PlayerStatus>().free == true)
             {
                 float horizontal = Input.GetAxis("Horizontal");
 

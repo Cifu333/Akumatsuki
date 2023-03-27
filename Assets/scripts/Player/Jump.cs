@@ -10,7 +10,9 @@ public class Jump : MonoBehaviour
     Rigidbody2D rb;
     public float force;
     public Animator anim;
-    public bool fall = false;
+
+    public Direction dir = Direction.NONE;
+    public enum Direction { NONE, UP, DOWN };
 
     private GroundDetector targetGroundDetectorComponent;
     // Start is called before the first frame update
@@ -24,11 +26,15 @@ public class Jump : MonoBehaviour
     {
         if (rb.velocity.y < -0.1f)
         {
-            fall = true;
+            dir = Direction.DOWN;
         }
-        else
+        else if (rb.velocity.y > 0.1f)
         {
-            fall = false;
+            dir = Direction.UP;
+        }
+        else 
+        {
+            dir = Direction.NONE;
         }
         anim.SetFloat("VelocityY",rb.velocity.y);
     }
@@ -59,6 +65,4 @@ public class Jump : MonoBehaviour
             }
         }
     }
-
-
 }

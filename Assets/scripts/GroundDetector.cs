@@ -57,7 +57,7 @@ public class GroundDetector : MonoBehaviour
         }
         else if (gameObject.tag == "Player")
         {
-            if (GetComponent<HorizontalMovement>().dash == false && GetComponent<PlayerStatus>().free == true && GetComponent<DemonAbilities>().ability == false)
+            if ((GetComponent<HorizontalMovement>().dash == false && GetComponent<PlayerStatus>().free == true && GetComponent<DemonAbilities>().ability == false) || GetComponent<HorizontalMovement>().stun == true)
                 rb.gravityScale = 8;
 
         }

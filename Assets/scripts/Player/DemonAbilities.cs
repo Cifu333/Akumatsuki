@@ -5,7 +5,6 @@ using UnityEngine;
 public class DemonAbilities : MonoBehaviour
 {
     PlayerStatus ps;
-    PlayerAttack pAttack;
 
     public GameObject tentacle;
     public GameObject fireColumns;
@@ -37,11 +36,10 @@ public class DemonAbilities : MonoBehaviour
     public float fireAttackTime = 0.7f;
     public float fireAttackCharge = 0.2f;
     public float fireTranslation = 0.3f;
-    private bool twofire;
-    private bool threefire;
+    private bool twoFire;
+    private bool threeFire;
 
     public GameObject[] temp;
-    private GameObject temps;
 
     private bool tentacleCooldown;
     private bool fireCooldown;
@@ -51,14 +49,12 @@ public class DemonAbilities : MonoBehaviour
         temp = new GameObject[6];
         tentacleCooldown = false;
         fireCooldown = false;
-        twofire = true;
-        threefire = true;
+        twoFire = true;
+        threeFire = true;
         charge = true;
         ability = false;
         ps = GetComponent<PlayerStatus>();
         pa = GetComponent<PlayerAbilitys>();
-        rb = GetComponent<Rigidbody2D>();
-        pAttack = GetComponent<PlayerAttack>();
 
     }
 
@@ -195,48 +191,48 @@ public class DemonAbilities : MonoBehaviour
         if (fireAttackCounter > 0)
         {
             fireAttackCounter -= Time.deltaTime;
-            if (fireAttackCounter < tentacleAttackDuration / 3)
+            if (fireAttackCounter < fireAttackDuration / 3)
             {
-                temp[0].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[1].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-            }
-            else if (fireAttackCounter < fireAttackDuration / 3 * 2)
-            {
-                if (twofire)
+                if (threeFire)
                 {
-                    temp[2] = Instantiate(fireColumns, transform.position + new Vector3(-(offset + 1.05f), 0, 0), transform.rotation);
-                    temp[3] = Instantiate(fireColumns, transform.position + new Vector3(offset + 1.05f, 0, 0), transform.rotation);
-                    temp[2].transform.parent = transform;
-                    temp[3].transform.parent = transform;
-                    twofire = false;
-                }
-
-                temp[0].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[1].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[2].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[3].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-            }
-            else if (tentacleAttackCounter < fireAttackDuration)
-            {
-                if (threefire)
-                {
-                    temp[4] = Instantiate(fireColumns, transform.position + new Vector3(-(offset + 1.45f), 0, 0), transform.rotation);
-                    temp[5] = Instantiate(fireColumns, transform.position + new Vector3(offset + 1.45f, 0, 0), transform.rotation);
+                    temp[4] = Instantiate(fireColumns, transform.position + new Vector3(-(offset * 4), 0, 0), transform.rotation);
+                    temp[5] = Instantiate(fireColumns, transform.position + new Vector3(offset * 4, 0, 0), transform.rotation);
                     temp[4].transform.parent = transform;
                     temp[5].transform.parent = transform;
-                    threefire = false;
+                    threeFire = false;
                 }
 
-                temp[0].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[1].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[2].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[3].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[4].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
-                temp[5].gameObject.transform.localScale += new Vector3(0, tentacleTranslation, 0);
+                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[2].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[3].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+            }
+            else if (fireAttackCounter < (fireAttackDuration / 3) * 2)
+            {
+                if (twoFire)
+                {
+                    temp[2] = Instantiate(fireColumns, transform.position + new Vector3(-(offset * 3), 0, 0), transform.rotation);
+                    temp[3] = Instantiate(fireColumns, transform.position + new Vector3(offset * 3, 0, 0), transform.rotation);
+                    temp[2].transform.parent = transform;
+                    temp[3].transform.parent = transform;
+                    twoFire = false;
+                }
+
+                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[2].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[3].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+            }
+            else if (fireAttackCounter < fireAttackDuration)
+            {
+                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
+                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
             }
             if (fireAttackCounter <= 0)
             {
-                tentacleAttackCoolCounter = tentacleAttackTime;
+                fireAttackCoolCounter = fireAttackTime;
                 rb.gravityScale = 8;
                 Destroy(temp[0], 0);
                 Destroy(temp[1], 0);
@@ -245,8 +241,8 @@ public class DemonAbilities : MonoBehaviour
                 Destroy(temp[4], 0);
                 Destroy(temp[5], 0);
                 ability = false;
-                twofire = true;
-                threefire = true;
+                twoFire = true;
+                threeFire = true;
                 charge = true;
             }
         }
@@ -255,7 +251,7 @@ public class DemonAbilities : MonoBehaviour
         {
             fireAttackCoolCounter -= Time.deltaTime;
 
-            if (tentacleAttackCoolCounter <= 0)
+            if (fireAttackCoolCounter <= 0)
             {
                 fireCooldown = false;
             }

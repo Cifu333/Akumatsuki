@@ -26,7 +26,7 @@ public class EnemyLife : MonoBehaviour
         if (hp <= 0)
         {
             d.numEnemys--;
-            Destroy(gameObject, 0);
+            Destroy(gameObject, Time.fixedDeltaTime);
         }
     }
 }

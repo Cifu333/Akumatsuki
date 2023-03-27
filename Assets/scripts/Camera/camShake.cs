@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class camShake : MonoBehaviour {
     public float duration = 1.0f;
+    public bool shakebb;
 
     public AnimationCurve curve;
     private void Update() {
-
+        if (shakebb) {
+            StartCoroutine(Shaking());
+        }
+        shakebb = false;
     }
 
     public IEnumerator Shaking() {
@@ -22,5 +26,11 @@ public class camShake : MonoBehaviour {
         }
 
         transform.position = startPosition;
+    }
+
+    public void Shake() {
+        StartCoroutine(Shaking());
+
+        return;
     }
 }

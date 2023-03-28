@@ -9,6 +9,7 @@ TagManager:
   - Structure
   - bg
   - Weapon
+  - Shop
   layers:
   - Default
   - TransparentFX

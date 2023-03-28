@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
     public int numEnemys;
     public bool win;
+    public int number;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,13 @@ public class Door : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && numEnemys <= 0)
+        if (collision.gameObject.tag == "Player" && numEnemys <= 0 && Input.GetKeyDown(KeyCode.X))
         {
-            win = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + number);
             Destroy(collision.gameObject);
+
         }
         
     }

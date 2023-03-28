@@ -39,6 +39,9 @@ public class DemonAbilities : MonoBehaviour
     private bool twoFire;
     private bool threeFire;
 
+    public int tentacleMisery;
+    public int fireMisery;
+
     public GameObject[] temp;
 
     private bool tentacleCooldown;
@@ -46,6 +49,8 @@ public class DemonAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tentacleMisery = 20;
+        fireMisery = 30;
         temp = new GameObject[6];
         tentacleCooldown = false;
         fireCooldown = false;
@@ -68,10 +73,11 @@ public class DemonAbilities : MonoBehaviour
 
     private void TentacleAttack()
     {
-        if (Input.GetKeyDown(KeyCode.F) && ps.free == true && pa.demon[0] == true && tentacleCooldown == false)
+        if (Input.GetKeyDown(KeyCode.F) && ps.free == true && pa.demon[0] == true && tentacleCooldown == false && ps.misery >= tentacleMisery)
         {
             if (tentacleAttackCoolCounter <= 0 && tentacleAttackCounter <= 0)
             {
+                ps.misery -= tentacleMisery;
                 if (charge == true)
                 {
                     ability = true;
@@ -156,10 +162,11 @@ public class DemonAbilities : MonoBehaviour
 
     private void FireColumns()
     {
-        if (Input.GetKeyDown(KeyCode.G) && ps.free == true && pa.demon[1] == true && fireCooldown == false)
+        if (Input.GetKeyDown(KeyCode.G) && ps.free == true && pa.demon[1] == true && fireCooldown == false && ps.misery >= fireMisery)
         {
             if (fireAttackCoolCounter <= 0 && fireAttackCounter <= 0)
             {
+                ps.misery -= fireMisery;
                 if (charge == true)
                 {
                     ability = true;

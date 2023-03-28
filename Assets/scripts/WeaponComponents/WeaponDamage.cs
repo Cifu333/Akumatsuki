@@ -8,9 +8,11 @@ public class WeaponDamage : MonoBehaviour
     public bool  hazardus;
     public float force;
     public float playerStun;
+    public float invulneravilityTime;
     // Start is called before the first frame update
     void Start()
     {
+        invulneravilityTime = 1f;
     }
 
     // Update is called once per frame
@@ -23,9 +25,9 @@ public class WeaponDamage : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && hazardus == false)
         {
-            collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
             if (gameObject.tag != "Bullet")
             {
+
                 if (collision.transform.position.x > collision.GetComponent<EnemyMovement>().target.transform.position.x)
                 {
                     collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
@@ -37,6 +39,9 @@ public class WeaponDamage : MonoBehaviour
                 collision.GetComponent<EnemyMovement>().stunned = true;
                 collision.GetComponent<EnemyMovement>().stunTimeCounter = collision.GetComponent<EnemyMovement>().stunTime;
             }
+            if (gameObject.tag != "Bullet" && gameObject.tag != "Ability")
+                GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyLife>().misery;
+            collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
         {
@@ -56,7 +61,7 @@ public class WeaponDamage : MonoBehaviour
                 collision.gameObject.GetComponent<HorizontalMovement>().stunCounter = playerStun;
 
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravility = true;
-                collision.gameObject.GetComponent<PlayerStatus>().invulneravilityCounter = collision.gameObject.GetComponent<PlayerStatus>().invulneravilityFrames;
+                collision.gameObject.GetComponent<PlayerStatus>().invulneravilityFrames = invulneravilityTime;
             }
         }
     }

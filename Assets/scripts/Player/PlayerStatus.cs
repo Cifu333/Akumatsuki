@@ -8,6 +8,7 @@ public class PlayerStatus : MonoBehaviour
     public float maxHP = 100;
     public Vector3 respawn;
     public int money = 0;
+    public int misery = 0;
     public bool free;
 
     Disparo d;
@@ -16,9 +17,9 @@ public class PlayerStatus : MonoBehaviour
     HorizontalMovement hm;
     HumanAbilities humanA;
 
-    public float invulneravilityFrames = 1;
+    public float invulneravilityFrames;
     public bool invulneravility;
-    public float invulneravilityCounter = 0;
+    private float invulneravilityCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,10 +44,11 @@ public class PlayerStatus : MonoBehaviour
     {
         if (invulneravility == true)
         {
-            invulneravilityCounter -= Time.deltaTime;
-            if (invulneravilityCounter <= 0)
+            invulneravilityCounter += Time.deltaTime;
+            if (invulneravilityCounter >= invulneravilityFrames)
             {
                 invulneravility = false;
+                invulneravilityCounter = 0;
             }
         }
     }

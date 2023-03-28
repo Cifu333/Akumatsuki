@@ -19,9 +19,14 @@ public class EnemyAttack : MonoBehaviour
     public float attackDuration = 0.4f;
     public float attackTime = 0.4f;
     public float attackCharge = 0.2f;
+
+    public bool stun;
+    public float stunCounter;
+
     // Start is called before the first frame update
     void Start()
     {
+        stun = false;
         charge = true;
         em = GetComponent<EnemyMovement>();
     }
@@ -29,56 +34,74 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject temp;
         if (em.target != null)
         {
-            if (em.dif <= em.distance && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
+            if (!stun)
             {
-                if (attackCoolCounter <= 0 && attackCounter <= 0)
-                {
-                    if (charge == true)
-                    {
-                        attack = true;
-                        attackChargeCounter = attackCharge;
-                        charge = false;
-                    }
-                }
+                Attack();
             }
-
-            if (attackChargeCounter > 0)
+        }
+        else
+        {
+            stunCounter -= Time.deltaTime;
+            if (stunCounter <= 0)
             {
-                attackChargeCounter -= Time.deltaTime;
-                if (attackChargeCounter <= 0)
-                {
-                    if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
-                    {
-                        temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
-                    }
-                    else
-                    {
-                        temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
-                    }
-                    attackCounter = attackDuration;
-                    temp.transform.parent = transform;
-                    Destroy(temp, attackDuration);
-                }
-            }
-
-            if (attackCounter > 0)
-            {
-                attackCounter -= Time.deltaTime;
-                if (attackCounter <= 0)
-                {
-                    attackCoolCounter = attackTime;
-                    attack = false;
-                }
-            }
-
-            if (attackCoolCounter > 0f)
-            {
-                attackCoolCounter -= Time.deltaTime;
-                charge = true;
+                stun = false;
             }
         }
     }
+
+    private void Attack()
+    {
+        GameObject temp;
+        if (em.dif <= em.distance && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
+        {
+            if (attackCoolCounter <= 0 && attackCounter <= 0)
+            {
+                if (charge == true)
+                {
+                    attack = true;
+                    attackChargeCounter = attackCharge;
+                    charge = false;
+                }
+            }
+        }
+
+        if (attackChargeCounter > 0)
+        {
+            attackChargeCounter -= Time.deltaTime;
+            if (attackChargeCounter <= 0)
+            {
+                if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+                {
+                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                }
+                else
+                {
+                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+                }
+                attackCounter = attackDuration;
+                temp.transform.parent = transform;
+                Destroy(temp, attackDuration);
+            }
+        }
+
+        if (attackCounter > 0)
+        {
+            attackCounter -= Time.deltaTime;
+            if (attackCounter <= 0)
+            {
+                attackCoolCounter = attackTime;
+                attack = false;
+            }
+        }
+
+        if (attackCoolCounter > 0f)
+        {
+            attackCoolCounter -= Time.deltaTime;
+            charge = true;
+        }
+    }
 }
+
+

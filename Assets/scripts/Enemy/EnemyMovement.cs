@@ -54,57 +54,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!stunned)
         {
-            int jumps = 0;
-
-            int count = 0;
-            if (dir == Direction.LEFT)
+            Movement();
+        }
+        else
+        {
+            stunTimeCounter -= Time.deltaTime;
+            if (stunTimeCounter <= 0)
             {
-                for (int i = 0; i < rays.Count; i++)
-                {
-                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
-
-                    if (hit.collider != null)
-                    {
-                        count++;
-                        Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
-                    }
-                }
-            }
-            if (dir == Direction.RIGHT)
-            {
-                for (int i = 0; i < rays.Count; i++)
-                {
-                    Debug.DrawRay(transform.position + rays[i], transform.right * 1 * wallDistance, Color.red);
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * 1, wallDistance, groundMask);
-
-                    if (hit.collider != null)
-                    {
-                        count++;
-                        Debug.DrawRay(transform.position + rays[i], transform.right * 1 * hit.distance, Color.green);
-                    }
-                }
-            }
-            if (count > 0 && jumps > 0)
-            {
-                rb.velocity = Vector2.zero;
-                rb.AddForce(Vector2.up * force);
-                jumps--;
-            }
-
-            ground = GetComponent<GroundDetector>();
-
-            if (ground.grounded == true)
-            {
-                jumps = numJumps;
-                if (count > 0)
-                {
-                    rb.velocity = Vector2.zero;
-                    rb.AddForce(Vector2.up * force);
-                }
+                stunned = false;
             }
         }
-        
+
         //anim.SetBool("Moving", speed != 0);
         //anim.SetBool("Grounded", ground.grounded);
     }
@@ -139,14 +99,6 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            stunTimeCounter -= Time.deltaTime;
-            if (stunTimeCounter <= 0)
-            {
-                stunned = false;
-            }
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -159,6 +111,59 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
+        }
+    }
+
+    private void Movement()
+    {
+        int jumps = 0;
+
+        int count = 0;
+        if (dir == Direction.LEFT)
+        {
+            for (int i = 0; i < rays.Count; i++)
+            {
+                Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
+
+                if (hit.collider != null)
+                {
+                    count++;
+                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
+                }
+            }
+        }
+        if (dir == Direction.RIGHT)
+        {
+            for (int i = 0; i < rays.Count; i++)
+            {
+                Debug.DrawRay(transform.position + rays[i], transform.right * 1 * wallDistance, Color.red);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * 1, wallDistance, groundMask);
+
+                if (hit.collider != null)
+                {
+                    count++;
+                    Debug.DrawRay(transform.position + rays[i], transform.right * 1 * hit.distance, Color.green);
+                }
+            }
+        }
+        if (count > 0 && jumps > 0)
+        {
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * force);
+            jumps--;
+        }
+
+        ground = GetComponent<GroundDetector>();
+
+        if (ground.grounded == true)
+        {
+            jumps = numJumps;
+            if (count > 0)
+            {
+                rb.velocity = Vector2.zero;
+                rb.AddForce(Vector2.up * force);
+            }
         }
     }
 }

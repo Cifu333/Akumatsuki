@@ -2605,14 +2605,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 731961713}
   player: {fileID: 364081458}
-  d1Cost: 10
-  d2Cost: 10
-  d3Cost: 10
-  d4Cost: 10
-  h1Cost: 10
-  h2Cost: 10
-  h3Cost: 10
-  h4Cost: 10
+  d1Cost: 0
+  d2Cost: 0
+  d3Cost: 0
+  d4Cost: 0
+  h1Cost: 0
+  h2Cost: 0
+  h3Cost: 0
+  h4Cost: 0
 --- !u!1 &868751104
 GameObject:
   m_ObjectHideFlags: 0
@@ -4797,14 +4797,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1170425186}
   player: {fileID: 364081458}
-  d1Cost: 10
-  d2Cost: 10
-  d3Cost: 10
-  d4Cost: 10
-  h1Cost: 10
-  h2Cost: 10
-  h3Cost: 10
-  h4Cost: 10
+  d1Cost: 0
+  d2Cost: 0
+  d3Cost: 0
+  d4Cost: 0
+  h1Cost: 0
+  h2Cost: 0
+  h3Cost: 0
+  h4Cost: 0
 --- !u!1 &1612415564
 GameObject:
   m_ObjectHideFlags: 0

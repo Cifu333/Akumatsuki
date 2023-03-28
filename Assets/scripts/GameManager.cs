@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.GetInt("Misery", 0);
         Misery = PlayerPrefs.GetInt("Misery");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().money = Money;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().misery = Misery;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().misery = 200;
     }
 
     // Update is called once per frame

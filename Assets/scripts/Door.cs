@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && numEnemys <= 0 && Input.GetKeyDown(KeyCode.X))
+        if (collision.gameObject.tag == "Player" && numEnemys <= 0 && Input.GetKey(KeyCode.X))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + number);
             Destroy(collision.gameObject);

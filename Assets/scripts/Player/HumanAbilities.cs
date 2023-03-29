@@ -53,6 +53,7 @@ public class HumanAbilities : MonoBehaviour
     {
         semtexAtack();
         Rune();
+        AK();
     }
 
     private void semtexAtack()
@@ -116,6 +117,14 @@ public class HumanAbilities : MonoBehaviour
             {
                 runeCooldown = false;
             }
+        }
+    }
+
+    private void AK()
+    {
+        if (pa.human[2] == true && gameObject.GetComponent<Disparo>().bulletTime >= 0.1f)
+        {
+            gameObject.GetComponent<Disparo>().bulletTime = 0.19f;
         }
     }
 }

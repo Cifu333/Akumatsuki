@@ -53,7 +53,7 @@ public class PowerUpsMenu : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.X))
+        if (collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.X))
         {
             Time.timeScale = 0;
             isPaused = true;

@@ -39,12 +39,9 @@ public class WeaponDamage : MonoBehaviour
                 collision.GetComponent<EnemyMovement>().stunned = true;
                 collision.GetComponent<EnemyMovement>().stunTimeCounter = collision.GetComponent<EnemyMovement>().stunTime;
             }
-<<<<<<< HEAD:Assets/scripts/WeaponDamage.cs
-=======
             if (gameObject.tag != "Bullet" && gameObject.tag != "Ability")
                 GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyLife>().misery;
             collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
->>>>>>> 3989b5519c7f34966f2ce41f10f06149c38a6a95:Assets/scripts/WeaponComponents/WeaponDamage.cs
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
         {

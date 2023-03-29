@@ -28,11 +28,7 @@ public class EnemyLife : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().money += money;
             d.numEnemys--;
-<<<<<<< HEAD
-            Destroy(gameObject, Time.deltaTime * 4);
-=======
             Destroy(gameObject, 0);
->>>>>>> 3989b5519c7f34966f2ce41f10f06149c38a6a95
         }
     }
 }

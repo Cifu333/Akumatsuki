@@ -70,7 +70,7 @@ public class PowerUpsMenu : MonoBehaviour
 
     public void Tentacle()
     {
-        if (pa.human[3] != true && status.money >= d1Cost && pa.demon[0] == false)
+        if (pa.human[2] != true && status.money >= d1Cost && pa.demon[0] == false)
         {
             pa.demon[0] = true;
             status.money -= d1Cost;
@@ -78,7 +78,7 @@ public class PowerUpsMenu : MonoBehaviour
     }
     public void AbilityD2()
     {
-        if (pa.human[2] != true && pa.demon[0] == true && status.money >= d2Cost && pa.demon[1] == false)
+        if (pa.human[1] != true && pa.demon[0] == true && status.money >= d2Cost && pa.demon[1] == false)
         {
             pa.demon[1] = true;
             status.money -= d2Cost;
@@ -86,18 +86,10 @@ public class PowerUpsMenu : MonoBehaviour
     }
     public void AbilityD3()
     {
-        if (pa.human[1] != true && pa.demon[1] == true && status.money >= d3Cost && pa.demon[2] == false)
+        if (pa.human[0] != true && pa.demon[1] == true && status.money >= d3Cost && pa.demon[2] == false)
         {
             pa.demon[2] = true;
             status.money -= d3Cost;
-        }
-    }
-    public void AbilityD4()
-    {
-        if (pa.human[0] != true && pa.demon[2] == true && status.money >= d4Cost && pa.demon[3] == false)
-        {
-            pa.demon[3] = true;
-            status.money -= d4Cost;
         }
     }
 
@@ -105,7 +97,7 @@ public class PowerUpsMenu : MonoBehaviour
 
     public void AbilityH1()
     {
-        if (pa.demon[3] != true && status.money >= h1Cost && pa.human[0] == false)
+        if (pa.demon[2] != true && status.money >= h1Cost && pa.human[0] == false)
         {
             pa.human[0] = true;
             status.money -= h1Cost;
@@ -113,7 +105,7 @@ public class PowerUpsMenu : MonoBehaviour
     }
     public void AbilityH2()
     {
-        if (pa.demon[2] != true && pa.human[0] == true && status.money >= h2Cost && pa.human[1] == false)
+        if (pa.demon[1] != true && pa.human[0] == true && status.money >= h2Cost && pa.human[1] == false)
         {
             pa.human[1] = true;
             status.money -= h2Cost;
@@ -121,18 +113,10 @@ public class PowerUpsMenu : MonoBehaviour
     }
     public void AbilityH3()
     {
-        if (pa.demon[1] != true && pa.human[1] == true && status.money >= h3Cost && pa.human[2] == false)
+        if (pa.demon[0] != true && pa.human[1] == true && status.money >= h3Cost && pa.human[2] == false)
         {
             pa.human[2] = true;
             status.money -= h3Cost;
-        }
-    }
-    public void AbilityH4()
-    {
-        if (pa.demon[0] != true && pa.human[2] == true && status.money >= h4Cost && pa.human[3] == false)
-        {
-            pa.human[3] = true;
-            status.money -= h4Cost;
         }
     }
 }

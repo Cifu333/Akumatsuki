@@ -12,7 +12,6 @@ public class EnemyMovement : MonoBehaviour
     public float force;
 
     public bool stunned;
-    public float stunTime = 0.5f;
     public float stunTimeCounter;
 
     public GameObject target;

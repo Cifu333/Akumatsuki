@@ -103,7 +103,7 @@ public class HumanAbilities : MonoBehaviour
             }
         }
 
-        if (runeCoolCounter > 0f)
+        if (runeCounter > 0f)
         {
             runeCounter -= Time.deltaTime;
             if (runeCounter <= 0)

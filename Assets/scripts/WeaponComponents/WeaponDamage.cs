@@ -9,10 +9,12 @@ public class WeaponDamage : MonoBehaviour
     public float force;
     public float playerStun;
     public float invulneravilityTime;
+    private float time;
     // Start is called before the first frame update
     void Start()
     {
         invulneravilityTime = 1f;
+        time = 0;
     }
 
     // Update is called once per frame
@@ -37,11 +39,13 @@ public class WeaponDamage : MonoBehaviour
                     collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
                 }
                 collision.GetComponent<EnemyMovement>().stunned = true;
-                collision.GetComponent<EnemyMovement>().stunTimeCounter = collision.GetComponent<EnemyMovement>().stunTime;
+                collision.GetComponent<EnemyMovement>().stunTimeCounter = 2f;
             }
-            if (gameObject.tag != "Bullet" && gameObject.tag != "Ability")
+            if (gameObject.tag == "Weapon")
                 GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyLife>().misery;
-            collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
+            if (gameObject.tag != "Fire")
+                collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
+            
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
         {
@@ -62,6 +66,19 @@ public class WeaponDamage : MonoBehaviour
 
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravility = true;
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravilityFrames = invulneravilityTime;
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (gameObject.tag == "Fire" && collision.gameObject.tag == "Enemy")
+        {
+            time += Time.deltaTime;
+            if (time >= 1)
+            {
+                collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
+                time = 0;
             }
         }
     }

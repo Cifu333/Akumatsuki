@@ -14,12 +14,7 @@ public class PlayerAttack : MonoBehaviour
     Rigidbody2D rb;
 
     private float time;
-
-    public GameObject heavyWeapon;
     public bool attack;
-
-    private float lightAttackCoolCounter;
-    public float lightAttackTime = 0.5f;
 
     public bool charge;
 
@@ -42,54 +37,12 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LightAttack();
         HeavyAttack();
-    }
-
-    private void LightAttack()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && ps.free == true)
-        {
-            if (lightAttackCoolCounter <= 0)
-            {
-                attack = true;
-                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
-                {
-                    temp = Instantiate(weapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
-                }
-                else
-                {
-                    temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
-                }
-                lightAttackCoolCounter = lightAttackTime;
-                temp.transform.parent = transform;
-            }
-        }
-
-        if (GetComponent<GroundDetector>().grounded == false && attack == true)
-        {
-            rb.velocity = Vector3.zero;
-            rb.gravityScale = 0;
-            time += Time.deltaTime;
-            if (time >= 0.3)
-                rb.gravityScale = 8;
-        }
-
-        Destroy(temp, Time.fixedDeltaTime);
-
-        if (lightAttackCoolCounter > 0f)
-        {
-            lightAttackCoolCounter -= Time.deltaTime;
-            if (lightAttackCoolCounter <= 0)
-            {
-                attack = false;
-            }
-        }
     }
 
     private void HeavyAttack()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && ps.free == true)
+        if (Input.GetKeyDown(KeyCode.E) && ps.free == true)
         {
             if (heavyAttackCoolCounter <= 0)
             {
@@ -119,11 +72,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp = Instantiate(heavyWeapon, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
+                    temp = Instantiate(weapon, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
                 }
                 else
                 {
-                    temp = Instantiate(heavyWeapon, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
+                    temp = Instantiate(weapon, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
                 }
                 heavyAttackCoolCounter = heavyAttackTime;
                 temp.transform.parent = transform;

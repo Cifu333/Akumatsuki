@@ -9,7 +9,7 @@ public class Disparo : MonoBehaviour {
     PlayerStatus player;
     public float bulletLifeTime;
     private bool bullet;
-    public bool bum;
+    public bool justShot;
     private Vector2 mouseWorldPoint;
 
 
@@ -23,7 +23,7 @@ public class Disparo : MonoBehaviour {
         player = GetComponent<PlayerStatus>();
         cam = Camera.main;
         bullet = false;
-        bum = false;
+        justShot = false;
     }
    
 
@@ -37,7 +37,7 @@ public class Disparo : MonoBehaviour {
                 if (bulletCoolCounter <= 0)
                 {
                     bullet = true;
-                    bum = true;
+                    justShot = true;
                     bulletCoolCounter = bulletTime;
 
                 }
@@ -47,16 +47,8 @@ public class Disparo : MonoBehaviour {
                 b.transform.right = mouseWorldPosition - transform.position;
                 if (GetComponent<GroundDetector>().grounded == false)
                 {
-                    if (bulletTime > 0.2f)
-                    {
-                        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                        GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 2));
-                    }
-                    else
-                    {
-                        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                        GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 15));
-                    }
+                    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * (GetComponent<Jump>().force / 2));
                 }
                 Destroy(b, bulletLifeTime);
             }
@@ -65,10 +57,10 @@ public class Disparo : MonoBehaviour {
         if (bullet == true)
         {
             time += Time.deltaTime;
-            if (time >= 0.19f)
+            if (time >= 0.2f)
             {
                 time = 0;
-                bum = false;
+                justShot = false;
             }
         }
 

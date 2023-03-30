@@ -72,9 +72,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3115c125ea253644a8b5a86768647c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 45
   hazardus: 0
-  force: 50
+  force: 200
+  playerStun: 0
+  invulneravilityTime: 0
 --- !u!212 &8063334609645884533
 SpriteRenderer:
   m_ObjectHideFlags: 0

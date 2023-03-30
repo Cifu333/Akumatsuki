@@ -7,7 +7,7 @@ public class DemonAbilities : MonoBehaviour
     PlayerStatus ps;
 
     public GameObject tentacle;
-    public GameObject fireColumns;
+    public GameObject fire;
 
     public bool ability;
 
@@ -29,20 +29,15 @@ public class DemonAbilities : MonoBehaviour
     public float tentacleAttackCharge = 0.2f;
     public float tentacleTranslation = 0.3f;
 
-    private float fireAttackCoolCounter;
-    private float fireAttackCounter;
-    private float fireAttackChargeCounter;
-    public float fireAttackDuration = 0.75f;
-    public float fireAttackTime = 0.7f;
-    public float fireAttackCharge = 0.2f;
-    public float fireTranslation = 0.3f;
-    private bool twoFire;
-    private bool threeFire;
+    private float fireCoolCounter;
+    private float fireCounter;
+    public float fireDuration = 3f;
+    public float fireTime = 3f;
 
     public int tentacleMisery;
     public int fireMisery;
 
-    public GameObject[] temp;
+    public GameObject temp;
 
     private bool tentacleCooldown;
     private bool fireCooldown;
@@ -51,11 +46,8 @@ public class DemonAbilities : MonoBehaviour
     {
         tentacleMisery = 20;
         fireMisery = 30;
-        temp = new GameObject[6];
         tentacleCooldown = false;
         fireCooldown = false;
-        twoFire = true;
-        threeFire = true;
         charge = true;
         ability = false;
         ps = GetComponent<PlayerStatus>();
@@ -68,7 +60,7 @@ public class DemonAbilities : MonoBehaviour
     void Update()
     {
         TentacleAttack();
-        FireColumns();
+        Fire();
     }
 
     private void TentacleAttack()
@@ -100,14 +92,14 @@ public class DemonAbilities : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp[0] = Instantiate(tentacle, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
+                    temp = Instantiate(tentacle, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
                 }
                 else
                 {
-                    temp[0] = Instantiate(tentacle, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
+                    temp = Instantiate(tentacle, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
                 }
                 tentacleAttackCounter = tentacleAttackDuration;
-                temp[0].transform.parent = transform;
+                temp.transform.parent = transform;
             }
         }
 
@@ -118,33 +110,33 @@ public class DemonAbilities : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp[0].gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
-                    temp[0].gameObject.transform.position += new Vector3(-tentacleTranslation / 10, 0, 0);
+                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position += new Vector3(-tentacleTranslation / 10, 0, 0);
                 }
                 else
                 {
-                    temp[0].gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
-                    temp[0].gameObject.transform.position += new Vector3(tentacleTranslation / 10, 0, 0);
+                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position += new Vector3(tentacleTranslation / 10, 0, 0);
                 }
             }
             else if (tentacleAttackCounter < tentacleAttackDuration / 2)
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp[0].gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
-                    temp[0].gameObject.transform.position -= new Vector3(-tentacleTranslation / 10, 0, 0);
+                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position -= new Vector3(-tentacleTranslation / 10, 0, 0);
                 }
                 else
                 {
-                    temp[0].gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
-                    temp[0].gameObject.transform.position -= new Vector3(tentacleTranslation / 10, 0, 0);
+                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.position -= new Vector3(tentacleTranslation / 10, 0, 0);
                 }
             }
             if (tentacleAttackCounter <= 0)
             {
                 tentacleAttackCoolCounter = tentacleAttackTime;
                 rb.gravityScale = 8;
-                Destroy(temp[0], 0);
+                Destroy(temp, 0);
                 ability = false;
                 charge = true;
             }
@@ -160,106 +152,37 @@ public class DemonAbilities : MonoBehaviour
         }
     }
 
-    private void FireColumns()
+    private void Fire()
     {
         if (Input.GetKeyDown(KeyCode.G) && ps.free == true && pa.demon[1] == true && fireCooldown == false && ps.misery >= fireMisery)
         {
-            if (fireAttackCoolCounter <= 0 && fireAttackCounter <= 0)
+            if (fireCoolCounter <= 0)
             {
+                fireCooldown = true;
+                temp = Instantiate(fire, transform.position, transform.rotation);
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f);
+                temp.transform.parent = transform;
+
+                fireCoolCounter = fireTime;
+                fireCounter = fireDuration;
                 ps.misery -= fireMisery;
-                if (charge == true)
-                {
-                    ability = true;
-                    fireAttackChargeCounter = fireAttackCharge;
-                    charge = false;
-                    fireCooldown = true;
-                }
-                if (GetComponent<GroundDetector>().grounded == false)
-                {
-                    rb.velocity = Vector3.zero;
-                    rb.gravityScale = 0;
-                }
-
-            }
-        }
-        if (fireAttackChargeCounter > 0)
-        {
-            fireAttackChargeCounter -= Time.deltaTime;
-            if (fireAttackChargeCounter <= 0)
-            {
-                temp[0] = Instantiate(fireColumns, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
-                temp[1] = Instantiate(fireColumns, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
-
-                fireAttackCounter = fireAttackDuration;
-                temp[0].transform.parent = transform;
-                temp[1].transform.parent = transform;
             }
         }
 
-        if (fireAttackCounter > 0)
+        if (fireCounter > 0f)
         {
-            fireAttackCounter -= Time.deltaTime;
-            if (fireAttackCounter < fireAttackDuration / 3)
+            fireCounter -= Time.deltaTime;
+            if (fireCounter <= 0)
             {
-                if (threeFire)
-                {
-                    temp[4] = Instantiate(fireColumns, transform.position + new Vector3(-(offset * 4), 0, 0), transform.rotation);
-                    temp[5] = Instantiate(fireColumns, transform.position + new Vector3(offset * 4, 0, 0), transform.rotation);
-                    temp[4].transform.parent = transform;
-                    temp[5].transform.parent = transform;
-                    threeFire = false;
-                }
-
-                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[2].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[3].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-            }
-            else if (fireAttackCounter < (fireAttackDuration / 3) * 2)
-            {
-                if (twoFire)
-                {
-                    temp[2] = Instantiate(fireColumns, transform.position + new Vector3(-(offset * 3), 0, 0), transform.rotation);
-                    temp[3] = Instantiate(fireColumns, transform.position + new Vector3(offset * 3, 0, 0), transform.rotation);
-                    temp[2].transform.parent = transform;
-                    temp[3].transform.parent = transform;
-                    twoFire = false;
-                }
-
-                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[2].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[3].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-            }
-            else if (fireAttackCounter < fireAttackDuration)
-            {
-                temp[0].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-                temp[1].gameObject.transform.localScale += new Vector3(0, fireTranslation, 0);
-            }
-            if (fireAttackCounter <= 0)
-            {
-                fireAttackCoolCounter = fireAttackTime;
-                rb.gravityScale = 8;
-                Destroy(temp[0], 0);
-                Destroy(temp[1], 0);
-                Destroy(temp[2], 0);
-                Destroy(temp[3], 0);
-                Destroy(temp[4], 0);
-                Destroy(temp[5], 0);
-                ability = false;
-                twoFire = true;
-                threeFire = true;
-                charge = true;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+                Destroy(temp, 0);
             }
         }
 
-        if (fireAttackCoolCounter > 0f)
+        if (fireCoolCounter > 0f)
         {
-            fireAttackCoolCounter -= Time.deltaTime;
-
-            if (fireAttackCoolCounter <= 0)
+            fireCoolCounter -= Time.deltaTime;
+            if (fireCoolCounter <= 0)
             {
                 fireCooldown = false;
             }

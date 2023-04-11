@@ -1272,10 +1272,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   hp: 55
   d: {fileID: 1648681044}
   money: 10
   misery: 5
+  ea: {fileID: 0}
+  free: 0
 --- !u!50 &308991381
 Rigidbody2D:
   serializedVersion: 4
@@ -3674,7 +3677,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 3.2, y: 3.2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3724,7 +3727,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 703750b6d70f13743abf2ec8bcdbafd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5272,7 +5275,7 @@ GameObject:
   - component: {fileID: 1010576775}
   - component: {fileID: 1010576774}
   m_Layer: 7
-  m_Name: Enemy (1)
+  m_Name: Enemy Ranged(1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5311,10 +5314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   hp: 55
   d: {fileID: 1648681044}
   money: 10
   misery: 5
+  ea: {fileID: 0}
+  free: 0
 --- !u!50 &1010576776
 Rigidbody2D:
   serializedVersion: 4
@@ -5964,10 +5970,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   hp: 55
   d: {fileID: 1648681044}
   money: 10
   misery: 5
+  ea: {fileID: 0}
+  free: 0
 --- !u!50 &1096456865
 Rigidbody2D:
   serializedVersion: 4
@@ -6186,6 +6195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 9214318533906294543, guid: 0cb0ba6d0e52e7544a2ba606e1fd39de, type: 3}
+  anim: {fileID: 0}
   offset: 1.1
   attack: 0
   charge: 0
@@ -6377,7 +6387,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9219d1bb5826f4d4d836dc93bd220be2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6969,10 +6979,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   hp: 55
   d: {fileID: 1648681044}
   money: 10
   misery: 5
+  ea: {fileID: 0}
+  free: 0
 --- !u!50 &1219166499
 Rigidbody2D:
   serializedVersion: 4
@@ -7992,10 +8005,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   hp: 55
   d: {fileID: 1648681044}
   money: 10
   misery: 5
+  ea: {fileID: 0}
+  free: 0
 --- !u!50 &1271344745
 Rigidbody2D:
   serializedVersion: 4
@@ -8444,10 +8460,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   hp: 250
   d: {fileID: 1648681044}
   money: 10
   misery: 5
+  ea: {fileID: 0}
+  free: 0
 --- !u!50 &1324544253
 Rigidbody2D:
   serializedVersion: 4
@@ -9031,10 +9050,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d66890dee63152469d0b13112f8707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   hp: 55
   d: {fileID: 1648681044}
   money: 10
   misery: 5
+  ea: {fileID: 0}
+  free: 0
 --- !u!50 &1397072244
 Rigidbody2D:
   serializedVersion: 4

@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject weapon;
     private GameObject temp;
+    public Animator anim;
 
     public float offset = 1.1f;
 
@@ -32,12 +33,14 @@ public class PlayerAttack : MonoBehaviour
         attack = false;
         ps = GetComponent<PlayerStatus>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         HeavyAttack();
+        anim.SetBool("Attack", attack);
     }
 
     private void HeavyAttack()

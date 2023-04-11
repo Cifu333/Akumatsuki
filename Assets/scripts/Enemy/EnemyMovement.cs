@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    EnemyAttack ea;
+    EnemyStatus es;
 
     public SpriteRenderer sr;
     GroundDetector ground;
@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
         ground = GetComponent<GroundDetector>();
         dir = Direction.NONE;
         rb = GetComponent<Rigidbody2D>();
-        ea = GetComponent<EnemyAttack>();
+        es = GetComponent<EnemyStatus>();
         stunned = false;
     }
 
@@ -53,7 +53,20 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!stunned)
         {
-            Movement();
+            switch (es.type)
+            {
+                case EnemyStatus.Type.MELEE:
+                    MeleeMovement();
+                    break;
+                case EnemyStatus.Type.RANGED:
+                    RangedMovement();
+                    break;
+                case EnemyStatus.Type.FLYING:
+                    break;
+                case EnemyStatus.Type.TANK:
+                    break;
+
+            }
         }
         else
         {
@@ -75,27 +88,6 @@ public class EnemyMovement : MonoBehaviour
             if (target != null)
             {
                 rb.velocity *= new Vector3(0, 1, 0);
-                if (ea.attack == false)
-                {
-                    currentSpeed = speed;
-                    dif = transform.position.x - target.transform.position.x;
-                    if (dif < 0) { dif = -dif; }
-                    if (transform.position.x < target.transform.position.x && dif < detect)
-                    {
-                        if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                        if (dif > distance)
-                            transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
-                        dir = Direction.RIGHT;
-                    }
-                    if (transform.position.x > target.transform.position.x && dif < detect)
-                    {
-                        if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                        if (dif > distance)
-                            transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
-                        dir = Direction.LEFT;
-                    }
-
-                }
             }
         }
     }
@@ -113,9 +105,66 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void Movement()
+    private void MeleeMovement()
     {
-        int jumps = 0;
+        if (target != null)
+        {
+            if (es.free == true)
+            {
+                currentSpeed = speed;
+                dif = transform.position.x - target.transform.position.x;
+                if (dif < 0) { dif = -dif; }
+                if (transform.position.x < target.transform.position.x && dif < detect)
+                {
+                    if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
+                    if (dif > distance)
+                        transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.RIGHT;
+                }
+                if (transform.position.x > target.transform.position.x && dif < detect)
+                {
+                    if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
+                    if (dif > distance)
+                        transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.LEFT;
+                }
+
+            }
+        }
+    }
+
+    private void RangedMovement()
+    {
+        if (target != null)
+        {
+            if (es.free == true)
+            {
+                currentSpeed = speed;
+                dif = transform.position.x - target.transform.position.x;
+                if (dif < 0) { dif = -dif; }
+                if (transform.position.x < target.transform.position.x && dif < detect)
+                {
+                    if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
+                    if (dif < distance)
+                        transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.RIGHT;
+                }
+                if (transform.position.x > target.transform.position.x && dif < detect)
+                {
+                    if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
+                    if (dif < distance)
+                        transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.LEFT;
+                }
+
+            }
+        }
+    }
+}
+
+/*
+ //Salto
+ int jumps = 0;
 
         int count = 0;
         if (dir == Direction.LEFT)
@@ -164,6 +213,4 @@ public class EnemyMovement : MonoBehaviour
                 rb.AddForce(Vector2.up * force);
             }
         }
-    }
-}
-
+ */

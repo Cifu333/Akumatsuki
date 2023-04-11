@@ -42,9 +42,9 @@ public class WeaponDamage : MonoBehaviour
                 collision.GetComponent<EnemyMovement>().stunTimeCounter = 2f;
             }
             if (gameObject.tag == "Weapon")
-                GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyLife>().misery;
+                GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyStatus>().misery;
             if (gameObject.tag != "Fire")
-                collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
+                collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;
             
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
@@ -77,7 +77,7 @@ public class WeaponDamage : MonoBehaviour
             time += Time.deltaTime;
             if (time >= 1)
             {
-                collision.gameObject.GetComponent<EnemyLife>().hp -= damage;
+                collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;
                 time = 0;
             }
         }

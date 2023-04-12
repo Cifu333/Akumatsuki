@@ -1255,7 +1255,6 @@ MonoBehaviour:
   attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
-  attackDuration: 0.4
   attackTime: 0.4
   attackCharge: 0.2
   stun: 0
@@ -1332,6 +1331,7 @@ MonoBehaviour:
   stunned: 0
   stunTimeCounter: 0.5
   target: {fileID: 1097629273}
+  es: {fileID: 0}
   sr: {fileID: 308991385}
   dir: 0
   currentSpeed: 0
@@ -5295,11 +5295,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 1.1
   attackHeight: 2.25
-  enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
+  enemyWeapon: {fileID: 4524059682078658032, guid: 06b1721faba060e4887bee82577eeec3, type: 3}
   attack: 0
-  attackDuration: 0.4
-  attackTime: 0.4
-  attackCharge: 0.2
+  attackTime: 1.7
+  attackCharge: 0.3
   stun: 0
   stunCounter: 0
 --- !u!114 &1010576775
@@ -5374,11 +5373,12 @@ MonoBehaviour:
   stunned: 0
   stunTimeCounter: 0.5
   target: {fileID: 1097629273}
+  es: {fileID: 0}
   sr: {fileID: 1010576780}
   dir: 0
   currentSpeed: 0
-  speed: 5
-  distance: 2
+  speed: 9
+  distance: 7
   dif: 0
   detect: 25
   numJumps: 0
@@ -5452,7 +5452,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.07008721, g: 0.5943396, b: 0.10825749, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5953,7 +5953,6 @@ MonoBehaviour:
   attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
-  attackDuration: 0.4
   attackTime: 0.4
   attackCharge: 0.2
   stun: 0
@@ -6030,6 +6029,7 @@ MonoBehaviour:
   stunned: 0
   stunTimeCounter: 0.5
   target: {fileID: 1097629273}
+  es: {fileID: 0}
   sr: {fileID: 1096456869}
   dir: 0
   currentSpeed: 0
@@ -6180,8 +6180,8 @@ MonoBehaviour:
   money: 0
   misery: 200
   free: 0
-  invulneravilityFrames: 1
   invulneravility: 0
+  invulneravilityCounter: 0
 --- !u!114 &1097629275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6267,9 +6267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cd: {fileID: 1097629281}
-  sr: {fileID: 1097629283}
-  anim: {fileID: 0}
-  ground: {fileID: 0}
   dir: 0
   currentSpeed: 0
   speed: 14
@@ -6962,7 +6959,6 @@ MonoBehaviour:
   attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
-  attackDuration: 0.4
   attackTime: 0.4
   attackCharge: 0.2
   stun: 0
@@ -7039,6 +7035,7 @@ MonoBehaviour:
   stunned: 0
   stunTimeCounter: 0.5
   target: {fileID: 1097629273}
+  es: {fileID: 0}
   sr: {fileID: 1219166503}
   dir: 0
   currentSpeed: 0
@@ -7988,7 +7985,6 @@ MonoBehaviour:
   attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
-  attackDuration: 0.4
   attackTime: 0.4
   attackCharge: 0.2
   stun: 0
@@ -8065,6 +8061,7 @@ MonoBehaviour:
   stunned: 0
   stunTimeCounter: 0.5
   target: {fileID: 1097629273}
+  es: {fileID: 0}
   sr: {fileID: 1271344749}
   dir: 0
   currentSpeed: 0
@@ -8443,7 +8440,6 @@ MonoBehaviour:
   attackHeight: 5
   enemyWeapon: {fileID: 6918179921206949154, guid: 25a23d2b72c74a84fa3a8c1c497bbe7b, type: 3}
   attack: 0
-  attackDuration: 0.4
   attackTime: 0.4
   attackCharge: 0.4
   stun: 0
@@ -8520,6 +8516,7 @@ MonoBehaviour:
   stunned: 0
   stunTimeCounter: 0.5
   target: {fileID: 1097629273}
+  es: {fileID: 0}
   sr: {fileID: 1324544257}
   dir: 0
   currentSpeed: 0
@@ -9033,7 +9030,6 @@ MonoBehaviour:
   attackHeight: 2.25
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
-  attackDuration: 0.4
   attackTime: 0.4
   attackCharge: 0.2
   stun: 0
@@ -9110,6 +9106,7 @@ MonoBehaviour:
   stunned: 0
   stunTimeCounter: 0.5
   target: {fileID: 1097629273}
+  es: {fileID: 0}
   sr: {fileID: 1397072248}
   dir: 0
   currentSpeed: 0

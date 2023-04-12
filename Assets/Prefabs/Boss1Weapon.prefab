@@ -76,6 +76,7 @@ MonoBehaviour:
   hazardus: 1
   force: 120
   playerStun: 0.4
+  invulneravilityTime: 1
 --- !u!212 &4637662024002315351
 SpriteRenderer:
   m_ObjectHideFlags: 0

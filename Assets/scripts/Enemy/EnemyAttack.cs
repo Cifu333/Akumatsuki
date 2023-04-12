@@ -11,12 +11,11 @@ public class EnemyAttack : MonoBehaviour
     public GameObject enemyWeapon;
     public bool attack;
     private bool charge;
+    GameObject temp;
 
 
     private float attackCoolCounter;
-    private float attackCounter;
     private float attackChargeCounter;
-    public float attackDuration = 0.4f;
     public float attackTime = 0.4f;
     public float attackCharge = 0.2f;
 
@@ -38,7 +37,19 @@ public class EnemyAttack : MonoBehaviour
         {
             if (!stun)
             {
-                Attack();
+                switch (em.es.type)
+                {
+                    case EnemyStatus.Type.MELEE:
+                        MeleeAttack();
+                        break;
+                    case EnemyStatus.Type.RANGED:
+                        RangedAttack();
+                        break;
+                    case EnemyStatus.Type.TANK:
+                        break;
+                    case EnemyStatus.Type.FLYING:
+                        break;
+                }
             }
         }
         else
@@ -51,12 +62,11 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    private void Attack()
+    private void MeleeAttack()
     {
-        GameObject temp;
         if (em.dif <= em.distance && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
         {
-            if (attackCoolCounter <= 0 && attackCounter <= 0)
+            if (attackCoolCounter <= 0)
             {
                 if (charge == true)
                 {
@@ -80,26 +90,66 @@ public class EnemyAttack : MonoBehaviour
                 {
                     temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
                 }
-                attackCounter = attackDuration;
+                attackCoolCounter = attackTime;
                 temp.transform.parent = transform;
-                Destroy(temp, attackDuration);
             }
         }
 
-        if (attackCounter > 0)
+        Destroy(temp, Time.fixedDeltaTime);
+
+        if (attackCoolCounter > 0f)
         {
-            attackCounter -= Time.deltaTime;
-            if (attackCounter <= 0)
+            attackCoolCounter -= Time.deltaTime;
+            if (attackCoolCounter <= 0f)
             {
-                attackCoolCounter = attackTime;
+                charge = true;
                 attack = false;
+            }
+        }
+    }
+
+    private void RangedAttack()
+    {
+        if (em.dif >= em.distance && em.dif <= em.detect && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
+        {
+            if (attackCoolCounter <= 0)
+            {
+                if (charge == true)
+                {
+                    attack = true;
+                    attackChargeCounter = attackCharge;
+                    charge = false;
+                }
+            }
+        }
+
+        if (attackChargeCounter > 0)
+        {
+            attackChargeCounter -= Time.deltaTime;
+            if (attackChargeCounter <= 0)
+            {
+                if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+                {
+                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                }
+                else
+                {
+                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+                }
+                attackCoolCounter = attackTime;
+                temp.transform.parent = transform;
+                Destroy(temp, 6);
             }
         }
 
         if (attackCoolCounter > 0f)
         {
             attackCoolCounter -= Time.deltaTime;
-            charge = true;
+            if (attackCoolCounter <= 0f)
+            {
+                charge = true;
+                attack = false;
+            }
         }
     }
 }

@@ -65,7 +65,7 @@ public class WeaponDamage : MonoBehaviour
                 collision.gameObject.GetComponent<HorizontalMovement>().stunCounter = playerStun;
 
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravility = true;
-                collision.gameObject.GetComponent<PlayerStatus>().invulneravilityFrames = invulneravilityTime;
+                collision.gameObject.GetComponent<PlayerStatus>().invulneravilityCounter = invulneravilityTime;
             }
         }
     }

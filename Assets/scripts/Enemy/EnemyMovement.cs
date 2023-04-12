@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    EnemyStatus es;
+    public EnemyStatus es;
 
     public SpriteRenderer sr;
     GroundDetector ground;

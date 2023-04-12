@@ -96,7 +96,6 @@ public class HumanAbilities : MonoBehaviour
             {
                 runeCooldown = true;
                 gameObject.GetComponent<PlayerStatus>().invulneravility = true;
-                gameObject.GetComponent<PlayerStatus>().invulneravilityFrames = runePower;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0.15f, 1f, 1f);
                 runeCoolCounter = runeTime;
                 runeCounter = runeDuration;
@@ -107,7 +106,10 @@ public class HumanAbilities : MonoBehaviour
         {
             runeCounter -= Time.deltaTime;
             if (runeCounter <= 0)
+            {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+                gameObject.GetComponent<PlayerStatus>().invulneravility = false;
+            }
         }
 
         if (runeCoolCounter > 0f)

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Scene
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 71
+  controlID: 90
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 72
+  controlID: 91
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -118,8 +118,8 @@ MonoBehaviour:
     y: 0
     width: 364
     height: 557
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 53
+  controlID: 19
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 54
+  controlID: 20
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,14 +350,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.51687604
+    - e00: 0.43934464
       e01: 0
       e02: 0
-      e03: -0.2732876
+      e03: -9.040894
       e10: 0
-      e11: 0.51687604
+      e11: 0.43934464
       e12: 0
-      e13: 52.199898
+      e13: 42
       e20: 0
       e21: 0
       e22: 1
@@ -423,22 +423,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Prefabs/Enemys
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Prefabs/Enemys
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\P\xC9REZGONZ\xC1LEZDANIEL\\Desktop\\Akumatsuki"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: ae650000
-    m_LastClickedID: 26030
-    m_ExpandedIDs: 0000000098650000b265000000ca9a3bffffff7f
+    m_SelectedIDs: 82970000
+    m_LastClickedID: 38786
+    m_ExpandedIDs: 00000000a8650000bc650000c065000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -466,7 +466,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000098650000
+    m_ExpandedIDs: 00000000a8650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -557,7 +557,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 980
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -593,10 +593,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: da610000
-      m_LastClickedID: 25050
-      m_ExpandedIDs: ac97ffff7cacffff2cfbffffb0600000106100005a610000826100000c63000026630000
+      scrollPos: {x: 0, y: 80}
+      m_SelectedIDs: 18970000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2cfbffffb0600000106100005a610000826100000c63000026630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -867,9 +867,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.6850557, y: -1.0504689, z: -0.7727982}
+    m_Target: {x: 4.0530434, y: 8.406389, z: -1.3692013}
     speed: 2
-    m_Value: {x: 5.6850557, y: -1.0504689, z: -0.7727982}
+    m_Value: {x: 4.0530434, y: 8.406389, z: -1.3692013}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0

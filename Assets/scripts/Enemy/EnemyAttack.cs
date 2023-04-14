@@ -64,7 +64,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void MeleeAttack()
     {
-        if (em.dif <= em.distance && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
+        if (em.difX <= em.distance && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
         {
             if (attackCoolCounter <= 0)
             {
@@ -110,7 +110,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void RangedAttack()
     {
-        if (em.dif >= em.distance && em.dif <= em.detect && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
+        if (em.difX >= em.distance && em.difX <= em.detect && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y)
         {
             if (attackCoolCounter <= 0)
             {
@@ -138,6 +138,7 @@ public class EnemyAttack : MonoBehaviour
                 }
                 attackCoolCounter = attackTime;
                 temp.transform.parent = transform;
+                attack = false;
                 Destroy(temp, 6);
             }
         }
@@ -148,7 +149,6 @@ public class EnemyAttack : MonoBehaviour
             if (attackCoolCounter <= 0f)
             {
                 charge = true;
-                attack = false;
             }
         }
     }

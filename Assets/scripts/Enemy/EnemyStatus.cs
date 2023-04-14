@@ -7,7 +7,6 @@ public class EnemyStatus : MonoBehaviour
     public enum Type { MELEE, RANGED, TANK, FLYING };
     public Type type;
     public float hp = 50;
-    public Door d;
     public int money = 10;
     public int misery = 5;
     public EnemyAttack ea;
@@ -37,7 +36,6 @@ public class EnemyStatus : MonoBehaviour
         if (hp <= 0)
         {
             GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().money += money;
-            d.numEnemys--;
             Destroy(gameObject, 0);
         }
     }

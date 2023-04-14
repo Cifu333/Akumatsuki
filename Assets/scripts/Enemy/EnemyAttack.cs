@@ -12,12 +12,20 @@ public class EnemyAttack : MonoBehaviour
     public bool attack;
     private bool charge;
     GameObject temp;
+    Rigidbody2D rb;
 
 
     private float attackCoolCounter;
     private float attackChargeCounter;
     public float attackTime = 0.4f;
     public float attackCharge = 0.2f;
+
+    //Only flying
+    public float dashForce = 15;
+
+    public float dashDuration = 0.5f;
+    private float dashCounter;
+    //
 
     public bool stun;
     public float stunCounter;
@@ -28,6 +36,7 @@ public class EnemyAttack : MonoBehaviour
         stun = false;
         charge = true;
         em = GetComponent<EnemyMovement>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -48,6 +57,7 @@ public class EnemyAttack : MonoBehaviour
                     case EnemyStatus.Type.TANK:
                         break;
                     case EnemyStatus.Type.FLYING:
+                        FlyingAttack();
                         break;
                 }
             }
@@ -92,6 +102,7 @@ public class EnemyAttack : MonoBehaviour
                 }
                 attackCoolCounter = attackTime;
                 temp.transform.parent = transform;
+                attack = false;
             }
         }
 
@@ -103,7 +114,70 @@ public class EnemyAttack : MonoBehaviour
             if (attackCoolCounter <= 0f)
             {
                 charge = true;
+            }
+        }
+    }
+    private void FlyingAttack()
+    {
+        float difer = (em.target.transform.position.x - transform.position.x) / (em.target.transform.position.y - transform.position.y);
+        if (difer < 0f)
+            difer = -difer;
+        if (em.difX <= em.distance && em.difY <= em.distance)
+        {
+            if (attackCoolCounter <= 0)
+            {
+                if (charge == true)
+                {
+                    attack = true;
+                    attackChargeCounter = attackCharge;
+                    charge = false;
+                }
+            }
+        }
+
+        if (attackChargeCounter > 0)
+        {
+            attackChargeCounter -= Time.deltaTime;
+            if (attackChargeCounter <= 0)
+            {
+
+                temp = Instantiate(enemyWeapon, transform.position + new Vector3(0, 0, 0), transform.rotation);
+
+                if (em.target.transform.position.x - transform.position.x < 0)
+                    rb.AddForce(new Vector2(-dashForce * difer, 0));
+                else
+                    rb.AddForce(new Vector2(dashForce * difer, 0));
+
+                if (em.target.transform.position.y - transform.position.y < 0)
+                    rb.AddForce(new Vector2(0, -dashForce));
+                else
+                    rb.AddForce(new Vector2(0, dashForce));
+
+                dashCounter = dashDuration;
+
+                temp.transform.parent = transform;
+            }
+        }
+
+        if (dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+
+            if (dashCounter <= 0)
+            {
+                attackCoolCounter = attackTime;
+                Destroy(temp);
+                rb.velocity = Vector2.zero;
                 attack = false;
+            }
+        }
+
+        if (attackCoolCounter > 0f)
+        {
+            attackCoolCounter -= Time.deltaTime;
+            if (attackCoolCounter <= 0f)
+            {
+                charge = true;
             }
         }
     }

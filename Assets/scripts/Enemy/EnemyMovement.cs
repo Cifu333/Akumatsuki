@@ -46,6 +46,7 @@ public class EnemyMovement : MonoBehaviour
         dir = Direction.NONE;
         rb = GetComponent<Rigidbody2D>();
         es = GetComponent<EnemyStatus>();
+        target = GameObject.FindGameObjectWithTag("Player");
         stunned = false;
     }
 
@@ -76,6 +77,7 @@ public class EnemyMovement : MonoBehaviour
             if (stunTimeCounter <= 0)
             {
                 stunned = false;
+                rb.velocity = Vector2.zero;
             }
         }
 
@@ -89,7 +91,8 @@ public class EnemyMovement : MonoBehaviour
         {
             if (target != null)
             {
-                rb.velocity *= new Vector3(0, 1, 0);
+                if (es.type != EnemyStatus.Type.FLYING)
+                    rb.velocity *= new Vector3(0, 1, 0);
             }
         }
     }
@@ -142,22 +145,33 @@ public class EnemyMovement : MonoBehaviour
             {
                 currentSpeed = speed;
                 difX = transform.position.x - target.transform.position.x;
-                difX = transform.position.y - target.transform.position.y;
+                difY = transform.position.y - target.transform.position.y;
                 if (difX < 0) { difX = -difX; }
                 if (difY < 0) { difY = -difY; }
-                if (transform.position.x < target.transform.position.x && difX < detect)
+                if (transform.position.x < target.transform.position.x && difX < detect && difY < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
                     if (difX > distance)
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
                     dir = Direction.RIGHT;
                 }
-                if (transform.position.x > target.transform.position.x && difX < detect)
+                if (transform.position.x > target.transform.position.x && difX < detect && difY < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
                     if (difX > distance)
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
                     dir = Direction.LEFT;
+                }
+
+                if (transform.position.y > target.transform.position.y && difX < detect && difY < detect)
+                {
+                    if (difY > distance)
+                        transform.position += new Vector3(0, -currentSpeed * Time.deltaTime, 0);
+                }
+                if (transform.position.y < target.transform.position.y && difX < detect && difY < detect)
+                {
+                    if (difY > distance)
+                        transform.position += new Vector3(0, currentSpeed * Time.deltaTime, 0);
                 }
 
             }

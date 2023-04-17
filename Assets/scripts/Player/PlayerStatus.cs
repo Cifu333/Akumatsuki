@@ -17,9 +17,8 @@ public class PlayerStatus : MonoBehaviour
     HorizontalMovement hm;
     HumanAbilities humanA;
 
-    public float invulneravilityFrames;
     public bool invulneravility;
-    private float invulneravilityCounter;
+    public float invulneravilityCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,17 +37,22 @@ public class PlayerStatus : MonoBehaviour
     {
         Muerte();
         FreeViability();
+        InvulneravilityCount();
     }
 
     private void FixedUpdate()
     {
-        if (invulneravility == true)
+        
+    }
+
+    private void InvulneravilityCount()
+    {
+        if (invulneravilityCounter > 0)
         {
-            invulneravilityCounter += Time.deltaTime;
-            if (invulneravilityCounter >= invulneravilityFrames)
+            invulneravilityCounter -= Time.deltaTime;
+            if (invulneravilityCounter <= 0)
             {
                 invulneravility = false;
-                invulneravilityCounter = 0;
             }
         }
     }

@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    EnemyAttack ea;
+    public EnemyStatus es;
 
     public SpriteRenderer sr;
     GroundDetector ground;
@@ -26,7 +26,8 @@ public class EnemyMovement : MonoBehaviour
     public float currentSpeed = 0.0f;
     public float speed = 5;
     public float distance;
-    public float dif;
+    public float difX;
+    public float difY;
     public float detect;
 
     public int numJumps;
@@ -44,7 +45,8 @@ public class EnemyMovement : MonoBehaviour
         ground = GetComponent<GroundDetector>();
         dir = Direction.NONE;
         rb = GetComponent<Rigidbody2D>();
-        ea = GetComponent<EnemyAttack>();
+        es = GetComponent<EnemyStatus>();
+        target = GameObject.FindGameObjectWithTag("Player");
         stunned = false;
     }
 
@@ -53,7 +55,21 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!stunned)
         {
-            Movement();
+            switch (es.type)
+            {
+                case EnemyStatus.Type.MELEE:
+                    MeleeMovement();
+                    break;
+                case EnemyStatus.Type.RANGED:
+                    RangedMovement();
+                    break;
+                case EnemyStatus.Type.FLYING:
+                    FlyingMovement();
+                    break;
+                case EnemyStatus.Type.TANK:
+                    break;
+
+            }
         }
         else
         {
@@ -61,6 +77,7 @@ public class EnemyMovement : MonoBehaviour
             if (stunTimeCounter <= 0)
             {
                 stunned = false;
+                rb.velocity = Vector2.zero;
             }
         }
 
@@ -74,28 +91,8 @@ public class EnemyMovement : MonoBehaviour
         {
             if (target != null)
             {
-                rb.velocity *= new Vector3(0, 1, 0);
-                if (ea.attack == false)
-                {
-                    currentSpeed = speed;
-                    dif = transform.position.x - target.transform.position.x;
-                    if (dif < 0) { dif = -dif; }
-                    if (transform.position.x < target.transform.position.x && dif < detect)
-                    {
-                        if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                        if (dif > distance)
-                            transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
-                        dir = Direction.RIGHT;
-                    }
-                    if (transform.position.x > target.transform.position.x && dif < detect)
-                    {
-                        if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                        if (dif > distance)
-                            transform.position += new Vector3(-currentSpeed * Time.fixedDeltaTime, 0, 0);
-                        dir = Direction.LEFT;
-                    }
-
-                }
+                if (es.type != EnemyStatus.Type.FLYING)
+                    rb.velocity *= new Vector3(0, 1, 0);
             }
         }
     }
@@ -113,9 +110,106 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void Movement()
+    private void MeleeMovement()
     {
-        int jumps = 0;
+        if (target != null)
+        {
+            if (es.free == true)
+            {
+                currentSpeed = speed;
+                difX = transform.position.x - target.transform.position.x;
+                if (difX < 0) { difX = -difX; }
+                if (transform.position.x < target.transform.position.x && difX < detect)
+                {
+                    if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
+                    if (difX > distance)
+                        transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.RIGHT;
+                }
+                if (transform.position.x > target.transform.position.x && difX < detect)
+                {
+                    if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
+                    if (difX > distance)
+                        transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.LEFT;
+                }
+
+            }
+        }
+    }
+    private void FlyingMovement()
+    {
+        if (target != null)
+        {
+            if (es.free == true)
+            {
+                currentSpeed = speed;
+                difX = transform.position.x - target.transform.position.x;
+                difY = transform.position.y - target.transform.position.y;
+                if (difX < 0) { difX = -difX; }
+                if (difY < 0) { difY = -difY; }
+                if (transform.position.x < target.transform.position.x && difX < detect && difY < detect)
+                {
+                    if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
+                    if (difX > distance)
+                        transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.RIGHT;
+                }
+                if (transform.position.x > target.transform.position.x && difX < detect && difY < detect)
+                {
+                    if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
+                    if (difX > distance)
+                        transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.LEFT;
+                }
+
+                if (transform.position.y > target.transform.position.y && difX < detect && difY < detect)
+                {
+                    if (difY > distance)
+                        transform.position += new Vector3(0, -currentSpeed * Time.deltaTime, 0);
+                }
+                if (transform.position.y < target.transform.position.y && difX < detect && difY < detect)
+                {
+                    if (difY > distance)
+                        transform.position += new Vector3(0, currentSpeed * Time.deltaTime, 0);
+                }
+
+            }
+        }
+    }
+
+    private void RangedMovement()
+    {
+        if (target != null)
+        {
+            if (es.free == true)
+            {
+                currentSpeed = speed;
+                difX = transform.position.x - target.transform.position.x;
+                if (difX < 0) { difX = -difX; }
+                if (transform.position.x < target.transform.position.x && difX < detect)
+                {
+                    if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
+                    if (difX < distance)
+                        transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.RIGHT;
+                }
+                if (transform.position.x > target.transform.position.x && difX < detect)
+                {
+                    if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
+                    if (difX < distance)
+                        transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                    dir = Direction.LEFT;
+                }
+
+            }
+        }
+    }
+}
+
+/*
+ //Salto
+ int jumps = 0;
 
         int count = 0;
         if (dir == Direction.LEFT)
@@ -164,6 +258,4 @@ public class EnemyMovement : MonoBehaviour
                 rb.AddForce(Vector2.up * force);
             }
         }
-    }
-}
-
+ */

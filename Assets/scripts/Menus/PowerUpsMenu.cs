@@ -9,6 +9,8 @@ public class PowerUpsMenu : MonoBehaviour
     public GameObject player;
     PlayerAbilitys pa;
     PlayerStatus status;
+    private bool isThere;
+    private GameObject collider;
     public int d1Cost;
     public int d2Cost;
     public int d3Cost;
@@ -33,6 +35,7 @@ public class PowerUpsMenu : MonoBehaviour
     void Start()
     {
         isPaused = false;
+        isThere = false;
         pauseMenu.SetActive(false);
         pa = player.GetComponent<PlayerAbilitys>();
         status = player.GetComponent<PlayerStatus>();
@@ -49,15 +52,26 @@ public class PowerUpsMenu : MonoBehaviour
                 pauseMenu.SetActive(false);
             }
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.X))
+        if (isThere == true && Input.GetKeyDown(KeyCode.X))
         {
             Time.timeScale = 0;
             isPaused = true;
             pauseMenu.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            isThere = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            isThere = false;
         }
     }
 

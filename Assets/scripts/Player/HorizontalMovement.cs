@@ -10,9 +10,9 @@ public class HorizontalMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public SpriteRenderer sr;
-    public Animator anim;
-    public GroundDetector ground;
+    SpriteRenderer sr;
+    Animator anim;
+    GroundDetector ground;
     public Direction dir = Direction.NONE;
     public float currentSpeed = 0.0f;
     public float speed = 5;
@@ -59,6 +59,7 @@ public class HorizontalMovement : MonoBehaviour
                     if (dashCoolCounter <= 0 && dashCounter <= 0)
                     {
                         dash = true;
+                        gameObject.GetComponent<PlayerStatus>().invulneravility = true;
                         rb.gravityScale = 0;
                         rb.velocity = Vector3.zero;
                         rb.angularVelocity = 0;
@@ -81,6 +82,7 @@ public class HorizontalMovement : MonoBehaviour
                     {
                         currentSpeed = horizontal * speed;
                         dashCoolCounter = dashTime;
+                        gameObject.GetComponent<PlayerStatus>().invulneravility = false;
                         dash = false;
                         rb.gravityScale = 8;
                     }

@@ -27,6 +27,8 @@ public class EnemyAttack : MonoBehaviour
     private float dashCounter;
     //
 
+    Animator anim;
+
     public bool stun;
     public float stunCounter;
 
@@ -37,6 +39,7 @@ public class EnemyAttack : MonoBehaviour
         charge = true;
         em = GetComponent<EnemyMovement>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -70,6 +73,7 @@ public class EnemyAttack : MonoBehaviour
                 stun = false;
             }
         }
+        anim.SetBool("Attack", attack);
     }
 
     private void MeleeAttack()

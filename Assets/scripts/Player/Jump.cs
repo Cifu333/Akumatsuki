@@ -41,7 +41,7 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<PlayerAttack>().attack == false && GetComponent<Disparo>().justShot == false)
+        if (GetComponent<PlayerAttack>().attack == false && GetComponent<Disparo>().justShot == false && GetComponent<PlayerStatus>().free == true)
         {
             targetGroundDetectorComponent = target.GetComponent<GroundDetector>();
             if (targetGroundDetectorComponent.grounded == true)

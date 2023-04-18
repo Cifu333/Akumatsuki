@@ -12,6 +12,7 @@ TagManager:
   - Shop
   - fire
   - Test
+  - Token
   layers:
   - Default
   - TransparentFX

@@ -26,12 +26,13 @@ public class DemonAbilities : MonoBehaviour
     public float tentacleAttackTime = 0.5f;
     public float tentacleAttackCharge = 0.2f;
     public float tentacleTranslation = 0.3f;
-    private float groundDistance = 1f;
+    public float groundDistance = 1f;
     public LayerMask groundMask;
     public bool attach;
 
     private float fireCoolCounter;
     private float fireCounter;
+    private float fireReiterateCounter;
     public float fireDuration = 3f;
     public float fireTime = 3f;
 
@@ -47,6 +48,7 @@ public class DemonAbilities : MonoBehaviour
     {
         tentacleMisery = 20;
         fireMisery = 30;
+        fireReiterateCounter = 0;
         tentacleCooldown = false;
         fireCooldown = false;
         attach = false;
@@ -94,7 +96,8 @@ public class DemonAbilities : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp = Instantiate(tentacle, transform.position + new Vector3(-(offset + 0.65f), 0, 0), new Quaternion());
+                    temp = Instantiate(tentacle, transform.position + new Vector3(-(offset + 0.45f), 0, 0), transform.rotation);
+                    temp.transform.localScale = new Vector2(-temp.transform.localScale.x,temp.transform.localScale.y);
                 }
                 else
                 {
@@ -108,36 +111,55 @@ public class DemonAbilities : MonoBehaviour
         if (tentacleAttackCounter > 0)
         {
             tentacleAttackCounter -= Time.deltaTime;
-            if (tentacleAttackCounter > tentacleAttackDuration / 2)
+            if (tentacleAttackCounter > tentacleAttackDuration / 2 && attach == false)
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
                     temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
                     temp.gameObject.transform.position += new Vector3(-tentacleTranslation / 10, 0, 0);
-                    Debug.DrawRay(temp.transform.position + new Vector3(tentacleTranslation / 10, 0, 0), transform.right * groundDistance * -1, Color.red);
-                    if (Physics2D.Raycast(temp.transform.position - new Vector3(tentacleTranslation / 10,0,0), transform.right * -1, groundDistance, groundMask))
-                        attach = true;
                 }
                 else
                 {
                     temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
                     temp.gameObject.transform.position += new Vector3(tentacleTranslation / 10, 0, 0);
-                    Debug.DrawRay(temp.transform.position + new Vector3(temp.transform.position.x * 1.5f, 0, 0), transform.right * groundDistance, Color.red);
-                    if (Physics2D.Raycast(temp.transform.position + new Vector3(tentacleTranslation / 10, 0, 0), transform.right, groundDistance, groundMask))
-                        attach = true;
                 }
             }
             else if (tentacleAttackCounter < tentacleAttackDuration / 2)
             {
-                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+                if (attach == false)
                 {
-                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
-                    temp.gameObject.transform.position -= new Vector3(-tentacleTranslation / 10, 0, 0);
+                    if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+                    {
+                        temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                        temp.gameObject.transform.position -= new Vector3(-tentacleTranslation / 10, 0, 0);
+                    }
+                    else
+                    {
+                        temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                        temp.gameObject.transform.position -= new Vector3(tentacleTranslation / 10, 0, 0);
+                    }
                 }
                 else
                 {
-                    temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
-                    temp.gameObject.transform.position -= new Vector3(tentacleTranslation / 10, 0, 0);
+
+                    if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+                    {
+                        if (temp.gameObject.transform.localScale.x > 0)
+                        {
+                            temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0);
+                            temp.gameObject.transform.position -= new Vector3(-tentacleTranslation * 1.5f / 10, 0, 0);
+                        }
+                        transform.position -= new Vector3(tentacleTranslation / 2.5f, 0, 0);
+                    }
+                    else
+                    {
+                        if (temp.gameObject.transform.localScale.x > 0)
+                        {
+                            temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0);
+                            temp.gameObject.transform.position -= new Vector3(tentacleTranslation * 1.5f / 10, 0, 0);
+                        }
+                        transform.position -= new Vector3(-tentacleTranslation / 2.5f, 0, 0);
+                    }
                 }
             }
             if (tentacleAttackCounter <= 0)
@@ -147,6 +169,7 @@ public class DemonAbilities : MonoBehaviour
                 Destroy(temp, 0);
                 ability = false;
                 charge = true;
+                attach = false;
             }
         }
 
@@ -180,8 +203,16 @@ public class DemonAbilities : MonoBehaviour
         if (fireCounter > 0f)
         {
             fireCounter -= Time.deltaTime;
+            fireReiterateCounter += Time.deltaTime;
+            if (fireReiterateCounter >= 1)
+            {
+                fireReiterateCounter = 0;
+                Destroy(temp, 0);
+                temp = Instantiate(fire, transform.position, transform.rotation);
+            }
             if (fireCounter <= 0)
             {
+                fireReiterateCounter = 0;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
                 Destroy(temp, 0);
             }
@@ -194,6 +225,15 @@ public class DemonAbilities : MonoBehaviour
             {
                 fireCooldown = false;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (GetComponent<CapsuleCollider2D>() != null)
+        {
+            if (collision.gameObject.layer == 3)
+                attach = true;
         }
     }
 }

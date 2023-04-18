@@ -43,8 +43,7 @@ public class WeaponDamage : MonoBehaviour
             }
             if (gameObject.tag == "Weapon")
                 GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyStatus>().misery;
-            if (gameObject.tag != "Fire")
-                collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;
+            collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;
             
         }
         if (collision.gameObject.tag == "Player" && hazardus == true)
@@ -66,19 +65,6 @@ public class WeaponDamage : MonoBehaviour
 
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravility = true;
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravilityCounter = invulneravilityTime;
-            }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (gameObject.tag == "Fire" && collision.gameObject.tag == "Enemy")
-        {
-            time += Time.deltaTime;
-            if (time >= 1)
-            {
-                collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;
-                time = 0;
             }
         }
     }

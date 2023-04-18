@@ -12,8 +12,6 @@ public class HumanAbilities : MonoBehaviour
 
     public float offset = 1.1f;
 
-    private Disparo bullet;
-
     public bool charge;
 
     PlayerAbilitys pa;
@@ -53,7 +51,6 @@ public class HumanAbilities : MonoBehaviour
     {
         semtexAtack();
         Rune();
-        AK();
     }
 
     private void semtexAtack()
@@ -119,14 +116,6 @@ public class HumanAbilities : MonoBehaviour
             {
                 runeCooldown = false;
             }
-        }
-    }
-
-    private void AK()
-    {
-        if (pa.human[2] == true && gameObject.GetComponent<Disparo>().bulletTime >= 0.1f)
-        {
-            gameObject.GetComponent<Disparo>().bulletTime = 0.19f;
         }
     }
 }

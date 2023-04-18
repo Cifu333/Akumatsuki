@@ -10,7 +10,6 @@ public class PowerUpsMenu : MonoBehaviour
     PlayerAbilitys pa;
     PlayerStatus status;
     private bool isThere;
-    private GameObject collider;
     public int d1Cost;
     public int d2Cost;
     public int d3Cost;

@@ -28,6 +28,9 @@ public class DemonAbilities : MonoBehaviour
     public float tentacleAttackTime = 0.5f;
     public float tentacleAttackCharge = 0.2f;
     public float tentacleTranslation = 0.3f;
+    private float groundDistance = 1f;
+    public LayerMask groundMask;
+    public bool attach;
 
     private float fireCoolCounter;
     private float fireCounter;
@@ -48,6 +51,7 @@ public class DemonAbilities : MonoBehaviour
         fireMisery = 30;
         tentacleCooldown = false;
         fireCooldown = false;
+        attach = false;
         charge = true;
         ability = false;
         ps = GetComponent<PlayerStatus>();
@@ -92,7 +96,7 @@ public class DemonAbilities : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp = Instantiate(tentacle, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
+                    temp = Instantiate(tentacle, transform.position + new Vector3(-(offset + 0.65f), 0, 0), new Quaternion());
                 }
                 else
                 {
@@ -112,11 +116,17 @@ public class DemonAbilities : MonoBehaviour
                 {
                     temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
                     temp.gameObject.transform.position += new Vector3(-tentacleTranslation / 10, 0, 0);
+                    Debug.DrawRay(temp.transform.position + new Vector3(tentacleTranslation / 10, 0, 0), transform.right * groundDistance * -1, Color.red);
+                    if (Physics2D.Raycast(temp.transform.position - new Vector3(tentacleTranslation / 10,0,0), transform.right * -1, groundDistance, groundMask))
+                        attach = true;
                 }
                 else
                 {
                     temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
                     temp.gameObject.transform.position += new Vector3(tentacleTranslation / 10, 0, 0);
+                    Debug.DrawRay(temp.transform.position + new Vector3(temp.transform.position.x * 1.5f, 0, 0), transform.right * groundDistance, Color.red);
+                    if (Physics2D.Raycast(temp.transform.position + new Vector3(tentacleTranslation / 10, 0, 0), transform.right, groundDistance, groundMask))
+                        attach = true;
                 }
             }
             else if (tentacleAttackCounter < tentacleAttackDuration / 2)

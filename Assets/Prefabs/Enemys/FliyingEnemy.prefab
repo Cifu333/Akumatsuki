@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -668186778, guid: 53ee74fd1caf62c46b504aa5226eb755, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -195,8 +195,8 @@ MonoBehaviour:
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackTime: 3
-  attackCharge: 0.1
-  dashForce: 450
+  attackCharge: 0.5
+  dashForce: 400
   dashDuration: 0.7
   stun: 0
   stunCounter: 0

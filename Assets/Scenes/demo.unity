@@ -5870,6 +5870,7 @@ MonoBehaviour:
   tentacleAttackTime: 0.5
   tentacleAttackCharge: 0.3
   tentacleTranslation: 0.3
+  groundDistance: 1
   groundMask:
     serializedVersion: 2
     m_Bits: 8

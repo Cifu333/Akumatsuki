@@ -11,7 +11,7 @@ public class PlayerStatus : MonoBehaviour
     public int misery = 0;
     public bool free;
 
-    Disparo d;
+    Token d;
     PlayerAttack pa;
     DemonAbilities demonA;
     HorizontalMovement hm;
@@ -26,7 +26,7 @@ public class PlayerStatus : MonoBehaviour
         respawn = transform.position;
         invulneravility = false;
         demonA = GetComponent<DemonAbilities>();
-        d = GetComponent<Disparo>();
+        d = transform.GetChild(0).GetChild(0).GetComponent<Token>();
         pa = GetComponent<PlayerAttack>();
         hm = GetComponent<HorizontalMovement>();
         humanA = GetComponent<HumanAbilities>();

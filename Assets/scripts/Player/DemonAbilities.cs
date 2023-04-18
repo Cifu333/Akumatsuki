@@ -13,8 +13,6 @@ public class DemonAbilities : MonoBehaviour
 
     public float offset = 1.1f;
 
-    private Disparo bullet;
-
     public bool charge;
 
     PlayerAbilitys pa;

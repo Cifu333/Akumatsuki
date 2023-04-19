@@ -58,6 +58,7 @@ public class EnemyAttack : MonoBehaviour
                         RangedAttack();
                         break;
                     case EnemyStatus.Type.TANK:
+                        MeleeAttack();
                         break;
                     case EnemyStatus.Type.FLYING:
                         FlyingAttack();
@@ -106,7 +107,12 @@ public class EnemyAttack : MonoBehaviour
                 }
                 attackCoolCounter = attackTime;
                 temp.transform.parent = transform;
-                attack = false;
+                if (em.es.type == EnemyStatus.Type.MELEE)
+                    attack = false;
+                if (em.es.type == EnemyStatus.Type.TANK)
+                {
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.parent.GetComponent<camShake>().pressToShake1 = true;
+                }
             }
         }
 
@@ -115,6 +121,8 @@ public class EnemyAttack : MonoBehaviour
         if (attackCoolCounter > 0f)
         {
             attackCoolCounter -= Time.deltaTime;
+            if (em.es.type == EnemyStatus.Type.TANK && attackCoolCounter < attackTime / 2)
+                attack = false;
             if (attackCoolCounter <= 0f)
             {
                 charge = true;

@@ -67,6 +67,7 @@ public class EnemyMovement : MonoBehaviour
                     FlyingMovement();
                     break;
                 case EnemyStatus.Type.TANK:
+                    MeleeMovement();
                     break;
 
             }

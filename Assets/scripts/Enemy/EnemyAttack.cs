@@ -65,6 +65,11 @@ public class EnemyAttack : MonoBehaviour
                         break;
                 }
             }
+            else
+            {
+                attack = false;
+                attackCoolCounter = 0;
+            }
         }
         else
         {

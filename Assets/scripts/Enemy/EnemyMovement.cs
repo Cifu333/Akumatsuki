@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
 
     public int numJumps;
 
-
+    Animator anim;
 
     [SerializeField]
     public float wallDistance = 2.5f;
@@ -48,6 +48,7 @@ public class EnemyMovement : MonoBehaviour
         es = GetComponent<EnemyStatus>();
         target = GameObject.FindGameObjectWithTag("Player");
         stunned = false;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -78,6 +79,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            anim.SetBool("Movement", false);
             stunTimeCounter -= Time.deltaTime;
             if (stunTimeCounter <= 0)
             {
@@ -128,16 +130,25 @@ public class EnemyMovement : MonoBehaviour
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
                     if (difX > distance)
+                    {
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                        anim.SetBool("Movement", true);
+                    }
                     dir = Direction.RIGHT;
                 }
-                if (transform.position.x > target.transform.position.x && difX < detect)
+                else if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
                     if (difX > distance)
+                    {
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                        anim.SetBool("Movement", true);
+                    }
                     dir = Direction.LEFT;
                 }
+                else
+                    anim.SetBool("Movement", false);
+
 
             }
         }

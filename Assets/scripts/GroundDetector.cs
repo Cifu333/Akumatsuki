@@ -10,6 +10,7 @@ public class GroundDetector : MonoBehaviour
     private float groundDistance = 1.5f;
     public List<Vector3> rays;
     public LayerMask groundMask;
+    public float gravity;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,12 +59,12 @@ public class GroundDetector : MonoBehaviour
         else if (gameObject.tag == "Player")
         {
             if ((GetComponent<HorizontalMovement>().dash == false && GetComponent<PlayerStatus>().free == true && GetComponent<DemonAbilities>().ability == false) || GetComponent<HorizontalMovement>().stun == true)
-                rb.gravityScale = 8;
+                rb.gravityScale = gravity;
 
         }
         else
         {
-            rb.gravityScale = 8;
+            rb.gravityScale = gravity;
         }
     }
 }

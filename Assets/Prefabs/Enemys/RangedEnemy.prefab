@@ -111,6 +111,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  gravity: 8
 --- !u!114 &2752262911454680415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +134,8 @@ MonoBehaviour:
   currentSpeed: 0
   speed: 8
   distance: 15
-  dif: 0
+  difX: 0
+  difY: 0
   detect: 25
   numJumps: 0
   wallDistance: 1
@@ -194,7 +196,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   hp: 55
-  d: {fileID: 0}
   money: 10
   misery: 5
   ea: {fileID: 0}
@@ -217,5 +218,7 @@ MonoBehaviour:
   attack: 0
   attackTime: 1.7
   attackCharge: 0.3
+  dashForce: 15
+  dashDuration: 0.5
   stun: 0
   stunCounter: 0

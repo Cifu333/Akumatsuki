@@ -35,8 +35,10 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stun = false;
+        stun = true;
+        stunCounter = 1;
         charge = true;
+        attack = false;
         em = GetComponent<EnemyMovement>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -69,14 +71,12 @@ public class EnemyAttack : MonoBehaviour
             {
                 attack = false;
                 attackCoolCounter = 0;
-            }
-        }
-        else
-        {
-            stunCounter -= Time.deltaTime;
-            if (stunCounter <= 0)
-            {
-                stun = false;
+                charge = true;
+                stunCounter -= Time.deltaTime;
+                if (stunCounter <= 0)
+                {
+                    stun = false;
+                }
             }
         }
         anim.SetBool("Attack", attack);
@@ -105,6 +105,7 @@ public class EnemyAttack : MonoBehaviour
                 if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
                 {
                     temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                    temp.transform.localScale = new Vector3(-temp.transform.localScale.x, temp.transform.localScale.y);
                 }
                 else
                 {

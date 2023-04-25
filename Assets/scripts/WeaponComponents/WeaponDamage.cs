@@ -46,6 +46,7 @@ public class WeaponDamage : MonoBehaviour
             if (gameObject.tag == "Weapon")
             {
                 GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyStatus>().misery;
+                sound1.gameObject.GetComponent<AudioSource>().Pause();
                 Instantiate(sound2);
             }
             collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;

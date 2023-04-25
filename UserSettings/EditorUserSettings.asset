@@ -23,11 +23,19 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-5:
       value: 5a06025656575d080b0a0d7b4326594444161d297e7e7e337f7a4d63b0e6626a
       flags: 0
+<<<<<<< HEAD
     RecentlyUsedSceneGuid-6:
       value: 01080504570d590e5c59592646765a4417164d2c757877627e781932bbb7613b
       flags: 0
     RecentlyUsedSceneGuid-7:
       value: 0755575554530b5d090f0e27427a5d444e151b282f2c2036287f4d67bae1353a
+=======
+    RecentlyUsedSceneGuid-7:
+      value: 0755575554530b5d090f0e27427a5d444e151b282f2c2036287f4d67bae1353a
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 01080504570d590e5c59592646765a4417164d2c757877627e781932bbb7613b
+>>>>>>> 54b19d02ba04ae7daab59358784f19288edee865
       flags: 0
     RecentlyUsedSceneGuid-8:
       value: 01570003500d51025f595e7512275c4413151d787e7e74657f2d4830e0b5623e

@@ -5618,7 +5618,8 @@ MonoBehaviour:
   maxHP: 100
   respawn: {x: 0, y: 0, z: 0}
   money: 0
-  misery: 200
+  misery: 20000
+  babyParts: 0
   free: 0
   invulneravility: 0
   invulneravilityCounter: 0
@@ -5861,10 +5862,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450af55c2c6cf4946ac078d16677ca36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacle: {fileID: 8814476857338851520, guid: c31fa3dc61bc8d14f865710b9f91b1b8, type: 3}
+  tentacle: {fileID: 1913580506023576132, guid: c31fa3dc61bc8d14f865710b9f91b1b8, type: 3}
   fire: {fileID: 2132841706160978180, guid: 4eb96bb349f45204c8d056c252b5f220, type: 3}
   ability: 0
-  offset: 1.1
+  offset: 0
   charge: 0
   tentacleAttackDuration: 0.75
   tentacleAttackTime: 0.5

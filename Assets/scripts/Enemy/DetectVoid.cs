@@ -5,9 +5,11 @@ using UnityEngine;
 public class DetectVoid : MonoBehaviour
 {
     public bool inVoid;
-    public List<Vector3> rays;
+    public Vector3 ray;
     public LayerMask groundMask;
-    public float offSide;
+    public float offSet;
+    private float groundDistance = 1.5f;
+    RaycastHit2D hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,28 +19,27 @@ public class DetectVoid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DetectVoid();
+        DetectFall();
     }
 
-    private void DetectVoid()
+    private void DetectFall()
     {
-        for (int i = 0; i < rays.Count; i++)
+        Debug.DrawRay(transform.position + ray, transform.up * -1 * groundDistance, Color.red);
+        if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
         {
-            Debug.DrawRay(transform.position + rays[i], transform.up * -1 * groundDistance, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.up * -1, groundDistance, groundMask);
-            if (hit.collider != null)
-            {
-                count++;
-                Debug.DrawRay(transform.position + rays[i], transform.up * -1 * hit.distance, Color.green);
-                if (hit.transform.tag == "PlataformaMovil")
-                {
-                    transform.parent = hit.transform;
-                }
-                else
-                {
-                    transform.parent = null;
-                }
-            }
+            if (ray.x > 0)
+                ray.x = -ray.x;
+            hit = Physics2D.Raycast(transform.position + ray + new Vector3(-offSet, 0), transform.up * -1, groundDistance, groundMask);
         }
+        else
+        {
+            if (ray.x < 0)
+                ray.x = -ray.x;
+            hit = Physics2D.Raycast(transform.position + ray + new Vector3(-offSet, 0), transform.up * -1, groundDistance, groundMask);
+        }
+        if (hit.transform.tag != "Ground" && hit.transform.tag != "Enemy")
+            inVoid = true;
+        else
+            inVoid = false;
     }
 }

@@ -32,6 +32,8 @@ public class EnemyMovement : MonoBehaviour
 
     public int numJumps;
 
+    DetectVoid dv;
+
     Animator anim;
 
     [SerializeField]
@@ -43,11 +45,12 @@ public class EnemyMovement : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         ground = GetComponent<GroundDetector>();
-        dir = Direction.NONE;
+        dir = Direction.RIGHT;
         rb = GetComponent<Rigidbody2D>();
         es = GetComponent<EnemyStatus>();
         target = GameObject.FindGameObjectWithTag("Player");
         stunned = false;
+        dv = GetComponent<DetectVoid>();
         anim = GetComponent<Animator>();
     }
 
@@ -56,19 +59,23 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!stunned)
         {
+
             switch (es.type)
             {
                 case EnemyStatus.Type.MELEE:
-                    MeleeMovement();
+                    if (!dv)
+                        MeleeMovement();
                     break;
                 case EnemyStatus.Type.RANGED:
-                    RangedMovement();
+                    if (!dv)
+                        RangedMovement();
                     break;
                 case EnemyStatus.Type.FLYING:
                     FlyingMovement();
                     break;
                 case EnemyStatus.Type.TANK:
-                    MeleeMovement();
+                    if (!dv)
+                        MeleeMovement();
                     break;
 
             }

@@ -196,7 +196,7 @@ MonoBehaviour:
   attack: 0
   attackTime: 3
   attackCharge: 0.5
-  dashForce: 400
+  dashForce: 4000
   dashDuration: 0.7
   stun: 0
   stunCounter: 0

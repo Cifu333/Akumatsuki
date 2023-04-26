@@ -52,6 +52,8 @@ public class EnemyMovement : MonoBehaviour
         stunned = false;
         dv = GetComponent<DetectVoid>();
         anim = GetComponent<Animator>();
+        currentSpeed = speed;
+        difX = transform.position.x - target.transform.position.x;
     }
 
     // Update is called once per frame
@@ -63,19 +65,16 @@ public class EnemyMovement : MonoBehaviour
             switch (es.type)
             {
                 case EnemyStatus.Type.MELEE:
-                    if (!dv)
-                        MeleeMovement();
+                    MeleeMovement();
                     break;
                 case EnemyStatus.Type.RANGED:
-                    if (!dv)
-                        RangedMovement();
+                    RangedMovement();
                     break;
                 case EnemyStatus.Type.FLYING:
                     FlyingMovement();
                     break;
                 case EnemyStatus.Type.TANK:
-                    if (!dv)
-                        MeleeMovement();
+                    MeleeMovement();
                     break;
 
             }
@@ -136,7 +135,7 @@ public class EnemyMovement : MonoBehaviour
                 if (transform.position.x < target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    if (difX > distance)
+                    if (difX > distance && dv.inVoid == false)
                     {
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
                         anim.SetBool("Movement", true);
@@ -148,7 +147,7 @@ public class EnemyMovement : MonoBehaviour
                 else if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                    if (difX > distance)
+                    if (difX > distance && dv.inVoid == false)
                     {
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
                         anim.SetBool("Movement", true);
@@ -215,14 +214,14 @@ public class EnemyMovement : MonoBehaviour
                 if (transform.position.x < target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    if (difX < distance)
+                    if (difX < distance && dv.inVoid == false)
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
                     dir = Direction.RIGHT;
                 }
                 if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                    if (difX < distance)
+                    if (difX < distance && dv.inVoid == false)
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
                     dir = Direction.LEFT;
                 }

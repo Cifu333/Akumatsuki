@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a8897fb3ee8367c4283a70a7186cabb7
+guid: 22aedb941fb0e79499664e781805600f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death_0
+      name: hot wheels (4)_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 131
-        width: 23
-        height: 16
+        x: 77
+        y: 82
+        width: 42
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c0e132ee3c8a7c46ab94120f1d5b704
-      internalID: 2006734218
+      spriteID: 89da2cd31da7d3c46b08651934183588
+      internalID: 1603096772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_1
+      name: hot wheels (4)_2
       rect:
         serializedVersion: 2
-        x: 7
-        y: 105
-        width: 27
-        height: 20
+        x: 269
+        y: 82
+        width: 43
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eca386cf6ad2e854c8b505c91e7014c3
-      internalID: 572267405
+      spriteID: 5d951401e5b205344bc64dac2a4de416
+      internalID: -74166615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_2
+      name: hot wheels (4)_5
       rect:
         serializedVersion: 2
-        x: 6
-        y: 79
-        width: 22
-        height: 17
+        x: 461
+        y: 82
+        width: 42
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad8dcef7bd3231749922862a32bd0195
-      internalID: 231358751
+      spriteID: 62990bbc6144b184b9d35cb2ecff174a
+      internalID: -989978263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_3
+      name: hot wheels (4)_6
       rect:
         serializedVersion: 2
-        x: 5
-        y: 53
-        width: 24
-        height: 11
+        x: 653
+        y: 82
+        width: 43
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,50 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f8ab15c0b26f91479660edf76650a95
-      internalID: 1995150284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_4
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 27
-        width: 24
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 943d18013a89cbc48a79f1cffaed8d39
-      internalID: -2029680623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_5
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 1
-        width: 24
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7442fdbd0ff0974fb6bc3d2462e182a
-      internalID: 1617307867
+      spriteID: a9dd2943f1e95c74eaebb1b5aed0af79
+      internalID: -164374543
       vertices: []
       indices: 
       edges: []
@@ -240,12 +198,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      death_5: 1617307867
-      death_3: 1995150284
-      death_1: 572267405
-      death_4: -2029680623
-      death_0: 2006734218
-      death_2: 231358751
+      hot wheels (4)_5: -989978263
+      hot wheels (4)_1: 2017855086
+      hot wheels (4)_6: -164374543
+      hot wheels (4)_0: 1603096772
+      hot wheels (4)_2: -74166615
+      hot wheels (4)_3: -1117453292
+      hot wheels (4)_4: 836890212
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

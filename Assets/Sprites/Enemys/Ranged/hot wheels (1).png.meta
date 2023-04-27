@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 196a230e4f2e49f4e8baaff03c34f0eb
+guid: 3a919f8018a49824b8fb698ea17c30e7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,12 +104,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charge_0
+      name: hot wheels (1)_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 79
-        width: 23
+        x: 77
+        y: 82
+        width: 28
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab04b4997322da143908316d766ec3d6
-      internalID: 920782093
+      spriteID: 809f7a3caeb9a784995b18433b95bcb8
+      internalID: 1285100308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charge_1
+      name: hot wheels (1)_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 53
-        width: 23
-        height: 22
+        x: 269
+        y: 82
+        width: 29
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,50 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1fd0ebe9f1e45c4889aab044c1d243c
-      internalID: -691428886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charge_2
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 27
-        width: 23
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01c690a59ffe93942a4ebd15df61eb58
-      internalID: 404926902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charge_3
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 1
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 918aba13594aca24690f2f5a836f1c09
-      internalID: 921138166
+      spriteID: 4fdeb0e882fe77e478a269395ed53148
+      internalID: 673444346
       vertices: []
       indices: 
       edges: []
@@ -198,10 +156,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charge_1: -691428886
-      charge_2: 404926902
-      charge_0: 920782093
-      charge_3: 921138166
+      hot wheels (1)_1: 673444346
+      hot wheels (1)_0: 1285100308
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

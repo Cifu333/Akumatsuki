@@ -16,9 +16,14 @@ public class Bullet : MonoBehaviour {
         else
         {
             if (transform.parent.GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.RIGHT)
+            {
                 rb.AddForce(rb.transform.right * speed);
+            }
             else
+            {
                 rb.AddForce(rb.transform.right * -speed);
+            }
+            transform.parent = null;
         }
     }
     void OnTriggerEnter2D(Collider2D collision) {

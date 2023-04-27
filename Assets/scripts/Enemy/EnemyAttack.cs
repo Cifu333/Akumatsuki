@@ -35,8 +35,10 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stun = false;
+        stun = true;
+        stunCounter = 1;
         charge = true;
+        attack = false;
         em = GetComponent<EnemyMovement>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -58,19 +60,23 @@ public class EnemyAttack : MonoBehaviour
                         RangedAttack();
                         break;
                     case EnemyStatus.Type.TANK:
+                        MeleeAttack();
                         break;
                     case EnemyStatus.Type.FLYING:
                         FlyingAttack();
                         break;
                 }
             }
-        }
-        else
-        {
-            stunCounter -= Time.deltaTime;
-            if (stunCounter <= 0)
+            else
             {
-                stun = false;
+                attack = false;
+                attackCoolCounter = 0;
+                charge = true;
+                stunCounter -= Time.deltaTime;
+                if (stunCounter <= 0)
+                {
+                    stun = false;
+                }
             }
         }
         anim.SetBool("Attack", attack);
@@ -99,6 +105,7 @@ public class EnemyAttack : MonoBehaviour
                 if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
                 {
                     temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                    temp.transform.localScale = new Vector3(-temp.transform.localScale.x, temp.transform.localScale.y);
                 }
                 else
                 {
@@ -106,7 +113,10 @@ public class EnemyAttack : MonoBehaviour
                 }
                 attackCoolCounter = attackTime;
                 temp.transform.parent = transform;
-                attack = false;
+                if (em.es.type == EnemyStatus.Type.TANK)
+                {
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.parent.GetComponent<camShake>().pressToShake1 = true;
+                }
             }
         }
 
@@ -115,6 +125,8 @@ public class EnemyAttack : MonoBehaviour
         if (attackCoolCounter > 0f)
         {
             attackCoolCounter -= Time.deltaTime;
+            if (attackCoolCounter < attackTime / 2)
+                attack = false;
             if (attackCoolCounter <= 0f)
             {
                 charge = true;
@@ -123,9 +135,11 @@ public class EnemyAttack : MonoBehaviour
     }
     private void FlyingAttack()
     {
-        float difer = (em.target.transform.position.x - transform.position.x) / (em.target.transform.position.y - transform.position.y);
-        if (difer < 0f)
-            difer = -difer;
+        float vector = Mathf.Sqrt((em.target.transform.position.y - transform.position.y) * (em.target.transform.position.y - transform.position.y) / (em.target.transform.position.x - transform.position.x) * (em.target.transform.position.x - transform.position.x));
+        if (vector < 0f)
+            vector = vector;
+        float sin = (em.target.transform.position.y - transform.position.y) / vector;
+        float cos = (em.target.transform.position.x - transform.position.x) / vector;
         if (em.difX <= em.distance && em.difY <= em.distance)
         {
             if (attackCoolCounter <= 0)
@@ -148,14 +162,14 @@ public class EnemyAttack : MonoBehaviour
                 temp = Instantiate(enemyWeapon, transform.position + new Vector3(0, 0, 0), transform.rotation);
 
                 if (em.target.transform.position.x - transform.position.x < 0)
-                    rb.AddForce(new Vector2(-dashForce * difer, 0));
+                    rb.AddForce(new Vector2(dashForce * cos, 0));
                 else
-                    rb.AddForce(new Vector2(dashForce * difer, 0));
+                    rb.AddForce(new Vector2(dashForce * cos, 0));
 
                 if (em.target.transform.position.y - transform.position.y < 0)
-                    rb.AddForce(new Vector2(0, -dashForce));
+                    rb.AddForce(new Vector2(0, dashForce * sin));
                 else
-                    rb.AddForce(new Vector2(0, dashForce));
+                    rb.AddForce(new Vector2(0, dashForce * sin));
 
                 dashCounter = dashDuration;
 

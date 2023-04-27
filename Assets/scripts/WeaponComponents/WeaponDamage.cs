@@ -9,12 +9,14 @@ public class WeaponDamage : MonoBehaviour
     public float force;
     public float playerStun;
     public float invulneravilityTime;
-    private float time;
+    public AudioSource sound1;
+    public AudioSource sound2;
     // Start is called before the first frame update
     void Start()
     {
         invulneravilityTime = 1f;
-        time = 0;
+        if (gameObject.tag == "Weapon")
+            Instantiate(sound1);
     }
 
     // Update is called once per frame
@@ -42,7 +44,11 @@ public class WeaponDamage : MonoBehaviour
                 collision.GetComponent<EnemyMovement>().stunTimeCounter = 2f;
             }
             if (gameObject.tag == "Weapon")
+            {
                 GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyStatus>().misery;
+                sound1.gameObject.GetComponent<AudioSource>().Pause();
+                Instantiate(sound2);
+            }
             collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;
             
         }

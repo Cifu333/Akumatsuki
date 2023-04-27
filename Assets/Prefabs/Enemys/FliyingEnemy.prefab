@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.2
+  m_Mass: 4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   attack: 0
   attackTime: 3
   attackCharge: 0.5
-  dashForce: 400
+  dashForce: 4000
   dashDuration: 0.7
   stun: 0
   stunCounter: 0

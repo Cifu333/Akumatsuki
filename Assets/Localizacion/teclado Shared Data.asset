@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: teclado Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: teclado
+  m_TableCollectionNameGuidString: 446c41d621541014e8c11fb32554a914
+  m_Entries:
+  - m_Id: 33135824896
+    m_Key: izquierda
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62491758592
+    m_Key: derecha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92090961920
+    m_Key: espacio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 137360084992
+    m_Key: salto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 157425635328
+    m_Key: interactuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 188165689344
+    m_Key: shiftizquierdo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 237360680960
+    m_Key: clickizquierdo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 330918825984
+    m_Key: disparo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 357326163968
+    m_Key: ataque
+    m_Metadata:
+      m_Items: []
+  - m_Id: 385381863424
+    m_Key: habilidad1demon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516990734336
+    m_Key: habilidad2demon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 569776050176
+    m_Key: habilidad1humano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 609772933120
+    m_Key: habilidad2humano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 639309221888
+    m_Key: mantenerr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 673333415936
+    m_Key: regresolobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5997650022400
+    m_Key: movimiento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6038288633856
+    m_Key: mantenerl1
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 9155393134863581186
+  references:
+    version: 2
+    RefIds:
+    - rid: 9155393134863581186
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1682530616499

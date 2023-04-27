@@ -32,7 +32,9 @@ public class EnemyMovement : MonoBehaviour
 
     public int numJumps;
 
+    DetectVoid dv;
 
+    Animator anim;
 
     [SerializeField]
     public float wallDistance = 2.5f;
@@ -43,11 +45,15 @@ public class EnemyMovement : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         ground = GetComponent<GroundDetector>();
-        dir = Direction.NONE;
+        dir = Direction.RIGHT;
         rb = GetComponent<Rigidbody2D>();
         es = GetComponent<EnemyStatus>();
         target = GameObject.FindGameObjectWithTag("Player");
         stunned = false;
+        dv = GetComponent<DetectVoid>();
+        anim = GetComponent<Animator>();
+        currentSpeed = speed;
+        difX = transform.position.x - target.transform.position.x;
     }
 
     // Update is called once per frame
@@ -55,6 +61,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!stunned)
         {
+
             switch (es.type)
             {
                 case EnemyStatus.Type.MELEE:
@@ -67,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
                     FlyingMovement();
                     break;
                 case EnemyStatus.Type.TANK:
+                    MeleeMovement();
                     break;
 
             }
@@ -77,6 +85,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            anim.SetBool("Movement", false);
             stunTimeCounter -= Time.deltaTime;
             if (stunTimeCounter <= 0)
             {
@@ -126,17 +135,28 @@ public class EnemyMovement : MonoBehaviour
                 if (transform.position.x < target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    if (difX > distance)
+                    if (difX > distance && dv.inVoid == false)
+                    {
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                        anim.SetBool("Movement", true);
+                    }
+                    else
+                        anim.SetBool("Movement", false);
                     dir = Direction.RIGHT;
                 }
-                if (transform.position.x > target.transform.position.x && difX < detect)
+                else if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                    if (difX > distance)
+                    if (difX > distance && dv.inVoid == false)
+                    {
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                        anim.SetBool("Movement", true);
+                    }
+                    else
+                        anim.SetBool("Movement", false);
                     dir = Direction.LEFT;
                 }
+
 
             }
         }
@@ -194,14 +214,14 @@ public class EnemyMovement : MonoBehaviour
                 if (transform.position.x < target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    if (difX < distance)
+                    if (difX < distance && dv.inVoid == false)
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
                     dir = Direction.RIGHT;
                 }
                 if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                    if (difX < distance)
+                    if (difX < distance && dv.inVoid == false)
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
                     dir = Direction.LEFT;
                 }
@@ -210,56 +230,3 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 }
-
-/*
- //Salto
- int jumps = 0;
-
-        int count = 0;
-        if (dir == Direction.LEFT)
-        {
-            for (int i = 0; i < rays.Count; i++)
-            {
-                Debug.DrawRay(transform.position + rays[i], transform.right * -1 * wallDistance, Color.red);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * -1, wallDistance, groundMask);
-
-                if (hit.collider != null)
-                {
-                    count++;
-                    Debug.DrawRay(transform.position + rays[i], transform.right * -1 * hit.distance, Color.green);
-                }
-            }
-        }
-        if (dir == Direction.RIGHT)
-        {
-            for (int i = 0; i < rays.Count; i++)
-            {
-                Debug.DrawRay(transform.position + rays[i], transform.right * 1 * wallDistance, Color.red);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.right * 1, wallDistance, groundMask);
-
-                if (hit.collider != null)
-                {
-                    count++;
-                    Debug.DrawRay(transform.position + rays[i], transform.right * 1 * hit.distance, Color.green);
-                }
-            }
-        }
-        if (count > 0 && jumps > 0)
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * force);
-            jumps--;
-        }
-
-        ground = GetComponent<GroundDetector>();
-
-        if (ground.grounded == true)
-        {
-            jumps = numJumps;
-            if (count > 0)
-            {
-                rb.velocity = Vector2.zero;
-                rb.AddForce(Vector2.up * force);
-            }
-        }
- */

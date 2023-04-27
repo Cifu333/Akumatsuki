@@ -135,7 +135,7 @@ MonoBehaviour:
   dir: 0
   currentSpeed: 0
   speed: 5
-  distance: 2
+  distance: 2.5
   difX: 0
   difY: 0
   detect: 25
@@ -224,6 +224,9 @@ MonoBehaviour:
   dashDuration: 0.5
   stun: 0
   stunCounter: 0
+  vector: 0
+  sin: 0
+  cos: 0
 --- !u!95 &3445245289049980226
 Animator:
   serializedVersion: 4

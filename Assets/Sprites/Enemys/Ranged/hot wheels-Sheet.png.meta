@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36a13a927ba3acd44af1611c1686a300
+guid: 98e962b41ffb8aa488c00ec2f3c4ec9d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,33 +104,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shoot with FX_0
+      name: hot wheels-Sheet_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 79
-        width: 36
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e39e69a8612a0334fa0233f9dbd2771d
-      internalID: -571242642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoot with FX_2
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 52
-        width: 35
+        x: 77
+        y: 82
+        width: 28
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -139,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1707bc00f388ab49b5d4a712cfbc703
-      internalID: 222232851
+      spriteID: 252436e04f96faf4fa1225a38f760f0b
+      internalID: 691689901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shoot with FX_5
+      name: hot wheels-Sheet_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 1
-        width: 36
-        height: 26
+        x: 269
+        y: 82
+        width: 28
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53b44de08b9adab4fb6df74a1e9950b2
-      internalID: -774077789
+      spriteID: 3138c35029e792440b86916ca942e7e9
+      internalID: 78208327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shoot with FX_6
+      name: hot wheels-Sheet_2
       rect:
         serializedVersion: 2
-        x: 15
-        y: 27
-        width: 35
-        height: 24
+        x: 461
+        y: 82
+        width: 29
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +160,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9562e3f05f0f2f34c8770a2f14a390b7
-      internalID: -1623463731
+      spriteID: 0a2c94de803e1aa4583414ca3864260f
+      internalID: -1553550294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot wheels-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 82
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e73701c192b0b409ac9c04878a66e2
+      internalID: -1616596049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot wheels-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 82
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a69c2e5ea59cc54392079a7ff717c6b
+      internalID: 1872200264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot wheels-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 82
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca49dc2ad99acc742bbd4155336b098b
+      internalID: 1095881120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot wheels-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 82
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd9bbb45cb0c6441988e9239c0b14d5
+      internalID: -747049600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot wheels-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 82
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca01320f6ee63e4081e83a227b0852b
+      internalID: 571408512
       vertices: []
       indices: 
       edges: []
@@ -198,13 +282,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      shoot with FX_5: -774077789
-      shoot with FX_6: -1623463731
-      shoot with FX_0: -571242642
-      shoot with FX_3: 2014257269
-      shoot with FX_4: 439696284
-      shoot with FX_1: 2036962381
-      shoot with FX_2: 222232851
+      hot wheels-Sheet_2: -1553550294
+      hot wheels-Sheet_0: 691689901
+      hot wheels-Sheet_4: 1872200264
+      hot wheels-Sheet_7: 571408512
+      hot wheels-Sheet_5: 1095881120
+      hot wheels-Sheet_1: 78208327
+      hot wheels-Sheet_6: -747049600
+      hot wheels-Sheet_3: -1616596049
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

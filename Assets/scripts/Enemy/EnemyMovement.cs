@@ -215,14 +215,24 @@ public class EnemyMovement : MonoBehaviour
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
                     if (difX < distance && dv.inVoid == false)
+                    {
+                        anim.SetBool("Movement", true);
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
+                    }
+                    else
+                        anim.SetBool("Movement", false);
                     dir = Direction.RIGHT;
                 }
                 if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
                     if (difX < distance && dv.inVoid == false)
+                    {
+                        anim.SetBool("Movement", true);
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                    }
+                    else
+                        anim.SetBool("Movement", false);
                     dir = Direction.LEFT;
                 }
 

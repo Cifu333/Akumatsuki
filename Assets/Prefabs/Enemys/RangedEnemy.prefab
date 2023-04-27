@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2752262911454680402}
   - component: {fileID: 2752262911454680403}
   - component: {fileID: 351199739493405759}
+  - component: {fileID: -8386931327582384264}
   m_Layer: 7
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -80,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -809322218, guid: 7b16c2249fd311348bcbb460a02afd15, type: 3}
-  m_Color: {r: 0.7607843, g: 0.52598685, b: 0.2901961, a: 1}
+  m_Sprite: {fileID: 1285100308, guid: 3a919f8018a49824b8fb698ea17c30e7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 3.5, y: 2.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -159,7 +160,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4, y: 0}
+  m_Offset: {x: 0.13, y: 0}
   m_Size: {x: 2, y: 3}
   m_Direction: 0
 --- !u!50 &2752262911454680413
@@ -223,6 +224,9 @@ MonoBehaviour:
   dashDuration: 0.5
   stun: 0
   stunCounter: 0
+  vector: 0
+  sin: 0
+  cos: 0
 --- !u!114 &351199739493405759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,3 +244,23 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!95 &-8386931327582384264
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2752262911454680400}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57a08c93ab73ae849a1a634765356b09, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

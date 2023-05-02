@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  hp: 55
+  hp: 15
   money: 10
   misery: 5
   ea: {fileID: 0}

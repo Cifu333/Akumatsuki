@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: credits_ca 1
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ca
+  m_SharedData: {fileID: 11400000, guid: 4b0d6436b79f2d04e924b240fdb9e94e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 52663857152
+    m_Localized: creat per
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91566026752
+    m_Localized: "En agra\xEFment a:\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70158299136
+    m_Localized: "Dissenyador de jocs: Daniel P\xE9rez Gonz\xE1lez\r\n\r\nArtista
+      l\xEDder: Nerea Fern\xE1ndez L\xF3pez\r\n\r\nResponsable del programa: Pol
+      Mar\xEDn Mart\xEDn\r\n\r\nProductor: Hugo Cifuentes Bosch\r\n\r\nCompositor:
+      Pol Mar\xEDn Mart\xEDn\r\n\r\nProgramadors: Daniel P\xE9rez Gonz\xE1lez, Nerea
+      Fern\xE1ndez L\xF3pez, Pol Mar\xEDn Mart\xEDn, Hugo Cifuentes Bosch\r\n\r\nArtistes:
+      Nerea Fern\xE1ndez L\xF3pez, Pol Mar\xEDn Mart\xEDn\r\n\r\nDissenyador de so:
+      Hugo Cifuentes Bosch\r\n"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

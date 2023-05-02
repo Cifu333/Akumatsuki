@@ -9,12 +9,14 @@ public class WeaponDamage : MonoBehaviour
     public float force;
     public float playerStun;
     public float invulneravilityTime;
-    private float time;
+    public AudioSource sound1;
+    public AudioSource sound2;
     // Start is called before the first frame update
     void Start()
     {
         invulneravilityTime = 1f;
-        time = 0;
+        if (gameObject.tag == "Weapon")
+            Instantiate(sound1);
     }
 
     // Update is called once per frame
@@ -38,11 +40,18 @@ public class WeaponDamage : MonoBehaviour
                 {
                     collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
                 }
-                collision.GetComponent<EnemyMovement>().stunned = true;
-                collision.GetComponent<EnemyMovement>().stunTimeCounter = 2f;
+                if (collision.GetComponent<EnemyStatus>().type != EnemyStatus.Type.TANK)
+                {
+                    collision.GetComponent<EnemyMovement>().stunned = true;
+                    collision.GetComponent<EnemyMovement>().stunTimeCounter = 2f;
+                }
             }
             if (gameObject.tag == "Weapon")
+            {
                 GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyStatus>().misery;
+                sound1.gameObject.GetComponent<AudioSource>().Pause();
+                Instantiate(sound2);
+            }
             collision.gameObject.GetComponent<EnemyStatus>().hp -= damage;
             
         }
@@ -51,14 +60,16 @@ public class WeaponDamage : MonoBehaviour
             if (collision.gameObject.GetComponent<PlayerStatus>().invulneravility == false)
             {
                 collision.gameObject.GetComponent<PlayerStatus>().hp -= damage;
-
-                if (collision.transform.position.x > gameObject.transform.parent.gameObject.transform.position.x)
+                if (gameObject.tag != "Bullet")
                 {
-                    collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
-                }
-                else
-                {
-                    collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                    if (collision.transform.position.x > gameObject.transform.parent.transform.position.x)
+                    {
+                        collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                    }
+                    else
+                    {
+                        collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
+                    }
                 }
                 collision.gameObject.GetComponent<HorizontalMovement>().stun = true;
                 collision.gameObject.GetComponent<HorizontalMovement>().stunCounter = playerStun;

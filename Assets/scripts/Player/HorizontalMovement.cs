@@ -84,7 +84,7 @@ public class HorizontalMovement : MonoBehaviour
                         dashCoolCounter = dashTime;
                         gameObject.GetComponent<PlayerStatus>().invulneravility = false;
                         dash = false;
-                        rb.gravityScale = 8;
+                        rb.gravityScale = ground.gravity;
                     }
                 }
 

@@ -9,6 +9,7 @@ public class PlayerStatus : MonoBehaviour
     public Vector3 respawn;
     public int money = 0;
     public int misery = 0;
+    public int babyParts;
     public bool free;
 
     Token d;
@@ -70,6 +71,14 @@ public class PlayerStatus : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "BabyParts")
+        {
+            babyParts++;
         }
     }
 }

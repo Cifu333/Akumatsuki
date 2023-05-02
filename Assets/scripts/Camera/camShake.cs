@@ -11,6 +11,14 @@ public class camShake : MonoBehaviour {
     public AnimationCurve curve1;
     public AnimationCurve curve2;
     public AnimationCurve curve3;
+
+    private void Start()
+    {
+        pressToShake1 = false;
+        pressToShake2 = false;
+        pressToShake3 = false;
+    }
+
     private void Update() {
         if (pressToShake1) {
             Shake1();

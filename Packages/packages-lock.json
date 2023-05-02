@@ -163,8 +163,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-=======
     "com.unity.inputsystem": {
       "version": "1.3.0",
       "depth": 0,
@@ -174,7 +172,6 @@
       },
       "url": "https://packages.unity.com"
     },
->>>>>>> e0cc5d0723081abb5321cc9ef3f6fc10d04fee5c
     "com.unity.localization": {
       "version": "1.4.3",
       "depth": 0,

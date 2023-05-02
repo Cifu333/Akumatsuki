@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/escenaPrimigenia.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/topotamadremuerete.unity
     guid: ddc31fbfdabe29b48bcbcdffe6048aab
   - enabled: 0
     path: Assets/Scenes/Lobby.unity

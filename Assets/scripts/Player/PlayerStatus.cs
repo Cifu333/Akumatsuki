@@ -60,7 +60,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void FreeViability()
     {
-        if (d.justShot == false && pa.attack == false && demonA.ability == false && hm.stun == false && humanA.ability == false)
+        if (pa.attack == false && demonA.ability == false && hm.stun == false && humanA.ability == false)
             free = true;
         else
             free = false;

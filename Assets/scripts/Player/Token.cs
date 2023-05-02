@@ -40,6 +40,9 @@ public class Token : MonoBehaviour {
 
     private void Shoot()
     {
+        float tan = Mathf.Pow(transform.parent.position.x - transform.position.x, 2) + Mathf.Pow(transform.parent.position.y - transform.position.y, 2);
+        float cos = transform.parent.position.x - transform.position.x / tan;
+        float sin = transform.parent.position.y - transform.position.y / tan;
         mouseWorldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
         float anguloRadianes = Mathf.Atan2(mouseWorldPoint.x - transform.parent.transform.position.x, mouseWorldPoint.y - transform.parent.transform.position.y);
         float anguloGrados = (180 / Mathf.PI) * anguloRadianes - 90;
@@ -65,7 +68,7 @@ public class Token : MonoBehaviour {
                 if (transform.parent.parent.GetComponent<GroundDetector>().grounded == false)
                 {
                     transform.parent.parent.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                    transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(Vector2.up * (transform.parent.parent.GetComponent<Jump>().force / 2));
+                    transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector3(transform.parent.parent.GetComponent<Jump>().force / 2 * cos, transform.parent.parent.GetComponent<Jump>().force / 2 * sin));
                 }
                 Destroy(b, bulletLifeTime);
             }

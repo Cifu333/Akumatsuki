@@ -16,12 +16,14 @@ public class HumanAbilities : MonoBehaviour
 
     PlayerAbilitys pa;
 
+    public GameObject rune;
+
     Rigidbody2D rb;
 
     private bool semtexCooldown;
     private bool runeCooldown;
 
-    private GameObject[] temp;
+    private GameObject temp;
 
     private float semtexCoolCounter;
     private float semtexCounter;
@@ -38,7 +40,6 @@ public class HumanAbilities : MonoBehaviour
     public float runePower = 3;
     void Start()
     {
-        temp = new GameObject[6];
         semtexCooldown = false;
         charge = true;
         ability = false;
@@ -63,13 +64,13 @@ public class HumanAbilities : MonoBehaviour
                 semtexCooldown = true;
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp[0] = Instantiate(semtex, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
-                    temp[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(-semtexForceX, semtexForceY));
+                    temp = Instantiate(semtex, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+                    temp.GetComponent<Rigidbody2D>().AddForce(new Vector2(-semtexForceX, semtexForceY));
                 }
                 else
                 {
-                    temp[0] = Instantiate(semtex, transform.position + new Vector3(offset, 0, 0), transform.rotation);
-                    temp[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(semtexForceX, semtexForceY));
+                    temp = Instantiate(semtex, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+                    temp.GetComponent<Rigidbody2D>().AddForce(new Vector2(semtexForceX, semtexForceY));
                 }
                 semtexCoolCounter = semtexTime;
             }
@@ -96,6 +97,8 @@ public class HumanAbilities : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0.15f, 1f, 1f);
                 runeCoolCounter = runeTime;
                 runeCounter = runeDuration;
+                temp = Instantiate(rune, transform.position, transform.rotation);
+                temp.transform.parent = transform;
             }
         }
 
@@ -106,6 +109,7 @@ public class HumanAbilities : MonoBehaviour
             {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
                 gameObject.GetComponent<PlayerStatus>().invulneravility = false;
+                Destroy(temp);
             }
         }
 

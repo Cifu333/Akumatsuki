@@ -203,11 +203,14 @@ MonoBehaviour:
   enemyWeapon: {fileID: 6918179921206949154, guid: 25a23d2b72c74a84fa3a8c1c497bbe7b, type: 3}
   attack: 0
   attackTime: 1
-  attackCharge: 1.05
+  attackCharge: 1
   dashForce: 15
   dashDuration: 0.5
   stun: 0
   stunCounter: 0
+  vector: 0
+  sin: 0
+  cos: 0
 --- !u!95 &648070650188549338
 Animator:
   serializedVersion: 4

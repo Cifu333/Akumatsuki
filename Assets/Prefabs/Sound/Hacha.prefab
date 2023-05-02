@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2450042260052306085}
   - component: {fileID: 3043518989664060219}
   m_Layer: 0
-  m_Name: katanaImpact
+  m_Name: Hacha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ec7479fed0e0d3f498360029cf7f6dac, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ca26f7b2631be4d45b0bf1d9c9db05be, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

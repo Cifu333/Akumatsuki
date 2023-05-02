@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8046960539368683311}
   m_Layer: 0
   m_Name: EnemyWeapon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,4 +77,4 @@ MonoBehaviour:
   playerStun: 0.3
   invulneravilityTime: 1
   sound1: {fileID: 3043518989664060219, guid: f9600b9626f2d8441b527d57d0adb3e8, type: 3}
-  sound2: {fileID: 0}
+  sound2: {fileID: 3043518989664060219, guid: f161724e2586f2f44aa288610e090ab7, type: 3}

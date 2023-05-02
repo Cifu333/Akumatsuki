@@ -64,12 +64,12 @@ public class Token : MonoBehaviour {
                 Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
                 mouseWorldPosition.z = 0;
                 GameObject b = Instantiate(bulletPrefab, transform.position, transform.rotation);
-                b.transform.right = mouseWorldPosition - transform.parent.position;
+                b.transform.right = mouseWorldPosition - transform.parent.position;/*
                 if (transform.parent.parent.GetComponent<GroundDetector>().grounded == false)
                 {
                     transform.parent.parent.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                    transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector3(transform.parent.parent.GetComponent<Jump>().force / 2 * cos, transform.parent.parent.GetComponent<Jump>().force / 2 * sin));
-                }
+                    transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector3(transform.parent.parent.GetComponent<Jump>().force / 200 * cos, transform.parent.parent.GetComponent<Jump>().force / 200 * sin));
+                }*/
                 Destroy(b, bulletLifeTime);
             }
         }

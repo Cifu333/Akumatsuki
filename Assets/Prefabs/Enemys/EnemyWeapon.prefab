@@ -76,5 +76,5 @@ MonoBehaviour:
   force: 30
   playerStun: 0.3
   invulneravilityTime: 1
-  sound1: {fileID: 0}
+  sound1: {fileID: 3043518989664060219, guid: f9600b9626f2d8441b527d57d0adb3e8, type: 3}
   sound2: {fileID: 0}

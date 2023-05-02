@@ -36,6 +36,8 @@ public class EnemyAttack : MonoBehaviour
     public float sin;
     public float cos;
 
+    private bool dashR;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -235,6 +237,8 @@ public class EnemyAttack : MonoBehaviour
                 charge = true;
             }
         }
+
+        if (em.difX < em.distance / 2 && dashR == false) { }
     }
 }
 

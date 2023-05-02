@@ -135,10 +135,10 @@ MonoBehaviour:
   dir: 0
   currentSpeed: 0
   speed: 8
-  distance: 15
+  distance: 10
   difX: 0
   difY: 0
-  detect: 25
+  detect: 36
   numJumps: 0
   wallDistance: 1
   rays:

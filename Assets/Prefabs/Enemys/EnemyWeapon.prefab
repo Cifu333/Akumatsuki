@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8046960539368683311}
   m_Layer: 0
   m_Name: EnemyWeapon
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.14}
+  m_Size: {x: 0.35, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &8046960539368683311
 MonoBehaviour:

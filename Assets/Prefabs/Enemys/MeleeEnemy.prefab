@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 97594644865745170}
   - component: {fileID: 97594644865745173}
   - component: {fileID: 3445245289049980226}
+  - component: {fileID: 7226793863157653751}
   m_Layer: 7
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -134,7 +135,7 @@ MonoBehaviour:
   dir: 0
   currentSpeed: 0
   speed: 5
-  distance: 2
+  distance: 2.5
   difX: 0
   difY: 0
   detect: 25
@@ -218,11 +219,14 @@ MonoBehaviour:
   enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
   attack: 0
   attackTime: 0.5
-  attackCharge: 0.5
+  attackCharge: 0.7
   dashForce: 5
   dashDuration: 0.5
   stun: 0
   stunCounter: 0
+  vector: 0
+  sin: 0
+  cos: 0
 --- !u!95 &3445245289049980226
 Animator:
   serializedVersion: 4
@@ -243,3 +247,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7226793863157653751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97594644865745172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a54b7bd0461285438413bc0f30e997b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inVoid: 0
+  ray: {x: 1.5, y: -1, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8

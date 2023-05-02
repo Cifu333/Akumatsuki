@@ -192,14 +192,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 1.1
   attackHeight: 2.25
-  enemyWeapon: {fileID: 6918179921206949154, guid: 59467bb8db05a9b4dabfe76241660329, type: 3}
+  enemyWeapon: {fileID: 3958544942335018802, guid: 4bdb9985f38271a449e9a06b11ce7238, type: 3}
   attack: 0
   attackTime: 3
   attackCharge: 0.5
-  dashForce: 400
+  dashForce: 15000
   dashDuration: 0.7
   stun: 0
   stunCounter: 0
+  vector: 0
+  sin: 0
+  cos: 0
 --- !u!95 &7840507427896230433
 Animator:
   serializedVersion: 4

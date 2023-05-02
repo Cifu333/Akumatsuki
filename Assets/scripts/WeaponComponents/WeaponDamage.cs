@@ -59,7 +59,8 @@ public class WeaponDamage : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<PlayerStatus>().invulneravility == false)
             {
-                collision.gameObject.GetComponent<PlayerStatus>().hp -= damage;
+                collision.gameObject.GetComponent<PlayerStatus>().hp -= damage; 
+                GameObject.FindGameObjectWithTag("MainCamera").transform.parent.GetComponent<camShake>().pressToShake2 = true;
                 if (gameObject.tag != "Bullet")
                 {
                     if (collision.transform.position.x > gameObject.transform.parent.transform.position.x)
@@ -73,6 +74,9 @@ public class WeaponDamage : MonoBehaviour
                 }
                 collision.gameObject.GetComponent<HorizontalMovement>().stun = true;
                 collision.gameObject.GetComponent<HorizontalMovement>().stunCounter = playerStun;
+
+                sound1.gameObject.GetComponent<AudioSource>().Pause();
+                Instantiate(sound2);
 
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravility = true;
                 collision.gameObject.GetComponent<PlayerStatus>().invulneravilityCounter = invulneravilityTime;

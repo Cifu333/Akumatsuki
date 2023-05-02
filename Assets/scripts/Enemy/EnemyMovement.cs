@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
     public float distance;
     public float difX;
     public float difY;
-    public float detect;
+    public float detect; 
 
     public int numJumps;
 

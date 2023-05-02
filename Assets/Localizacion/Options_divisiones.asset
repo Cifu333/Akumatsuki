@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Options_divisiones
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 0869bfa6123b05e408b0f5531c283813, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 519b1ba26240dd6409b85be5e67b2f07, type: 2}
+  - {fileID: 11400000, guid: 847984a4e5efd0b49ae7f44b994a6f35, type: 2}
+  - {fileID: 11400000, guid: 1a9edff123da99d4f81cf948c7c8ff5f, type: 2}
+  - {fileID: 11400000, guid: ae160bc0321b3d743bb6dead79629610, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

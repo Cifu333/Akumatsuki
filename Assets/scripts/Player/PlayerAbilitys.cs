@@ -9,8 +9,8 @@ public class PlayerAbilitys : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        human = new bool[3];
-        demon = new bool[3];
+        human = new bool[2];
+        demon = new bool[2];
     }
 
     // Update is called once per frame

@@ -21,7 +21,7 @@ public class EnemyStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ea.attack == true)
+        if (ea.attack)
             free = false;
         else
             free = true;

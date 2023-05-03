@@ -23,6 +23,14 @@ public class Bullet : MonoBehaviour {
             {
                 rb.AddForce(rb.transform.right * -speed);
             }
+            if (transform.parent.GetComponent<EnemyAttack>().dashB == true && transform.parent.GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.RIGHT)
+            {
+                rb.AddForce(rb.transform.right * -speed * 2);
+            }
+            else if (transform.parent.GetComponent<EnemyAttack>().dashB == true && transform.parent.GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+            {
+                rb.AddForce(rb.transform.right * speed * 2);
+            }
             transform.parent = null;
         }
     }

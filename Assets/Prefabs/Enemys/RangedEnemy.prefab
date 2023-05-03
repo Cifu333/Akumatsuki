@@ -227,6 +227,9 @@ MonoBehaviour:
   vector: 0
   sin: 0
   cos: 0
+  dashMovement: 3.6
+  dashR: 0
+  dashTime: 10
 --- !u!114 &351199739493405759
 MonoBehaviour:
   m_ObjectHideFlags: 0

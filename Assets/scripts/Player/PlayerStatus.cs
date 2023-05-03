@@ -79,6 +79,16 @@ public class PlayerStatus : MonoBehaviour
         if (collision.gameObject.tag == "BabyParts")
         {
             babyParts++;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.layer == 6)
+        {
+            hp -= 10;
+            transform.position = GetComponent<GroundDetector>().positionS;
+        }
+        if (collision.gameObject.tag == "Enemy" && collision.gameObject.layer == 7)
+        {
+
         }
     }
 }

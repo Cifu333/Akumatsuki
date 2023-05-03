@@ -149,16 +149,16 @@ public class EnemyAttack : MonoBehaviour
     }
     private void FlyingAttack()
     {
-        vector = Mathf.Sqrt(((em.target.transform.position.y - transform.position.y) * (em.target.transform.position.y - transform.position.y)) + ((em.target.transform.position.x - transform.position.x) * (em.target.transform.position.x - transform.position.x)));
-        sin = (em.target.transform.position.y - transform.position.y) / vector;
-        cos = (em.target.transform.position.x - transform.position.x) / vector;
         if (em.difX <= em.distance && em.difY <= em.distance)
         {
             if (attackCoolCounter <= 0)
             {
                 if (charge == true)
                 {
-                    attack = true;
+                    attack = true; 
+                    vector = Mathf.Sqrt(((em.target.transform.position.y - transform.position.y) * (em.target.transform.position.y - transform.position.y)) + ((em.target.transform.position.x - transform.position.x) * (em.target.transform.position.x - transform.position.x)));
+                    sin = (em.target.transform.position.y - transform.position.y) / vector;
+                    cos = (em.target.transform.position.x - transform.position.x) / vector;
                     attackChargeCounter = attackCharge;
                     charge = false;
                 }

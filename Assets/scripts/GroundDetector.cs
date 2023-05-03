@@ -11,6 +11,8 @@ public class GroundDetector : MonoBehaviour
     public List<Vector3> rays;
     public LayerMask groundMask;
     public float gravity;
+    private bool lastG;
+    public Vector3 positionS;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +48,15 @@ public class GroundDetector : MonoBehaviour
         if (count > 0)
         {
             grounded = true;
+            lastG = true;
         }
-        else
+        if (lastG && count == 3)
         {
+            positionS = transform.position;
+        }
+        if (count <= 0)
+        {
+            lastG = false;
             grounded = false;
             transform.parent = null;
         }

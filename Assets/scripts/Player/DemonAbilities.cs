@@ -143,16 +143,16 @@ public class DemonAbilities : MonoBehaviour
                         if (temp.gameObject.transform.localScale.x > 0)
                         {
                             temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0);
+                            transform.position -= new Vector3(tentacleTranslation / 2.5f, 0, 0);
                         }
-                        transform.position -= new Vector3(tentacleTranslation / 2.5f, 0, 0);
                     }
                     else
                     {
                         if (temp.gameObject.transform.localScale.x > 0)
                         {
                             temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0);
+                            transform.position -= new Vector3(-tentacleTranslation / 2.5f, 0, 0);
                         }
-                        transform.position -= new Vector3(-tentacleTranslation / 2.5f, 0, 0);
                     }
                 }
             }

@@ -78,10 +78,13 @@ public class EnemyMovement : MonoBehaviour
                     break;
 
             }
-            if (dir == Direction.RIGHT && transform.localScale.x < 0)
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
-            if (dir == Direction.LEFT && transform.localScale.x > 0)
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
+            if (es.free == true)
+            {
+                if (dir == Direction.RIGHT && transform.localScale.x < 0)
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
+                if (dir == Direction.LEFT && transform.localScale.x > 0)
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
+            }
         }
         else
         {

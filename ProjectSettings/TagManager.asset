@@ -13,6 +13,8 @@ TagManager:
   - fire
   - Test
   - Token
+  - BabyParts
+  - ElectricDoor
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Wall
-  - 
+  - Fall
+  - Electric
   - 
   - 
   - 

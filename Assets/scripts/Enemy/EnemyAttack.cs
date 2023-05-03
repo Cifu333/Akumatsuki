@@ -36,11 +36,19 @@ public class EnemyAttack : MonoBehaviour
     public float sin;
     public float cos;
 
+    public float dashMovement;
+
     private bool dashR;
+    private bool dashH;
+    public bool dashB;
+    public float dashTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        dashR = false;
+        dashH = true;
+        dashB = false;
         stun = true;
         stunCounter = 1;
         charge = true;
@@ -141,16 +149,16 @@ public class EnemyAttack : MonoBehaviour
     }
     private void FlyingAttack()
     {
-        vector = Mathf.Sqrt(((em.target.transform.position.y - transform.position.y) * (em.target.transform.position.y - transform.position.y)) + ((em.target.transform.position.x - transform.position.x) * (em.target.transform.position.x - transform.position.x)));
-        sin = (em.target.transform.position.y - transform.position.y) / vector;
-        cos = (em.target.transform.position.x - transform.position.x) / vector;
         if (em.difX <= em.distance && em.difY <= em.distance)
         {
             if (attackCoolCounter <= 0)
             {
                 if (charge == true)
                 {
-                    attack = true;
+                    attack = true; 
+                    vector = Mathf.Sqrt(((em.target.transform.position.y - transform.position.y) * (em.target.transform.position.y - transform.position.y)) + ((em.target.transform.position.x - transform.position.x) * (em.target.transform.position.x - transform.position.x)));
+                    sin = (em.target.transform.position.y - transform.position.y) / vector;
+                    cos = (em.target.transform.position.x - transform.position.x) / vector;
                     attackChargeCounter = attackCharge;
                     charge = false;
                 }
@@ -225,7 +233,7 @@ public class EnemyAttack : MonoBehaviour
                 attackCoolCounter = attackTime;
                 temp.transform.parent = transform;
                 attack = false;
-                Destroy(temp, 6);
+                Destroy(temp, 4);
             }
         }
 
@@ -238,7 +246,58 @@ public class EnemyAttack : MonoBehaviour
             }
         }
 
-        if (em.difX < em.distance / 2 && dashR == false) { }
+        if (em.difX < em.distance / 2 && dashR == false && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y) 
+        {
+            dashR = true;
+            dashB = true;
+            attack = true;
+            if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+            {
+                transform.position = new Vector3(transform.position.x - dashMovement, transform.position.y);
+                temp = Instantiate(enemyWeapon, transform.position - new Vector3(dashMovement + offset, 0, 0), transform.rotation);
+                temp.transform.parent = transform;
+                Destroy(temp, 4);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x + dashMovement, transform.position.y);
+                temp = Instantiate(enemyWeapon, transform.position + new Vector3(dashMovement + offset, 0, 0), transform.rotation);
+                temp.transform.parent = transform;
+                Destroy(temp, 4);
+            }
+            dashCounter = dashTime;
+            anim.SetBool("Dash", true);
+        }
+
+        if (dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+            if (dashCounter <= dashTime / 10 * 9)
+            {
+                anim.SetBool("Dash", false);
+                if (dashH)
+                {
+                    dashB = false;
+                    dashH = false;
+                    if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+                    {
+                        transform.position = new Vector3(transform.position.x - dashMovement, transform.position.y);
+                    }
+                    else
+                    {
+                        transform.position = new Vector3(transform.position.x + dashMovement, transform.position.y);
+                    }
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+                }
+                attack = false;
+            }
+            if (dashCounter <= 0)
+            {
+                dashR = false;
+                dashH = true;
+            }
+        }
+
     }
 }
 

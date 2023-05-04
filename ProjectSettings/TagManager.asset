@@ -15,6 +15,7 @@ TagManager:
   - Token
   - BabyParts
   - ElectricDoor
+  - SpawnerHandler
   layers:
   - Default
   - TransparentFX

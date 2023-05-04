@@ -27,10 +27,13 @@ public class SemTexExplosion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyMovement>().stunned = true;
-            collision.gameObject.GetComponent<EnemyMovement>().stunTimeCounter = stunTime;
-            collision.gameObject.GetComponent<EnemyAttack>().stun = true;
-            collision.gameObject.GetComponent<EnemyAttack>().stunCounter = stunTime;
+            if (collision.GetComponent<EnemyStatus>().type == EnemyStatus.Type.BOSS)
+            { 
+
+            }
+            collision.gameObject.GetComponent<EnemyStatus>().stunTimeCounter = stunTime;
+            collision.gameObject.GetComponent<EnemyStatus>().stunned = true;
         }
     }
+
 }

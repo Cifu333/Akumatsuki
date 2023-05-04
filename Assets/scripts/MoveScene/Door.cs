@@ -5,29 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    public int numEnemys;
-    public bool win;
-    public int number;
+    public int BabyPartsNecessarys;
+    private bool done;
+    private bool inContact;
+    public GameObject soil;
     // Start is called before the first frame update
     void Start()
     {
-        win = false;
+        done = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (inContact && done && Input.GetKey(KeyCode.X))
+        {
+            soil.GetComponent<Collider2D>().enabled = false;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && numEnemys <= 0 && Input.GetKey(KeyCode.X))
+        if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + number);
-            Destroy(collision.gameObject);
+            inContact = true;
+            if (collision.GetComponent<PlayerStatus>().babyParts == BabyPartsNecessarys)
+                done = true;
 
         }
         
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            inContact = false;
+        }
     }
 }

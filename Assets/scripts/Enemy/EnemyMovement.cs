@@ -11,9 +11,6 @@ public class EnemyMovement : MonoBehaviour
 
     public float force;
 
-    public bool stunned;
-    public float stunTimeCounter;
-
     public GameObject target;
 
     Rigidbody2D rb;
@@ -49,7 +46,6 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         es = GetComponent<EnemyStatus>();
         target = GameObject.FindGameObjectWithTag("Player");
-        stunned = false;
         dv = GetComponent<DetectVoid>();
         anim = GetComponent<Animator>();
         currentSpeed = speed;
@@ -59,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!stunned)
+        if (!es.stunned)
         {
 
             switch (es.type)
@@ -89,12 +85,6 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             anim.SetBool("Movement", false);
-            stunTimeCounter -= Time.deltaTime;
-            if (stunTimeCounter <= 0)
-            {
-                stunned = false;
-                rb.velocity = Vector2.zero;
-            }
         }
 
         //anim.SetBool("Moving", speed != 0);
@@ -103,7 +93,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!stunned)
+        if (!es.stunned)
         {
             if (target != null)
             {

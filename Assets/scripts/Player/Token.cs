@@ -114,7 +114,7 @@ public class Token : MonoBehaviour {
                 float movementY = distanceY / (timeForRespawn / 4f);
                 transform.position += new Vector3(movementX, movementY) * Time.deltaTime;
                 if (timeCounter >= timeForRespawn)
-                    SceneManager.LoadScene(1);
+                    transform.parent.parent.position = new Vector3(-97,-4);
             }
             if (isDown == false)
             {

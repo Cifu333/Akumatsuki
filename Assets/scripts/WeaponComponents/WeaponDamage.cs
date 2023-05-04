@@ -42,8 +42,8 @@ public class WeaponDamage : MonoBehaviour
                 }
                 if (collision.GetComponent<EnemyStatus>().type != EnemyStatus.Type.TANK)
                 {
-                    collision.GetComponent<EnemyMovement>().stunned = true;
-                    collision.GetComponent<EnemyMovement>().stunTimeCounter = 2f;
+                    collision.GetComponent<EnemyStatus>().stunned = true;
+                    collision.GetComponent<EnemyStatus>().stunTimeCounter = 2f;
                 }
             }
             if (gameObject.tag == "Weapon")

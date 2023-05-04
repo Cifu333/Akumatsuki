@@ -7,7 +7,6 @@ public class WinMenu : MonoBehaviour
 {
     public static WinMenu instance;
     public GameObject pauseMenu;
-    public Door d;
     public bool isPaused
     {
         get;
@@ -28,10 +27,7 @@ public class WinMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (d.win == true)
-        {
-            pauseMenu.SetActive(true);
-        }
+
     }
 
     public void Continue()

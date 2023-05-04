@@ -5,7 +5,7 @@ using TMPro;
 
 public class Contador : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
     public int money;
     public float time = 0;
     private PlayerStatus playerM;
@@ -13,6 +13,7 @@ public class Contador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         playerM = player.GetComponent<PlayerStatus>();
         money = playerM.money;
         text = GetComponent<TextMeshProUGUI>();

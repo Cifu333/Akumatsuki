@@ -19,8 +19,12 @@ public class SemTex : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 3 || collision.gameObject.layer == 7)
         {
+            if (collision.gameObject.tag == "ElectricDoor")
+            {
+                collision.GetComponent<ElectricDoor>().offTimeCounter = 3;
+            }
             Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

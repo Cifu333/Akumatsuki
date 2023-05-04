@@ -12,6 +12,8 @@ public class PlayerStatus : MonoBehaviour
     public int babyParts;
     public bool free;
 
+    public bool initiate;
+
     Token d;
     PlayerAttack pa;
     DemonAbilities demonA;
@@ -86,9 +88,19 @@ public class PlayerStatus : MonoBehaviour
             hp -= 10;
             transform.position = GetComponent<GroundDetector>().positionS;
         }
-        if (collision.gameObject.tag == "Enemy" && collision.gameObject.layer == 7)
-        {
 
+        if (collision.gameObject.tag == "ElectricDoor")
+        {
+            if (!collision.GetComponent<ElectricDoor>().off)
+            {
+                hm.stun = true;
+                hm.stunCounter = 1;
+                hp -= 10;
+                if (hm.dir == HorizontalMovement.Direction.LEFT)
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(300, 300));
+                else
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-300, 300));
+            }
         }
     }
 }

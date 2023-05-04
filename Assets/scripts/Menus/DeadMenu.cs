@@ -7,7 +7,7 @@ public class DeadMenu : MonoBehaviour
 {
     public static DeadMenu instance;
     public GameObject pauseMenu;
-    public PlayerStatus ps;
+    PlayerStatus ps;
     public bool isPaused
     {
         get;
@@ -22,6 +22,7 @@ public class DeadMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
         pauseMenu.SetActive(false);
     }
 

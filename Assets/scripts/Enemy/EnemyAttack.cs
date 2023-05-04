@@ -13,6 +13,7 @@ public class EnemyAttack : MonoBehaviour
     private bool charge;
     GameObject temp;
     Rigidbody2D rb;
+    EnemyStatus es;
 
 
     private float attackCoolCounter;
@@ -28,9 +29,6 @@ public class EnemyAttack : MonoBehaviour
     //
 
     Animator anim;
-
-    public bool stun;
-    public float stunCounter;
 
     public float vector;
     public float sin;
@@ -49,11 +47,10 @@ public class EnemyAttack : MonoBehaviour
         dashR = false;
         dashH = true;
         dashB = false;
-        stun = true;
-        stunCounter = 1;
         charge = true;
         attack = false;
         em = GetComponent<EnemyMovement>();
+        es = GetComponent<EnemyStatus>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -63,7 +60,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (em.target != null)
         {
-            if (!stun)
+            if (!es.stunned)
             {
                 switch (em.es.type)
                 {
@@ -79,6 +76,9 @@ public class EnemyAttack : MonoBehaviour
                     case EnemyStatus.Type.FLYING:
                         FlyingAttack();
                         break;
+                    case EnemyStatus.Type.BOSS:
+                        
+                        break;
                 }
             }
             else
@@ -86,11 +86,6 @@ public class EnemyAttack : MonoBehaviour
                 attack = false;
                 attackCoolCounter = 0;
                 charge = true;
-                stunCounter -= Time.deltaTime;
-                if (stunCounter <= 0)
-                {
-                    stun = false;
-                }
             }
         }
         anim.SetBool("Attack", attack);

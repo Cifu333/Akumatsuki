@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: -668186778, guid: 53ee74fd1caf62c46b504aa5226eb755, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,8 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 800
-  stunned: 0
-  stunTimeCounter: 0.5
   target: {fileID: 0}
   es: {fileID: 0}
   sr: {fileID: 0}
@@ -157,11 +155,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  hp: 15
+  hp: 10
   money: 10
   misery: 5
   ea: {fileID: 0}
   free: 0
+  stunned: 0
+  stunTimeCounter: 0
 --- !u!58 &1308609907503950090
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -198,11 +198,12 @@ MonoBehaviour:
   attackCharge: 0.5
   dashForce: 15000
   dashDuration: 0.7
-  stun: 0
-  stunCounter: 0
   vector: 0
   sin: 0
   cos: 0
+  dashMovement: 0
+  dashB: 0
+  dashTime: 0
 --- !u!95 &7840507427896230433
 Animator:
   serializedVersion: 4

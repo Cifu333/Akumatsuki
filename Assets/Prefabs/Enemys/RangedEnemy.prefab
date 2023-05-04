@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1285100308, guid: 3a919f8018a49824b8fb698ea17c30e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   gravity: 8
+  positionS: {x: 0, y: 0, z: 0}
 --- !u!114 &2752262911454680415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 800
-  stunned: 0
-  stunTimeCounter: 0.5
   target: {fileID: 0}
   es: {fileID: 0}
   sr: {fileID: 2752262911454680409}
@@ -202,6 +201,8 @@ MonoBehaviour:
   misery: 5
   ea: {fileID: 0}
   free: 0
+  stunned: 0
+  stunTimeCounter: 0
 --- !u!114 &2752262911454680403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,13 +223,11 @@ MonoBehaviour:
   attackCharge: 0.3
   dashForce: 15
   dashDuration: 0.5
-  stun: 0
-  stunCounter: 0
   vector: 0
   sin: 0
   cos: 0
   dashMovement: 3.6
-  dashR: 0
+  dashB: 0
   dashTime: 10
 --- !u!114 &351199739493405759
 MonoBehaviour:

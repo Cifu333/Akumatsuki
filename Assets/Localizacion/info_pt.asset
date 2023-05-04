@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: info_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: c8bffddf6afdd074d89e29254540d0b8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 8373866496
+    m_Localized: Bem vindo a Akumatsuki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51457757184
+    m_Localized: Clique para continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1926580080640
+    m_Localized: "Aqui vamos explicar os princ\xEDpios b\xE1sicos do jogo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71661719552
+    m_Localized: Para interagir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1725828108288
+    m_Localized: para movimento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1738985639936
+    m_Localized: para atirar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1790047096832
+    m_Localized: para atacar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1803301097472
+    m_Localized: "Para usar as habilidades uma vez que voc\xEA j\xE1 as obteve"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1824574607360
+    m_Localized: "Encontre as mem\xF3rias para abrir a porta"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

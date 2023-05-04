@@ -37,7 +37,7 @@ public class DeadMenu : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("demo Dani");
+        SceneManager.LoadScene("demo");
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);

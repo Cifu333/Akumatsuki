@@ -21,12 +21,17 @@ public class ElectricDoor : MonoBehaviour
         {
             if (first)
             {
-
+                first = false;
+                transform.transform.position = new Vector3(-transform.localScale.x, transform.localScale.y);
             }
             off = true;
             offTimeCounter -= Time.deltaTime;
             if (offTimeCounter < 0)
+            {
+                first = true;
+                transform.transform.position = new Vector3(-transform.localScale.x, transform.localScale.y);
                 off = false;
+            }
         }
     }
 }

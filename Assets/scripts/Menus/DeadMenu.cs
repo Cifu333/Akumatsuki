@@ -32,15 +32,19 @@ public class DeadMenu : MonoBehaviour
         if (ps.hp <= 0)
         {
             pauseMenu.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0;
         }
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene("demo");
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        Debug.Log("Loading");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().hp = ps.maxHP;
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(-97, -4);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().color = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().colorO;
+        GameObject.FindGameObjectWithTag("SpawnerHandler").GetComponent<SpawnerHandler>().spawnAll = true;
     }
 }

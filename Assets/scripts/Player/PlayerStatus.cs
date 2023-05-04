@@ -20,6 +20,8 @@ public class PlayerStatus : MonoBehaviour
     HorizontalMovement hm;
     HumanAbilities humanA;
 
+    public Color colorO;
+
     public bool invulneravility;
     public float invulneravilityCounter;
     // Start is called before the first frame update
@@ -33,6 +35,7 @@ public class PlayerStatus : MonoBehaviour
         pa = GetComponent<PlayerAttack>();
         hm = GetComponent<HorizontalMovement>();
         humanA = GetComponent<HumanAbilities>();
+        colorO = GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -72,7 +75,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(gameObject);
+            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         }
     }
 

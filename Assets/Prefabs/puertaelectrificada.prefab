@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7966838738126441091}
   - component: {fileID: 3853267306596906658}
   - component: {fileID: 4280404720753477015}
-  - component: {fileID: -5339241840585836069}
   m_Layer: 7
   m_Name: puertaelectrificada
   m_TagString: ElectricDoor
@@ -112,17 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.04, y: 1.81}
   m_EdgeRadius: 0
---- !u!114 &-5339241840585836069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945202297973933475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf11c5085ee7eb74eb1d2569230199b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  off: 0
-  offTimeCounter: 0

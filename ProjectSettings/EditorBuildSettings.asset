@@ -4,32 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/escenaPrimigenia.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/topotamadremuerete.unity
-    guid: ddc31fbfdabe29b48bcbcdffe6048aab
-  - enabled: 0
-    path: Assets/Scenes/Lobby.unity
-    guid: f2e08b41240f9774f81c30d59066bd1d
-<<<<<<< HEAD
-  - enabled: 0
-=======
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 3211c1d2be975504bb6568f89ddab591
-  - enabled: 1
-    path: Assets/Scenes/Instructions.unity
-    guid: 3d2466f9cb789d74b9fe39d39e31be67
-  - enabled: 1
->>>>>>> 49d6e1180c4bb68dca08078633df3e7956894573
-    path: Assets/Scenes/demo.unity
-    guid: b91b2805175d65e4aa5f901231da975c
-  - enabled: 1
-    path: Assets/Scenes/demo Dani.unity
-    guid: 3786d32adfc090440b3d18d82a819e7a
-  m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: b46ed3888204b4f4da39f534c000a4a9, type: 2}
-    com.unity.localization.settings: {fileID: 11400000, guid: dc9057f1282acb446ab6d7da6435b6bb, type: 2}
+  m_Scenes: []
+  m_configObjects: {}

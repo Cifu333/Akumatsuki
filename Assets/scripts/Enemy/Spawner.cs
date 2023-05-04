@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         {
             if (temp != null)
                 Destroy(temp);
-            temp = Instantiate(enemy);
+            temp = Instantiate(enemy, transform.position, transform.rotation);
             spawn = false;
         }
     }

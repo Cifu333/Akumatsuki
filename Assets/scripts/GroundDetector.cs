@@ -27,21 +27,69 @@ public class GroundDetector : MonoBehaviour
     void Update()
     {
         int count = 0;
-        for (int i = 0; i < rays.Count; i++)
+        if (gameObject.tag == "Player")
         {
-            Debug.DrawRay(transform.position + rays[i], transform.up * -1 * groundDistance, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.up * -1, groundDistance, groundMask);
-            if (hit.collider != null)
+            if (gameObject.GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
             {
-                count++;
-                Debug.DrawRay(transform.position + rays[i], transform.up * -1 * hit.distance, Color.green);
-                if (hit.transform.tag == "PlataformaMovil")
+                for (int i = 0; i < rays.Count; i++)
                 {
-                    transform.parent = hit.transform;
+                    Debug.DrawRay(transform.position + rays[i], transform.up * -1 * groundDistance, Color.red);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.up * -1, groundDistance, groundMask);
+                    if (hit.collider != null)
+                    {
+                        count++;
+                        Debug.DrawRay(transform.position + rays[i], transform.up * -1 * hit.distance, Color.green);
+                        if (hit.transform.tag == "PlataformaMovil")
+                        {
+                            transform.parent = hit.transform;
+                        }
+                        else
+                        {
+                            transform.parent = null;
+                        }
+                    }
                 }
-                else
+            }
+            else
+            {
+                for (int i = 0; i < rays.Count; i++)
                 {
-                    transform.parent = null;
+                    Debug.DrawRay(transform.position + new Vector3(-rays[i].x, rays[i].y), transform.up * -1 * groundDistance, Color.red);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(-rays[i].x, rays[i].y), transform.up * -1, groundDistance, groundMask);
+                    if (hit.collider != null)
+                    {
+                        count++;
+                        Debug.DrawRay(transform.position + new Vector3(-rays[i].x, rays[i].y), transform.up * -1 * hit.distance, Color.green);
+                        if (hit.transform.tag == "PlataformaMovil")
+                        {
+                            transform.parent = hit.transform;
+                        }
+                        else
+                        {
+                            transform.parent = null;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < rays.Count; i++)
+            {
+                Debug.DrawRay(transform.position + rays[i], transform.up * -1 * groundDistance, Color.red);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.up * -1, groundDistance, groundMask);
+                if (hit.collider != null)
+                {
+                    count++;
+                    Debug.DrawRay(transform.position + rays[i], transform.up * -1 * hit.distance, Color.green);
+                    if (hit.transform.tag == "PlataformaMovil")
+                    {
+                        transform.parent = hit.transform;
+                    }
+                    else
+                    {
+                        transform.parent = null;
+                    }
                 }
             }
         }

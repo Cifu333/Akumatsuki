@@ -75,12 +75,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp = Instantiate(weapon, transform.position + new Vector3(-(offset + 0.65f), 0, 0), transform.rotation);
-                    temp.transform.localScale = new Vector2(-temp.transform.localScale.x, temp.transform.localScale.y);
+                    temp = Instantiate(weapon, transform.position + new Vector3(-(offset), 0, 0), transform.rotation);
                 }
                 else
                 {
-                    temp = Instantiate(weapon, transform.position + new Vector3(offset + 0.65f, 0, 0), transform.rotation);
+                    temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
                 }
                 heavyAttackCoolCounter = heavyAttackTime;
                 temp.transform.parent = transform;

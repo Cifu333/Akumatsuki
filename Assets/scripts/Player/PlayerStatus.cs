@@ -14,6 +14,9 @@ public class PlayerStatus : MonoBehaviour
 
     public bool initiate;
 
+    public bool stun;
+    public float stunCounter;
+
     Token d;
     PlayerAttack pa;
     DemonAbilities demonA;
@@ -30,6 +33,7 @@ public class PlayerStatus : MonoBehaviour
         free = true;
         respawn = transform.position;
         invulneravility = false;
+        stun = false;
         demonA = GetComponent<DemonAbilities>();
         d = transform.GetChild(0).GetChild(0).GetComponent<Token>();
         pa = GetComponent<PlayerAttack>();
@@ -44,6 +48,14 @@ public class PlayerStatus : MonoBehaviour
         Muerte();
         FreeViability();
         InvulneravilityCount();
+        if (stun)
+        {
+            stunCounter -= Time.deltaTime;
+            if (stunCounter <= 0)
+            {
+                stun = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -65,7 +77,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void FreeViability()
     {
-        if (pa.attack == false && demonA.ability == false && hm.stun == false && humanA.ability == false)
+        if (pa.attack == false && demonA.ability == false && stun == false && humanA.ability == false)
             free = true;
         else
             free = false;
@@ -96,8 +108,8 @@ public class PlayerStatus : MonoBehaviour
         {
             if (!collision.GetComponent<ElectricDoor>().off)
             {
-                hm.stun = true;
-                hm.stunCounter = 1;
+                stun = true;
+                stunCounter = 1;
                 hp -= 10;
                 if (hm.dir == HorizontalMovement.Direction.LEFT)
                     GetComponent<Rigidbody2D>().AddForce(new Vector2(300, 300));

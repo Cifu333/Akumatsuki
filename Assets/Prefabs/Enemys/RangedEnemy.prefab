@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2752262911454680408}
   - component: {fileID: 2752262911454680409}
-  - component: {fileID: 2752262911454680414}
   - component: {fileID: 2752262911454680415}
   - component: {fileID: 2752262911454680412}
   - component: {fileID: 2752262911454680413}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 2752262911454680403}
   - component: {fileID: 351199739493405759}
   - component: {fileID: -8386931327582384264}
+  - component: {fileID: 406912548599887120}
   m_Layer: 7
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -92,29 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2752262911454680414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2752262911454680400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d666e5b0758ad458440a5192344d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 0
-  groundDistance: 0.85
-  rays:
-  - {x: 0, y: -0.5, z: 0}
-  - {x: 0.3, y: -0.4, z: 0}
-  - {x: -0.3, y: -0.4, z: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  gravity: 8
-  positionS: {x: 0, y: 0, z: 0}
 --- !u!114 &2752262911454680415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +222,7 @@ MonoBehaviour:
   ray: {x: -1, y: -0.7, z: 0}
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
 --- !u!95 &-8386931327582384264
 Animator:
   serializedVersion: 4
@@ -266,3 +243,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &406912548599887120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2752262911454680400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a4dff5e5eda0648b7fde94e17abf3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: 0
+  wallDistance: 0.5
+  rays:
+  - {x: 1.1, y: 0.7, z: 0}
+  - {x: 1.1, y: -0.7, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8

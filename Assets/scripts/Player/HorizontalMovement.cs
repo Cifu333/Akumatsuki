@@ -8,7 +8,11 @@ public class HorizontalMovement : MonoBehaviour
 
     public CapsuleCollider2D cd;
 
+    DetectWall dw;
+
     Rigidbody2D rb;
+
+    PlayerStatus ps;
 
     SpriteRenderer sr;
     Animator anim;
@@ -27,9 +31,6 @@ public class HorizontalMovement : MonoBehaviour
 
     public bool dash = false;
 
-    public bool stun;
-    public float stunCounter;
-
     [SerializeField]
     public float wallDistance = 2.5f;
     public List<Vector3> rays;
@@ -42,14 +43,15 @@ public class HorizontalMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         ground = GetComponent<GroundDetector>();
         rb = GetComponent<Rigidbody2D>();
+        ps = GetComponent<PlayerStatus>();
+        dw = GetComponent<DetectWall>();
         dir = Direction.RIGHT;
-        stun = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!stun)
+        if (!ps.stun)
         {
             if (GetComponent<PlayerStatus>().free == true)
             {
@@ -114,21 +116,20 @@ public class HorizontalMovement : MonoBehaviour
                 }
             }
         }
-    }
 
-    private void FixedUpdate()
-    {
-        if (!stun)
+        if (!ps.stun)
         {
             if (GetComponent<PlayerStatus>().free == true)
             {
                 float horizontal = Input.GetAxis("Horizontal");
 
-                rb.velocity *= new Vector3(0, 1, 0);
+                if (dash == false) 
+                { 
+                    currentSpeed = horizontal * speed;
 
-                if (dash == false) { currentSpeed = horizontal * speed; }
+                }
 
-                transform.position += new Vector3(currentSpeed * Time.fixedDeltaTime, 0, 0);
+                if (dw.wall == false) { transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0); }
 
                 if (horizontal > 0)
                 {
@@ -147,12 +148,15 @@ public class HorizontalMovement : MonoBehaviour
                 anim.SetBool("Dashed", dash);
             }
         }
-        else
+    }
+
+    private void FixedUpdate()
+    {
+        if (!ps.stun)
         {
-            stunCounter -= Time.deltaTime;
-            if (stunCounter <= 0)
+            if (GetComponent<PlayerStatus>().free == true)
             {
-                stun = false;
+                rb.velocity *= new Vector3(0, 1, 0);
             }
         }
     }

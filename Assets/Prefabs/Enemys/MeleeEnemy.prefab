@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 97594644865745180}
   - component: {fileID: 97594644865745183}
-  - component: {fileID: 97594644865745182}
   - component: {fileID: 97594644865745169}
   - component: {fileID: 97594644865745168}
   - component: {fileID: 97594644865745171}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 97594644865745173}
   - component: {fileID: 3445245289049980226}
   - component: {fileID: 7226793863157653751}
+  - component: {fileID: -3899987788870432452}
   m_Layer: 7
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -92,29 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &97594644865745182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97594644865745172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d666e5b0758ad458440a5192344d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 0
-  groundDistance: 0.85
-  rays:
-  - {x: 0, y: -0.5, z: 0}
-  - {x: 0.3, y: -0.4, z: 0}
-  - {x: -0.3, y: -0.4, z: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  gravity: 8
-  positionS: {x: 0, y: 0, z: 0}
 --- !u!114 &97594644865745169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +240,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inVoid: 0
   ray: {x: 1.5, y: -1, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 136
+--- !u!114 &-3899987788870432452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97594644865745172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a4dff5e5eda0648b7fde94e17abf3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: 0
+  wallDistance: 0.5
+  rays:
+  - {x: -0.9, y: 1, z: 0}
+  - {x: -0.9, y: -1, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 8

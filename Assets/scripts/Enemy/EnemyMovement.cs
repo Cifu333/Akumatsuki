@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject target;
 
     Rigidbody2D rb;
+    DetectWall dw;
 
     public EnemyStatus es;
 
@@ -50,6 +51,8 @@ public class EnemyMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         currentSpeed = speed;
         difX = transform.position.x - target.transform.position.x;
+        if (GetComponent<DetectWall>() != null)
+            dw = GetComponent<DetectWall>();
     }
 
     // Update is called once per frame
@@ -128,7 +131,7 @@ public class EnemyMovement : MonoBehaviour
                 if (transform.position.x < target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    if (difX > distance && dv.inVoid == false)
+                    if (difX > distance && dv.inVoid == false && !dw.wall)
                     {
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
                         anim.SetBool("Movement", true);
@@ -140,7 +143,7 @@ public class EnemyMovement : MonoBehaviour
                 else if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                    if (difX > distance && dv.inVoid == false)
+                    if (difX > distance && dv.inVoid == false && !dw.wall)
                     {
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
                         anim.SetBool("Movement", true);
@@ -148,6 +151,10 @@ public class EnemyMovement : MonoBehaviour
                     else
                         anim.SetBool("Movement", false);
                     dir = Direction.LEFT;
+                }
+                else
+                {
+                    anim.SetBool("Movement", false);
                 }
 
 
@@ -207,7 +214,7 @@ public class EnemyMovement : MonoBehaviour
                 if (transform.position.x < target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }
-                    if (difX < distance && dv.inVoid == false)
+                    if (difX < distance && dv.inVoid == false && !dw.wall)
                     {
                         anim.SetBool("Movement", true);
                         transform.position += new Vector3(-currentSpeed * Time.deltaTime, 0, 0);
@@ -219,7 +226,7 @@ public class EnemyMovement : MonoBehaviour
                 if (transform.position.x > target.transform.position.x && difX < detect)
                 {
                     if (transform.localScale.x > 0) { transform.localScale = new Vector3(-1 * transform.localScale.x, 1 * transform.localScale.y, 1); }
-                    if (difX < distance && dv.inVoid == false)
+                    if (difX < distance && dv.inVoid == false && !dw.wall)
                     {
                         anim.SetBool("Movement", true);
                         transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
@@ -227,6 +234,10 @@ public class EnemyMovement : MonoBehaviour
                     else
                         anim.SetBool("Movement", false);
                     dir = Direction.LEFT;
+                }
+                else
+                {
+                    anim.SetBool("Movement", false);
                 }
 
             }

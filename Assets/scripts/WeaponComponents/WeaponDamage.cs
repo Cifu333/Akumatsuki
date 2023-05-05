@@ -72,9 +72,8 @@ public class WeaponDamage : MonoBehaviour
                         collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
                     }
                 }
-                collision.gameObject.GetComponent<HorizontalMovement>().stun = true;
-                collision.gameObject.GetComponent<HorizontalMovement>().stunCounter = playerStun;
-
+                collision.gameObject.GetComponent<PlayerStatus>().stun = true;
+                collision.gameObject.GetComponent<PlayerStatus>().stunCounter = playerStun;
                 sound1.gameObject.GetComponent<AudioSource>().Pause();
                 Instantiate(sound2);
 

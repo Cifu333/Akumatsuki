@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 301363762638583368}
   - component: {fileID: 301363762638583371}
   - component: {fileID: 301363762638583370}
+  - component: {fileID: -5371366573429009339}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -255,7 +256,7 @@ MonoBehaviour:
   - {x: -1.2, y: -1.1, z: 0}
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   gravity: 13
   positionS: {x: 145.67036, y: 13.734998, z: 0}
 --- !u!114 &301363762638583410
@@ -278,8 +279,6 @@ MonoBehaviour:
   dashTime: 1
   dashDuration: 0.12
   dash: 0
-  stun: 0
-  stunCounter: 0
   wallDistance: 0.85
   rays:
   - {x: 1, y: 0.12, z: 0}
@@ -365,6 +364,9 @@ MonoBehaviour:
   babyParts: 0
   free: 0
   initiate: 0
+  stun: 0
+  stunCounter: 0
+  colorO: {r: 0, g: 0, b: 0, a: 0}
   invulneravility: 0
   invulneravilityCounter: 0
 --- !u!114 &301363762638583368
@@ -401,7 +403,7 @@ MonoBehaviour:
   tentacleAttackDuration: 0.75
   tentacleAttackTime: 0.5
   tentacleAttackCharge: 0.3
-  tentacleTranslation: 0.3
+  tentacleTranslation: 2
   groundDistance: 1
   groundMask:
     serializedVersion: 2
@@ -427,15 +429,35 @@ MonoBehaviour:
   semtex: {fileID: 8730590490346066181, guid: dca7e6c76ac50f749a7b3f0dfa510035, type: 3}
   ability: 0
   offset: 1.1
-  charge: 0
+  charge: 1
   rune: {fileID: 6564787003709316247, guid: 5be775a9768a87e49af93d4bd5b9c43b, type: 3}
   semtexDuration: 0.75
   semtexTime: 5
-  semtexForceX: 600
-  semtexForceY: 600
+  semtexForceX: 800
+  semtexForceY: 800
   runeDuration: 3
   runeTime: 5
   runePower: 3
+--- !u!114 &-5371366573429009339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301363762638583412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a4dff5e5eda0648b7fde94e17abf3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: 0
+  wallDistance: 0.5
+  rays:
+  - {x: -1.3, y: 1, z: 0}
+  - {x: -1.3, y: -1, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &301363762767385241
 GameObject:
   m_ObjectHideFlags: 0

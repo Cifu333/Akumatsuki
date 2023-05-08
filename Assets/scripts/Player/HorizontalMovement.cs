@@ -36,6 +36,8 @@ public class HorizontalMovement : MonoBehaviour
     public List<Vector3> rays;
     public LayerMask groundMask;
 
+    public List<AudioSource> audios;
+
     private bool playSound;
     // Start is called before the first frame update
     void Start()

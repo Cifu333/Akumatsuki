@@ -110,12 +110,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
+            Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>(), true);
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
-            Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), true);
+            Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>(), true);
+        }
+
+        if (collision.gameObject.layer == 7 && es.type == EnemyStatus.Type.FLYING)
+        {
+            Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>(), true);
         }
     }
 

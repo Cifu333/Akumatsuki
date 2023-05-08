@@ -302,7 +302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numJumps: 2
-  target: {fileID: 301363762638583412}
   force: 550
   anim: {fileID: 0}
   dir: 0
@@ -469,7 +468,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7fef491775c199348b29416f7799cfdc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 74a8869b2a6dfca47a3a06d0ecb4374e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -73,20 +73,10 @@ public class PlayerAttack : MonoBehaviour
             heavyAttackChargeCounter -= Time.deltaTime;
             if (heavyAttackChargeCounter <= 0)
             {
-                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
-                {
-                    temp = Instantiate(weapon, transform.position + new Vector3(-(offset), 0, 0), transform.rotation);
-                }
-                else
-                {
-                    temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
-                }
                 heavyAttackCoolCounter = heavyAttackTime;
                 temp.transform.parent = transform;
             }
         }
-        
-        Destroy(temp, Time.fixedDeltaTime);
 
         if (heavyAttackCoolCounter > 0f)
         {
@@ -100,7 +90,24 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-    
+    private void Instantiate()
+    {
+        if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
+        {
+            temp = Instantiate(weapon, transform.position + new Vector3(-(offset), 0, 0), transform.rotation);
+        }
+        else
+        {
+            temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+        }
+    }
+
+    private void Destroy()
+    {
+
+        Destroy(temp);
+
+    }
 }
 
 

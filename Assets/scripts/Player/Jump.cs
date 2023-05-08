@@ -6,20 +6,22 @@ public class Jump : MonoBehaviour
 {
     public int numJumps;
     private int jumps = 0;
-    public GameObject target;
     Rigidbody2D rb;
     public float force;
     public Animator anim;
 
+    private bool grounded;
+
     public Direction dir = Direction.NONE;
     public enum Direction { NONE, UP, DOWN };
 
-    private GroundDetector targetGroundDetectorComponent;
+    GroundDetector gd;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        gd = GetComponent<GroundDetector>();
     }
 
     private void FixedUpdate()
@@ -37,14 +39,10 @@ public class Jump : MonoBehaviour
             dir = Direction.NONE;
         }
         anim.SetFloat("VelocityY",rb.velocity.y);
-    }
-    // Update is called once per frame
-    void Update()
-    {
+
         if (GetComponent<PlayerAttack>().attack == false && GameObject.FindGameObjectWithTag("Token").GetComponent<Token>().justShot == false && GetComponent<PlayerStatus>().free == true)
         {
-            targetGroundDetectorComponent = target.GetComponent<GroundDetector>();
-            if (targetGroundDetectorComponent.grounded == true)
+            if (grounded == true)
             {
                 jumps = 0;
                 if (Input.GetButtonDown("Jump"))
@@ -64,5 +62,13 @@ public class Jump : MonoBehaviour
                 }
             }
         }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (gd.grounded == true)
+            grounded = true;
+        else
+            grounded = false;
     }
 }

@@ -36,6 +36,7 @@ public class HorizontalMovement : MonoBehaviour
     public List<Vector3> rays;
     public LayerMask groundMask;
 
+    private bool playSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -126,10 +127,12 @@ public class HorizontalMovement : MonoBehaviour
                 if (dash == false) 
                 { 
                     currentSpeed = horizontal * speed;
-
                 }
 
-                if (dw.wall == false) { transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0); }
+                if (dw.wall == false)
+                {
+                    transform.position += new Vector3(currentSpeed * Time.deltaTime, 0, 0);
+                }
 
                 if (horizontal > 0)
                 {
@@ -170,5 +173,10 @@ public class HorizontalMovement : MonoBehaviour
             else
                 Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<CapsuleCollider2D>(), false);
         }
+    }
+
+    private void PlaySound()
+    {
+        GetComponent<AudioSource>().Play();
     }
 }

@@ -115,11 +115,11 @@ public class DemonAbilities : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
-                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0) * Time.deltaTime;
                 }
                 else
                 {
-                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0);
+                    temp.gameObject.transform.localScale += new Vector3(tentacleTranslation, 0, 0) * Time.deltaTime;
                 }
             }
             else if (tentacleAttackCounter < tentacleAttackDuration / 2)
@@ -128,11 +128,11 @@ public class DemonAbilities : MonoBehaviour
                 {
                     if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                     {
-                        temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                        temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0) * Time.deltaTime;
                     }
                     else
                     {
-                        temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0);
+                        temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation, 0, 0) * Time.deltaTime;
                     }
                 }
                 else
@@ -142,16 +142,16 @@ public class DemonAbilities : MonoBehaviour
                     {
                         if (temp.gameObject.transform.localScale.x > 0)
                         {
-                            temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0);
-                            transform.position -= new Vector3(tentacleTranslation / 2.5f, 0, 0);
+                            temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0) * Time.deltaTime;
+                            transform.position -= new Vector3(tentacleTranslation / 2.5f, 0, 0) * Time.deltaTime;
                         }
                     }
                     else
                     {
                         if (temp.gameObject.transform.localScale.x > 0)
                         {
-                            temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0);
-                            transform.position -= new Vector3(-tentacleTranslation / 2.5f, 0, 0);
+                            temp.gameObject.transform.localScale -= new Vector3(tentacleTranslation * 1.5f, 0, 0) * Time.deltaTime;
+                            transform.position -= new Vector3(-tentacleTranslation / 2.5f, 0, 0) * Time.deltaTime;
                         }
                     }
                 }
@@ -224,7 +224,7 @@ public class DemonAbilities : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GetComponent<CapsuleCollider2D>() != null)
+        if (GetComponent<Collider2D>() != null)
         {
             if (collision.gameObject.layer == 3)
                 attach = true;

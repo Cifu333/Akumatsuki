@@ -106,7 +106,7 @@ MonoBehaviour:
   force: 0
   playerStun: 0
   invulneravilityTime: 0
-  sound1: {fileID: 0}
+  sound1: {fileID: 1167206280452234370, guid: cd6eaa71d7f445f40a5d800302db95a0, type: 3}
   sound2: {fileID: 0}
 --- !u!50 &9085965143492278846
 Rigidbody2D:

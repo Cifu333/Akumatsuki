@@ -20,7 +20,7 @@ public class EnemyStatus : MonoBehaviour
         ea = GetComponent<EnemyAttack>();
         free = true;
         stunned = true;
-        stunTimeCounter = 1;
+        stunTimeCounter = 2;
     }
 
     // Update is called once per frame

@@ -224,10 +224,13 @@ public class DemonAbilities : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GetComponent<Collider2D>() != null)
+        if (transform.childCount > 1)
         {
-            if (collision.gameObject.layer == 3)
-                attach = true;
+            if (transform.GetChild(1).GetComponent<Collider2D>() != null)
+            {
+                if (collision.gameObject.layer == 3)
+                    attach = true;
+            }
         }
     }
 }

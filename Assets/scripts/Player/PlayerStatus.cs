@@ -27,13 +27,20 @@ public class PlayerStatus : MonoBehaviour
 
     public bool invulneravility;
     public float invulneravilityCounter;
+
+    private float time;
+
+    public bool inThorns;
+    public int inThornsCount;
     // Start is called before the first frame update
     void Start()
     {
         free = true;
+        inThorns = false;
         respawn = transform.position;
         invulneravility = false;
         stun = false;
+        time = 1;
         demonA = GetComponent<DemonAbilities>();
         d = transform.GetChild(0).GetChild(0).GetComponent<Token>();
         pa = GetComponent<PlayerAttack>();
@@ -54,6 +61,15 @@ public class PlayerStatus : MonoBehaviour
             if (stunCounter <= 0)
             {
                 stun = false;
+            }
+        }
+        if (inThorns)
+        {
+            time += Time.deltaTime;
+            if (time >= 1)
+            {
+                hp -= 30;
+                time = 0;
             }
         }
     }

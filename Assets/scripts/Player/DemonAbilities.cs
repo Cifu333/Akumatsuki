@@ -8,6 +8,7 @@ public class DemonAbilities : MonoBehaviour
 
     public GameObject tentacle;
     public GameObject fire;
+    public GameObject fireAnim;
 
     public bool ability;
 
@@ -39,15 +40,16 @@ public class DemonAbilities : MonoBehaviour
     public int tentacleMisery;
     public int fireMisery;
 
-    public GameObject temp;
+    GameObject temp;
+    GameObject temp2;
 
     private bool tentacleCooldown;
     private bool fireCooldown;
     // Start is called before the first frame update
     void Start()
     {
-        tentacleMisery = 20;
-        fireMisery = 30;
+        tentacleMisery = 0;
+        fireMisery = 0;
         fireReiterateCounter = 0;
         tentacleCooldown = false;
         fireCooldown = false;
@@ -185,10 +187,10 @@ public class DemonAbilities : MonoBehaviour
             {
                 fireCooldown = true;
                 temp = Instantiate(fire, transform.position, transform.rotation);
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f);
-                temp.transform.parent = transform;
+                temp2 = Instantiate(fireAnim, transform.position, transform.rotation);
+                temp.transform.parent = gameObject.transform;
+                temp2.transform.parent = gameObject.transform;
 
-                fireCoolCounter = fireTime;
                 fireCounter = fireDuration;
                 ps.misery -= fireMisery;
             }
@@ -197,18 +199,14 @@ public class DemonAbilities : MonoBehaviour
         if (fireCounter > 0f)
         {
             fireCounter -= Time.deltaTime;
-            fireReiterateCounter += Time.deltaTime;
-            if (fireReiterateCounter >= 1)
-            {
-                fireReiterateCounter = 0;
-                Destroy(temp, 0);
-                temp = Instantiate(fire, transform.position, transform.rotation);
-            }
             if (fireCounter <= 0)
             {
-                fireReiterateCounter = 0;
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
-                Destroy(temp, 0);
+                Debug.Log("me cago en tu madre");
+                Destroy(temp,0);
+
+                Destroy(temp2,0);
+
+                fireCoolCounter = fireTime;
             }
         }
 

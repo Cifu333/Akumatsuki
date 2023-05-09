@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6498873973934718140}
   - component: {fileID: 6498873973934718143}
   - component: {fileID: 5060450674957839277}
+  - component: {fileID: 4553665955412692730}
   m_Layer: 0
   m_Name: recuerdos2
   m_TagString: BabyParts
@@ -115,5 +116,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 4
-  timeMax: 2
-  time: 0
+--- !u!50 &4553665955412692730
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498873973934718142}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 6.86, y: 5.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1008867589617027542
@@ -165,5 +165,6 @@ MonoBehaviour:
   force: 0
   playerStun: 0
   invulneravilityTime: 0
-  sound1: {fileID: 0}
+  sound1: {fileID: 9202707070773173296, guid: 68dde0e94e69d824da89ffc43a7f14cd, type: 3}
   sound2: {fileID: 0}
+  sound3: {fileID: 0}

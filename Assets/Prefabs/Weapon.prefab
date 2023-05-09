@@ -78,3 +78,4 @@ MonoBehaviour:
   invulneravilityTime: 0
   sound1: {fileID: 8608893514883879000, guid: 287da5e022504f34abf03bb8b9a2468a, type: 3}
   sound2: {fileID: 6776264082006566291, guid: b512ae2b563b53341bb5b6b13872dd16, type: 3}
+  sound3: {fileID: 6776264082006566291, guid: 7db9b8e7537943c41a5997503fc39ce5, type: 3}

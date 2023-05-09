@@ -74,7 +74,6 @@ public class PlayerAttack : MonoBehaviour
             if (heavyAttackChargeCounter <= 0)
             {
                 heavyAttackCoolCounter = heavyAttackTime;
-                temp.transform.parent = transform;
             }
         }
 
@@ -100,6 +99,7 @@ public class PlayerAttack : MonoBehaviour
         {
             temp = Instantiate(weapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
         }
+        temp.transform.parent = transform;
     }
 
     private void Destroy()

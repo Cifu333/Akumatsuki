@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5cc12dfcea55e3540a97f62c3fadaac1
+guid: cc0ba740c6ed86b45b980a47b8df654e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c8e11df125e13140bd7b8fef5c8f518
-      internalID: 444898280
+      spriteID: a51cff09c65e24743bcace990d834a58
+      internalID: -619151103
       vertices: []
       indices: 
       edges: []
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b6aed054a976c34bb480a78b4994f3d
-      internalID: -116319074
+      spriteID: 82e35f138167e2a47b6d7123b2df66aa
+      internalID: -1763205488
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35110c12aa75fce469d0f2d75c43c6ab
-      internalID: -105723930
+      spriteID: 138ba9626ab0f0241a4d614940238718
+      internalID: -201637470
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 202602f88330e6c4295f503ade13a267
-      internalID: 2019479781
+      spriteID: 20b2847817543d34cbad9c54fd2d39d6
+      internalID: -1191301016
       vertices: []
       indices: 
       edges: []
@@ -192,9 +192,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 44
-        y: 94
+        y: 155
         width: 210
-        height: 70
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +202,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd4b4087cbe2ca642980a898ae6fc913
-      internalID: -609445957
+      spriteID: 429c8eebc4d7dec4baaae4ab77c7b020
+      internalID: 684878592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: projetilNew_5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 93
+        width: 154
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dba08ec7162aec45952d84fc182a299
+      internalID: -868004497
       vertices: []
       indices: 
       edges: []
@@ -219,11 +240,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      projetilNew_2: -105723930
-      projetilNew_0: 444898280
-      projetilNew_4: -609445957
-      projetilNew_3: 2019479781
-      projetilNew_1: -116319074
+      projetilNew_5: -868004497
+      projetilNew_2: -201637470
+      projetilNew_0: -619151103
+      projetilNew_4: 684878592
+      projetilNew_3: -1191301016
+      projetilNew_1: -1763205488
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

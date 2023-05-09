@@ -108,25 +108,9 @@ public class EnemyAttack : MonoBehaviour
             attackChargeCounter -= Time.deltaTime;
             if (attackChargeCounter <= 0)
             {
-                if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
-                {
-                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
-                    temp.transform.localScale = new Vector3(-temp.transform.localScale.x, temp.transform.localScale.y);
-                }
-                else
-                {
-                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
-                }
                 attackCoolCounter = attackTime;
-                temp.transform.parent = transform;
-                if (em.es.type == EnemyStatus.Type.TANK)
-                {
-                    GameObject.FindGameObjectWithTag("MainCamera").transform.parent.GetComponent<camShake>().pressToShake1 = true;
-                }
             }
         }
-
-        Destroy(temp, Time.fixedDeltaTime);
 
         if (attackCoolCounter > 0f)
         {
@@ -162,12 +146,8 @@ public class EnemyAttack : MonoBehaviour
             attackChargeCounter -= Time.deltaTime;
             if (attackChargeCounter <= 0)
             {
-
-                temp = Instantiate(enemyWeapon, transform.position + new Vector3(0, 0, 0), transform.rotation);
                 rb.AddForce(new Vector2(dashForce * cos, dashForce * sin));
                 dashCounter = dashDuration;
-
-                temp.transform.parent = transform;
             }
         }
 
@@ -214,18 +194,9 @@ public class EnemyAttack : MonoBehaviour
             attackChargeCounter -= Time.deltaTime;
             if (attackChargeCounter <= 0)
             {
-                if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
-                {
-                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
-                }
-                else
-                {
-                    temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
-                }
                 attackCoolCounter = attackTime;
-                temp.transform.parent = transform;
                 attack = false;
-                Destroy(temp, 4);
+                Destroy(temp, 1);
             }
         }
 
@@ -253,7 +224,7 @@ public class EnemyAttack : MonoBehaviour
             dashCounter = dashTime;
         }
 
-        if (temp != null && temp.GetComponent<Animator>() != null && temp.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && temp.tag != "weapon" && temp.tag != "bullet")
+        if (temp != null && temp.GetComponent<Animator>() != null && temp.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && temp.tag != "Bullet")
         {
             transform.position = temp.gameObject.transform.GetChild(0).position;
             attackCoolCounter = 0;
@@ -273,6 +244,34 @@ public class EnemyAttack : MonoBehaviour
         }
 
     }
+    private void Instantiate()
+    {
+        if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+        {
+            temp = Instantiate(enemyWeapon, transform.position + new Vector3(-offset, 0, 0), transform.rotation);
+            if (em.es.type == EnemyStatus.Type.TANK)
+            {
+                temp.transform.localScale = new Vector3(-temp.transform.localScale.x,temp.transform.localScale.y);
+            }
+        }
+        else
+        {
+            temp = Instantiate(enemyWeapon, transform.position + new Vector3(offset, 0, 0), transform.rotation);
+        }
+        if (em.es.type == EnemyStatus.Type.TANK)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").transform.parent.GetComponent<camShake>().pressToShake1 = true;
+        }
+        temp.transform.parent = transform;
+    }
+
+    private void Destroy()
+    {
+
+        Destroy(temp);
+
+    }
+
 }
 
 

@@ -48,8 +48,6 @@ public class DemonAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tentacleMisery = 0;
-        fireMisery = 0;
         fireReiterateCounter = 0;
         tentacleCooldown = false;
         fireCooldown = false;

@@ -289,7 +289,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  audios: []
+  dashSound: {fileID: 8824490880215399243, guid: 80a14e3227b68624b9a41d9eac1c30b9, type: 3}
 --- !u!114 &301363762638583411
 MonoBehaviour:
   m_ObjectHideFlags: 0

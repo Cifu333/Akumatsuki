@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78aad51593bcf7b40b9e1cff1c2cd5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 1.1
+  offset: 0
   attackHeight: 2.25
   enemyWeapon: {fileID: 3958544942335018802, guid: 4bdb9985f38271a449e9a06b11ce7238, type: 3}
   attack: 0
@@ -202,8 +202,8 @@ MonoBehaviour:
   sin: 0
   cos: 0
   dashMovement: 0
-  dashB: 0
   dashTime: 0
+  dashP: {fileID: 0}
 --- !u!95 &7840507427896230433
 Animator:
   serializedVersion: 4

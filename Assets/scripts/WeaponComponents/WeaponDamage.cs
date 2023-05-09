@@ -32,7 +32,7 @@ public class WeaponDamage : MonoBehaviour
             if (gameObject.tag != "Bullet")
             {
 
-                if (collision.transform.position.x > collision.GetComponent<EnemyMovement>().target.transform.position.x)
+                if (transform.parent.GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.RIGHT)
                 {
                     collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
                 }
@@ -63,7 +63,7 @@ public class WeaponDamage : MonoBehaviour
                 GameObject.FindGameObjectWithTag("MainCamera").transform.parent.GetComponent<camShake>().pressToShake2 = true;
                 if (gameObject.tag != "Bullet")
                 {
-                    if (collision.transform.position.x > gameObject.transform.parent.transform.position.x)
+                    if (gameObject.transform.parent.GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.RIGHT)
                     {
                         collision.attachedRigidbody.AddForce(new Vector2(force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
                     }
@@ -71,9 +71,9 @@ public class WeaponDamage : MonoBehaviour
                     {
                         collision.attachedRigidbody.AddForce(new Vector2(-force / collision.attachedRigidbody.mass, force / collision.attachedRigidbody.mass));
                     }
+                    collision.gameObject.GetComponent<PlayerStatus>().stun = true;
+                    collision.gameObject.GetComponent<PlayerStatus>().stunCounter = playerStun;
                 }
-                collision.gameObject.GetComponent<PlayerStatus>().stun = true;
-                collision.gameObject.GetComponent<PlayerStatus>().stunCounter = playerStun;
                 sound1.gameObject.GetComponent<AudioSource>().Pause();
                 Instantiate(sound2);
 

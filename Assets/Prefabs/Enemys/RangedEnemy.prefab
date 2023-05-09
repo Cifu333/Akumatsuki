@@ -206,6 +206,7 @@ MonoBehaviour:
   dashMovement: 3.6
   dashB: 0
   dashTime: 10
+  dashP: {fileID: 4694771182713841852, guid: 6ca1a0b4c8d500340bafa439f28f839f, type: 3}
 --- !u!114 &351199739493405759
 MonoBehaviour:
   m_ObjectHideFlags: 0

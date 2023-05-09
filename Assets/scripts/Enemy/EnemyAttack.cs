@@ -37,16 +37,13 @@ public class EnemyAttack : MonoBehaviour
     public float dashMovement;
 
     private bool dashR;
-    private bool dashH;
-    public bool dashB;
     public float dashTime;
+    public GameObject dashP;
 
     // Start is called before the first frame update
     void Start()
     {
         dashR = false;
-        dashH = true;
-        dashB = false;
         charge = true;
         attack = false;
         em = GetComponent<EnemyMovement>();
@@ -244,52 +241,34 @@ public class EnemyAttack : MonoBehaviour
         if (em.difX < em.distance / 2 && dashR == false && (transform.position.y + attackHeight) >= em.target.transform.position.y && (transform.position.y - attackHeight) <= em.target.transform.position.y) 
         {
             dashR = true;
-            dashB = true;
-            attack = true;
             if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
             {
-                transform.position = new Vector3(transform.position.x - dashMovement, transform.position.y);
-                temp = Instantiate(enemyWeapon, transform.position - new Vector3(dashMovement + offset, 0, 0), transform.rotation);
-                temp.transform.parent = transform;
-                Destroy(temp, 4);
+                temp = Instantiate(dashP, transform.position - new Vector3(dashMovement * 2, 0, 0), transform.rotation);
+                temp.transform.localScale = new Vector3(-temp.transform.localScale.x, temp.transform.localScale.y);
             }
             else
             {
-                transform.position = new Vector3(transform.position.x + dashMovement, transform.position.y);
-                temp = Instantiate(enemyWeapon, transform.position + new Vector3(dashMovement + offset, 0, 0), transform.rotation);
-                temp.transform.parent = transform;
-                Destroy(temp, 4);
+                temp = Instantiate(dashP, transform.position + new Vector3(dashMovement * 2, 0, 0), transform.rotation);
             }
             dashCounter = dashTime;
-            anim.SetBool("Dash", true);
+        }
+
+        if (temp != null && temp.GetComponent<Animator>() != null && temp.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && temp.tag != "weapon" && temp.tag != "bullet")
+        {
+            transform.position = temp.gameObject.transform.GetChild(0).position;
+            attackCoolCounter = 0;
+            attack = true;
+            attackChargeCounter = attackCharge;
+
+            Destroy(temp);
         }
 
         if (dashCounter > 0)
         {
             dashCounter -= Time.deltaTime;
-            if (dashCounter <= dashTime / 10 * 9)
-            {
-                anim.SetBool("Dash", false);
-                if (dashH)
-                {
-                    dashB = false;
-                    dashH = false;
-                    if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
-                    {
-                        transform.position = new Vector3(transform.position.x - dashMovement, transform.position.y);
-                    }
-                    else
-                    {
-                        transform.position = new Vector3(transform.position.x + dashMovement, transform.position.y);
-                    }
-                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
-                }
-                attack = false;
-            }
             if (dashCounter <= 0)
             {
                 dashR = false;
-                dashH = true;
             }
         }
 

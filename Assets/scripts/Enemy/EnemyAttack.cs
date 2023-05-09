@@ -59,7 +59,7 @@ public class EnemyAttack : MonoBehaviour
         {
             if (!es.stunned)
             {
-                switch (em.es.type)
+                switch (es.type)
                 {
                     case EnemyStatus.Type.MELEE:
                         MeleeAttack();
@@ -227,6 +227,16 @@ public class EnemyAttack : MonoBehaviour
         if (temp != null && temp.GetComponent<Animator>() != null && temp.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && temp.tag != "Bullet")
         {
             transform.position = temp.gameObject.transform.GetChild(0).position;
+            if (GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.LEFT)
+            {
+                GetComponent<EnemyMovement>().dir = EnemyMovement.Direction.RIGHT;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+            }
+            else
+            {
+                GetComponent<EnemyMovement>().dir = EnemyMovement.Direction.LEFT;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+            }
             attackCoolCounter = 0;
             attack = true;
             attackChargeCounter = attackCharge;

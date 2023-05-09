@@ -11,9 +11,11 @@ public class EnemyStatus : MonoBehaviour
     public int misery = 5;
     public EnemyAttack ea;
     public bool free;
+    private bool burn;
 
     public bool stunned;
     public float stunTimeCounter;
+    private float time;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class EnemyStatus : MonoBehaviour
         free = true;
         stunned = true;
         stunTimeCounter = 2;
+        time = 1;
     }
 
     // Update is called once per frame
@@ -42,6 +45,16 @@ public class EnemyStatus : MonoBehaviour
             }
         }
         Muerte();
+
+        if (burn)
+        {
+            time += Time.deltaTime;
+            if (time >= 1)
+            {
+                time = 0;
+                hp -= 15;
+            }
+        }
     }
 
 
@@ -61,5 +74,18 @@ public class EnemyStatus : MonoBehaviour
         {
             Destroy(gameObject, 0);
         }
+        if (collision.gameObject.tag == "fire")
+        {
+            burn = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "fire")
+        {
+            burn = false;
+        }
+
     }
 }

@@ -6,7 +6,7 @@ public class PowerUpsMenu : MonoBehaviour
 {
     public static PowerUpsMenu instance;
     public GameObject pauseMenu;
-    public GameObject player;
+    GameObject player;
     PlayerAbilitys pa;
     PlayerStatus status;
     private bool isThere;
@@ -33,6 +33,7 @@ public class PowerUpsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         isPaused = false;
         isThere = false;
         pauseMenu.SetActive(false);

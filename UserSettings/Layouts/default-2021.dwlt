@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 39
+  controlID: 29
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 453
     height: 939
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 40
+  controlID: 89
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 41
+  controlID: 90
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -353,36 +353,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\HUGOCIFUENTESBOSCH\Documents\Akumatsuki
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 41}
-    m_SelectedIDs: 346b0000
-    m_LastClickedID: 27444
-    m_ExpandedIDs: 00000000186b0000246b00003a6b000052a1000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 3c850000
+    m_LastClickedID: 34108
+    m_ExpandedIDs: 000000003c85000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: aku_music
-      m_OriginalName: aku_music
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 27560
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -396,7 +396,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000003c850000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -524,20 +524,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: f67fffff4080ffff4c83ffff5c83ffff7083ffffaa87fffff687fffff48cffff048dffff228dffff7690ffff08beffff50beffffd0c0ffffe0c0fffff4c0ffff6ec3ffff4ac4ffff90c4ffff04c9ffff14c9ffff32c9ffffe6e9fffff2e9ffffbeeaffffcaeaffff96edffff92f2ffff4cf3ffffd8f4ffff24fbffff2e8f0000528f0000888f000096900000fc9200006a2901000a2b0100d42e0100
+      m_SelectedIDs: be6f0000
+      m_LastClickedID: 28606
+      m_ExpandedIDs: 26f9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Image
-        m_OriginalName: Image
+        m_Name: cartel (1)
+        m_OriginalName: cartel (1)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -22270
+        m_UserData: 28606
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -797,9 +797,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 201.17955, y: 35.376575, z: 0.46222726}
+    m_Target: {x: 174.83415, y: 26.95487, z: -0.024011182}
     speed: 2
-    m_Value: {x: 202.47617, y: 35.206837, z: 0.45025125}
+    m_Value: {x: 174.81917, y: 26.952097, z: -0.0226022}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -850,9 +850,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 25.415792
+    m_Target: 3.2719402
     speed: 2
-    m_Value: 26.613396
+    m_Value: 3.1310432
   m_Ortho:
     m_Target: 1
     speed: 2

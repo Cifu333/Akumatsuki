@@ -18,7 +18,7 @@ public class panel_x : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inRange && Input.GetButtonDown("interaction"))
+        if(inRange && Input.GetKeyDown(KeyCode.X))
         {
             canvas.SetActive(true);
         }

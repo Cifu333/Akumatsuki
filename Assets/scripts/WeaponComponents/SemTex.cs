@@ -5,6 +5,7 @@ using UnityEngine;
 public class SemTex : MonoBehaviour
 {
     public GameObject Explosion;
+    public float rotate;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class SemTex : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        gameObject.transform.eulerAngles += new Vector3(0, 0, rotate) * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

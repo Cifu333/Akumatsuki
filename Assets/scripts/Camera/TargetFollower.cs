@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetFollower : MonoBehaviour
 {
-    public GameObject target;
+    GameObject target;
     public float speed = 1.0f;
     public float offsetX = 0;
     public float offsetY = 0;
@@ -15,6 +15,7 @@ public class TargetFollower : MonoBehaviour
 
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
         targetMovementComponent = target.GetComponent<HorizontalMovement>();
         targetMovementComponentVert = target.GetComponent<Jump>();
     }

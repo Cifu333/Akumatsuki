@@ -19,6 +19,7 @@ public class Balance : MonoBehaviour
         if (time > 0)
         {
             time -= Time.deltaTime;
+            transform.position += new Vector3(0, velocity, 0) * Time.deltaTime;
             if (time <= 0)
             {
                 velocity = -velocity;

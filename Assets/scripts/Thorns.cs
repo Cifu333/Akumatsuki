@@ -23,6 +23,8 @@ public class Thorns : MonoBehaviour
             collision.GetComponent<PlayerStatus>().inThorns = true;
             collision.GetComponent<PlayerStatus>().inThornsCount++;
         }
+        if (collision.tag == "fire")
+            Destroy(gameObject);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

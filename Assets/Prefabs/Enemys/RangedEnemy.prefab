@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 351199739493405759}
   - component: {fileID: -8386931327582384264}
   - component: {fileID: 406912548599887120}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.13, y: 0}
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 2, y: 2.42}
   m_Direction: 0
 --- !u!50 &2752262911454680413
 Rigidbody2D:
@@ -204,7 +204,6 @@ MonoBehaviour:
   sin: 0
   cos: 0
   dashMovement: 3.6
-  dashB: 0
   dashTime: 10
   dashP: {fileID: 4694771182713841852, guid: 6ca1a0b4c8d500340bafa439f28f839f, type: 3}
 --- !u!114 &351199739493405759

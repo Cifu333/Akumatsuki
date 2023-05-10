@@ -101,7 +101,7 @@ MonoBehaviour:
   bulletLifeTime: 2
   justShot: 0
   timeForRespawn: 5
-  bulletTime: 0.5
+  bulletTime: 1
 --- !u!1 &301363762638583412
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.61, y: 0}
-  m_Size: {x: 1.98, y: 3.46}
+  m_Size: {x: 1.98, y: 3}
   m_Direction: 0
 --- !u!114 &301363762638583373
 MonoBehaviour:
@@ -255,11 +255,12 @@ MonoBehaviour:
   - {x: 0, y: -1.1, z: 0}
   - {x: -0.6, y: -1.1, z: 0}
   - {x: -1.2, y: -1.1, z: 0}
+  rayS: {x: -5, y: -1.1, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 136
   gravity: 13
-  positionS: {x: 145.67036, y: 13.734998, z: 0}
+  positionS: {x: 192.1713, y: 33.52038, z: 0}
 --- !u!114 &301363762638583410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +290,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  dashSound: {fileID: 8824490880215399243, guid: 80a14e3227b68624b9a41d9eac1c30b9, type: 3}
 --- !u!114 &301363762638583411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +371,9 @@ MonoBehaviour:
   colorO: {r: 0, g: 0, b: 0, a: 0}
   invulneravility: 0
   invulneravilityCounter: 0
+  inThorns: 0
+  inThornsCount: 0
+  babyPartsAudio: {fileID: 5975874692864333038, guid: 01360f493db325548910ca7052c5ec0c, type: 3}
 --- !u!114 &301363762638583368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,8 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94460b3a5fe52b54ba1c0ab4ff8d9318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  human: 000000
-  demon: 000000
+  human: 0000
+  demon: 0101
 --- !u!114 &301363762638583371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tentacle: {fileID: 1913580506023576132, guid: c31fa3dc61bc8d14f865710b9f91b1b8, type: 3}
   fire: {fileID: 2132841706160978180, guid: 4eb96bb349f45204c8d056c252b5f220, type: 3}
+  fireAnim: {fileID: 4677371168441291410, guid: 6b9d21ca9941eec4397aa3bc7d6a8c78, type: 3}
   ability: 0
   offset: 0
   charge: 0
@@ -413,7 +419,6 @@ MonoBehaviour:
   fireTime: 3
   tentacleMisery: 0
   fireMisery: 0
-  temp: {fileID: 0}
 --- !u!114 &301363762638583370
 MonoBehaviour:
   m_ObjectHideFlags: 0

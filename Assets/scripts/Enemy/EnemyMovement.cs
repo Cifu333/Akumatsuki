@@ -58,6 +58,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        difX = transform.position.x - target.transform.position.x;
+        difY = transform.position.y - target.transform.position.y;
+        if (difX < 0) { difX = -difX; }
+        if (difY < 0) { difY = -difY; }
         if (!es.stunned)
         {
 
@@ -173,10 +177,6 @@ public class EnemyMovement : MonoBehaviour
             if (es.free == true)
             {
                 currentSpeed = speed;
-                difX = transform.position.x - target.transform.position.x;
-                difY = transform.position.y - target.transform.position.y;
-                if (difX < 0) { difX = -difX; }
-                if (difY < 0) { difY = -difY; }
                 if (transform.position.x < target.transform.position.x && difX < detect && difY < detect)
                 {
                     if (transform.localScale.x < 0) { transform.localScale = new Vector3(1 * transform.localScale.x, 1 * transform.localScale.y, 0); }

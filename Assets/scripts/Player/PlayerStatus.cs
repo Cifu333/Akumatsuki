@@ -32,6 +32,9 @@ public class PlayerStatus : MonoBehaviour
 
     public bool inThorns;
     public int inThornsCount;
+
+    public GameObject babyPartsAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +116,7 @@ public class PlayerStatus : MonoBehaviour
         {
             babyParts++;
             Destroy(collision.gameObject);
+            Instantiate(babyPartsAudio);
         }
         if (collision.gameObject.layer == 6)
         {

@@ -36,7 +36,8 @@ public class HorizontalMovement : MonoBehaviour
     public List<Vector3> rays;
     public LayerMask groundMask;
 
-    public List<AudioSource> audios;
+    public GameObject dashSound;
+    GameObject temp;
 
     private bool playSound;
     // Start is called before the first frame update
@@ -77,6 +78,7 @@ public class HorizontalMovement : MonoBehaviour
                             currentSpeed = -dashSpeed;
                         }
                         dashCounter = dashDuration;
+                        temp = Instantiate(dashSound, transform.position, transform.rotation);
                     }
                 }
 

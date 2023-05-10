@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: d1df8bbe7a24eef44bf0c02555af77ce
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 75
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: energyBallImpact-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 940
+        width: 70
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87df7de879bf8454dbc19d8c3694b0eb
+      internalID: -1780227835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyBallImpact-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 810
+        width: 84
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404ac0dadb3e13e4da8c270a1c970b36
+      internalID: -1039338951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyBallImpact-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 673
+        width: 100
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb154d37babe5a4db6d15a029074669
+      internalID: -1295218479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyBallImpact-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 545
+        width: 113
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e06b0e8aef66c44abf5ecf396a5ad4
+      internalID: -1863919189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyBallImpact-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 410
+        width: 116
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd503592d0c52341a2e4b3d01c23251
+      internalID: 782147001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyBallImpact-sheet_40
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 274
+        width: 116
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65d5c90584574f4e9a8716d425a046f
+      internalID: 814473435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyBallImpact-sheet_45
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 146
+        width: 74
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4cb5d1fa1ebdb42bf4285644d80cdc
+      internalID: 738068357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      energyBallImpact-sheet_27: 1009968345
+      energyBallImpact-sheet_16: 502340712
+      energyBallImpact-sheet_8: -1295218479
+      energyBallImpact-sheet_30: 179936983
+      energyBallImpact-sheet_18: -1365190026
+      energyBallImpact-sheet_1: -1039338951
+      energyBallImpact-sheet_36: -873623558
+      energyBallImpact-sheet_11: 268659357
+      energyBallImpact-sheet_22: -1863919189
+      energyBallImpact-sheet_33: -937175994
+      energyBallImpact-sheet_29: 878111027
+      energyBallImpact-sheet_23: -2054766032
+      energyBallImpact-sheet_17: -132687020
+      energyBallImpact-sheet_37: 170321977
+      energyBallImpact-sheet_5: -722264457
+      energyBallImpact-sheet_15: -2019887771
+      energyBallImpact-sheet_2: -78178433
+      energyBallImpact-sheet_21: -383158283
+      energyBallImpact-sheet_32: 275767878
+      energyBallImpact-sheet_12: 1711832607
+      energyBallImpact-sheet_24: 1709891774
+      energyBallImpact-sheet_41: -1126841525
+      energyBallImpact-sheet_4: 1367526123
+      energyBallImpact-sheet_3: -600151976
+      energyBallImpact-sheet_0: -1780227835
+      energyBallImpact-sheet_9: -944867207
+      energyBallImpact-sheet_6: -293147836
+      energyBallImpact-sheet_25: -39147459
+      energyBallImpact-sheet_43: 2059638710
+      energyBallImpact-sheet_20: 1108770610
+      energyBallImpact-sheet_34: 181972423
+      energyBallImpact-sheet_7: 1496777981
+      energyBallImpact-sheet_40: 814473435
+      energyBallImpact-sheet_14: -731654641
+      energyBallImpact-sheet_19: -684488925
+      energyBallImpact-sheet_35: -1804080585
+      energyBallImpact-sheet_45: 738068357
+      energyBallImpact-sheet_38: 931451323
+      energyBallImpact-sheet_10: -1964471062
+      energyBallImpact-sheet_39: 1647529544
+      energyBallImpact-sheet_26: 487724034
+      energyBallImpact-sheet_42: 1776884679
+      energyBallImpact-sheet_13: 2041951718
+      energyBallImpact-sheet_31: 782147001
+      energyBallImpact-sheet_44: 2055425841
+      energyBallImpact-sheet_28: -345542802
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

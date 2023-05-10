@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Ability.prefab.meta
+guid: d71b150733744514eaedfa6b38b2fe1c
+PrefabImporter:
+========
 guid: dadc3ebb123aee942abd933bdf756396
 NativeFormatImporter:
+>>>>>>>> 1d24c193c6271ab7d0b739f9c090cd43cc4d23ae:Assets/Animations/ButtonAnimator.controller.meta
   externalObjects: {}
   mainObjectFileID: 9100000
   userData: 

@@ -137,7 +137,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.3, y: 0}
-  m_Size: {x: 1.5, y: 4}
+  m_Size: {x: 1.5, y: 3.26}
   m_Direction: 0
 --- !u!50 &97594644865745171
 Rigidbody2D:
@@ -204,8 +204,8 @@ MonoBehaviour:
   sin: 0
   cos: 0
   dashMovement: 0
-  dashB: 0
   dashTime: 0
+  dashP: {fileID: 0}
 --- !u!95 &3445245289049980226
 Animator:
   serializedVersion: 4

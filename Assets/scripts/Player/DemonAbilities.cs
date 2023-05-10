@@ -20,7 +20,7 @@ public class DemonAbilities : MonoBehaviour
 
     Rigidbody2D rb;
 
-    private float tentacleAttackCoolCounter;
+    public float tentacleAttackCoolCounter;
     private float tentacleAttackCounter;
     private float tentacleAttackChargeCounter;
     public float tentacleAttackDuration = 0.75f;
@@ -31,7 +31,7 @@ public class DemonAbilities : MonoBehaviour
     public LayerMask groundMask;
     public bool attach;
 
-    private float fireCoolCounter;
+    public float fireCoolCounter;
     private float fireCounter;
     private float fireReiterateCounter;
     public float fireDuration = 3f;

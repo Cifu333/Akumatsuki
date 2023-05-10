@@ -90,6 +90,53 @@ MonoBehaviour:
       the door
     m_Metadata:
       m_Items: []
+  - m_Id: 43238141431808
+    m_Localized: 'Good Ending
+
+      You rejected the evil powers, and with that,
+      reunited all the memories and revivified your daughter, you''re human'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43213311152128
+    m_Localized: 'Neutral Ending
+
+      You don''t know what else is left for you,
+      in between evil and good, you will roam this world in search of an answer
+
+      Neutral
+      Ending
+
+      You don''t know what else is left for you, in between evil and
+      good, you will roam this world in search of an answer
+
+      Neutral Ending
+
+      You
+      don''t know what else is left for you, in between evil and good, you will roam
+      this world in search of an answer'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43200694685696
+    m_Localized: 'Bad Ending
+
+      You succumbed to your desires and the demonic
+      powers
+
+      Bad Ending
+
+      You succumbed to your desires and the demonic
+      powers
+
+      Bad Ending
+
+      You succumbed to your desires and the demonic
+      powers'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43967279239168
+    m_Localized: continue
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

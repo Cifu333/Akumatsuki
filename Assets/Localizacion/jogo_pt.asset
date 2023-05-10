@@ -92,6 +92,30 @@ MonoBehaviour:
       poder destrancar a porta"
     m_Metadata:
       m_Items: []
+  - m_Id: 43238141431808
+    m_Localized: "bom final\r\nVoc\xEA rejeitou os poderes do mal, e com isso, reuniu
+      todas as mem\xF3rias e reviveu sua filha, voc\xEA \xE9 humana"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43213311152128
+    m_Localized: "Final Neutro\r\nVoc\xEA n\xE3o sabe o que mais resta para voc\xEA,
+      entre o mal e o bem, voc\xEA vagar\xE1 por este mundo em busca de uma resposta\r\nFinal
+      Neutro\r\nVoc\xEA n\xE3o sabe o que mais resta para voc\xEA, entre o mal e
+      o bem, voc\xEA vagar\xE1 por este mundo em busca de uma resposta\r\nFinal Neutro\r\nVoc\xEA
+      n\xE3o sabe o que mais resta para voc\xEA, entre o mal e o bem, voc\xEA vagar\xE1
+      por este mundo em busca de uma resposta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43200694685696
+    m_Localized: "Final ruim\r\nVoc\xEA sucumbiu aos seus desejos e aos poderes demon\xEDacos\r\nFinal
+      ruim\r\nVoc\xEA sucumbiu aos seus desejos e aos poderes demon\xEDacos\r\nFinal
+      ruim\r\nVoc\xEA sucumbiu aos seus desejos e aos poderes demon\xEDacos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43967279239168
+    m_Localized: continuar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

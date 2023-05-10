@@ -91,6 +91,41 @@ MonoBehaviour:
       la puerta
     m_Metadata:
       m_Items: []
+  - m_Id: 43238141431808
+    m_Localized: 'Buen final
+
+      Rechazaste los poderes malignos, y con eso reuniste
+      todos los recuerdos y reviviste a tu hija, eres humana.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43213311152128
+    m_Localized: "Final neutral\r\nNo sabes que m\xE1s te queda, entre el mal y el
+      bien andar\xE1s por este mundo en busca de una respuesta.\r\nFinal neutral\r\nNo
+      sabes que m\xE1s te queda, entre el mal y el bien andar\xE1s por este mundo
+      en busca de una respuesta.\r\nFinal neutral\r\nNo sabes que m\xE1s te queda,
+      entre el mal y el bien andar\xE1s por este mundo en busca de una respuesta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43200694685696
+    m_Localized: 'Mal final
+
+      Sucumbiste a tus deseos y a los poderes demoniacos
+
+      Mal
+      final
+
+      Sucumbiste a tus deseos y a los poderes demoniacos
+
+      Mal
+      final
+
+      Sucumbiste a tus deseos y a los poderes demoniacos'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43967279239168
+    m_Localized: continuar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

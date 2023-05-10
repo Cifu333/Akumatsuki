@@ -9,13 +9,13 @@ TagManager:
   - Structure
   - bg
   - Weapon
-  - Shop
   - fire
   - Test
   - Token
   - BabyParts
   - ElectricDoor
   - SpawnerHandler
+  - Win
   layers:
   - Default
   - TransparentFX

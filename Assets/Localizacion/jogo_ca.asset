@@ -90,6 +90,30 @@ MonoBehaviour:
       la porta
     m_Metadata:
       m_Items: []
+  - m_Id: 43238141431808
+    m_Localized: "Bon Final\r\nVas rebutjar els poders del mal, i amb aix\xF2, vas
+      reunir tots els records i vas reviure la teva filla, ets hum\xE0."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43213311152128
+    m_Localized: "Final neutre\r\nNo saps qu\xE8 m\xE9s et queda, entre el mal i
+      el b\xE9, recorrer\xE0s per aquest m\xF3n a la recerca d'una resposta.\r\nFinal
+      neutre\r\nNo saps qu\xE8 m\xE9s et queda, entre el mal i el b\xE9, recorrer\xE0s
+      per aquest m\xF3n a la recerca d'una resposta.\r\nFinal neutre\r\nNo saps qu\xE8
+      m\xE9s et queda, entre el mal i el b\xE9, recorrer\xE0s per aquest m\xF3n a
+      la recerca d'una resposta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43200694685696
+    m_Localized: "Mal final\r\nVas sucumbir als teus desitjos i als poders demon\xEDacs\r\nMal
+      final\r\nVas sucumbir als teus desitjos i als poders demon\xEDacs\r\nMal final\r\nVas
+      sucumbir als teus desitjos i als poders demon\xEDacs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43967279239168
+    m_Localized: continuar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

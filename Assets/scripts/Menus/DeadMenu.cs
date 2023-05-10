@@ -42,9 +42,5 @@ public class DeadMenu : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().hp = ps.maxHP;
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(-97, -4);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().color = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().colorO;
-        GameObject.FindGameObjectWithTag("SpawnerHandler").GetComponent<SpawnerHandler>().spawnAll = true;
     }
 }

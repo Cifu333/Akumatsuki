@@ -10,10 +10,6 @@ public class PowerUpsMenu : MonoBehaviour
     PlayerAbilitys pa;
     PlayerStatus status;
     private bool isThere;
-    public int d1Cost;
-    public int d2Cost;
-    public int h1Cost;
-    public int h2Cost;
 
     public GameObject audio;
 
@@ -83,23 +79,21 @@ public class PowerUpsMenu : MonoBehaviour
 
     public void Tentacle()
     {
-        if (pa.human[1] != true && status.money >= d1Cost && pa.demon[0] == false)
+        if (pa.human[1] != true && pa.demon[0] == false)
         {
             pa.demon[0] = true;
-            status.money -= d1Cost;
             Time.timeScale = 1;
             isPaused = false;
             pauseMenu.SetActive(false);
             Instantiate(audio);
-            Destroy(gameObject);
+            Destroy(gameObject, 0);
         }
     }
     public void Fire()
     {
-        if (pa.human[0] != true && pa.demon[0] == true && status.money >= d2Cost && pa.demon[1] == false)
+        if (pa.human[0] != true && pa.demon[0] == true && pa.demon[1] == false)
         {
             pa.demon[1] = true;
-            status.money -= d2Cost;
             Time.timeScale = 1;
             isPaused = false;
             pauseMenu.SetActive(false);
@@ -112,10 +106,9 @@ public class PowerUpsMenu : MonoBehaviour
 
     public void PEM()
     {
-        if (pa.demon[1] != true && status.money >= h1Cost && pa.human[0] == false)
+        if (pa.demon[1] != true && pa.human[0] == false)
         {
             pa.human[0] = true;
-            status.money -= h1Cost;
             Time.timeScale = 1;
             isPaused = false;
             pauseMenu.SetActive(false);
@@ -125,10 +118,9 @@ public class PowerUpsMenu : MonoBehaviour
     }
     public void Rune()
     {
-        if (pa.demon[0] != true && pa.human[0] == true && status.money >= h2Cost && pa.human[1] == false)
+        if (pa.demon[0] != true && pa.human[0] == true && pa.human[1] == false)
         {
             pa.human[1] = true;
-            status.money -= h2Cost;
             Time.timeScale = 1;
             isPaused = false;
             pauseMenu.SetActive(false);

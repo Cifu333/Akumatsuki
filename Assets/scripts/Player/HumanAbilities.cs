@@ -33,7 +33,7 @@ public class HumanAbilities : MonoBehaviour
     public float semtexForceY;
 
     private float runeCoolCounter;
-    private float runeCounter;
+    public float runeCounter;
     public float runeDuration = 3f;
     public float runeTime = 5f;
 

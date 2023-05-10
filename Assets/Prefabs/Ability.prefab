@@ -505,10 +505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
-  d1Cost: 0
-  d2Cost: 0
-  h1Cost: 0
-  h2Cost: 0
   audio: {fileID: 0}
 --- !u!114 &4891607316989263543
 MonoBehaviour:
@@ -762,7 +758,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

@@ -31,16 +31,52 @@ MonoBehaviour:
     m_Key: usahabilidad
     m_Metadata:
       m_Items: []
-  - m_Id: 2652176879616
-    m_Key: Win
+  - m_Id: 10661917593600
+    m_Key: ataque
     m_Metadata:
       m_Items: []
-  - m_Id: 4492633280512
-    m_Key: lose
+  - m_Id: 11203892973568
+    m_Key: basic
     m_Metadata:
       m_Items: []
-  - m_Id: 4510278717440
-    m_Key: retry
+  - m_Id: 11233353764864
+    m_Key: doble salto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11254627274752
+    m_Key: dash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11270565629952
+    m_Key: no llegas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11294557048832
+    m_Key: tentaculo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11312206680064
+    m_Key: fuego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11327977263104
+    m_Key: granada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11341835243520
+    m_Key: runas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16474170167296
+    m_Key: zarzas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16506583748608
+    m_Key: puerta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16527551074304
+    m_Key: recuerdos
     m_Metadata:
       m_Items: []
   m_Metadata:

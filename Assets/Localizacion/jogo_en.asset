@@ -34,6 +34,62 @@ MonoBehaviour:
     m_Localized: Do you want to take this ability?
     m_Metadata:
       m_Items: []
+  - m_Id: 10661917593600
+    m_Localized: To attack an enemy press E or if you want to attack from a distance
+      shoot with left click
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11203892973568
+    m_Localized: To move around the map press A or D and to get to different platforms,
+      space to jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11233353764864
+    m_Localized: Press space again to double jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11254627274752
+    m_Localized: Left shift to be able to dash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11270565629952
+    m_Localized: Too far to go without improving your skills
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11294557048832
+    m_Localized: With this demonic mutation, it will extend your arm in the form
+      of a tentacle to grab onto walls or pierce through enemies, dealing damage
+      to them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11312206680064
+    m_Localized: Engulf yourself in hellish flames dealing area damage and burning
+      obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11327977263104
+    m_Localized: With this device you can stun small and medium enemies, it also
+      serves to hack electrical components
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11341835243520
+    m_Localized: With this talisman you will be completely immune to damage for a
+      few moments, very useful for going through dangerous areas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16474170167296
+    m_Localized: They seem very dangerous, you should not approach them without protection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16506583748608
+    m_Localized: The door has an electronic lock, you need to disable it somehow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16527551074304
+    m_Localized: You need to find all the jars with memories to be able to unlock
+      the door
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

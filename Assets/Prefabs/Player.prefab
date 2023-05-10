@@ -363,6 +363,7 @@ MonoBehaviour:
   respawn: {x: 0, y: 0, z: 0}
   money: 0
   misery: 200
+  maxMisery: 1000
   babyParts: 0
   free: 0
   initiate: 0
@@ -440,6 +441,7 @@ MonoBehaviour:
   semtexTime: 5
   semtexForceX: 800
   semtexForceY: 800
+  runeCounter: 0
   runeDuration: 3
   runeTime: 5
   runePower: 3

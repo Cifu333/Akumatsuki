@@ -44,7 +44,7 @@ public class WeaponDamage : MonoBehaviour
                 if (collision.GetComponent<EnemyStatus>().type != EnemyStatus.Type.TANK)
                 {
                     collision.GetComponent<EnemyStatus>().stunned = true;
-                    collision.GetComponent<EnemyStatus>().stunTimeCounter = 2f;
+                    collision.GetComponent<EnemyStatus>().stunTimeCounter = 1f;
                 }
             }
             if (gameObject.tag == "Weapon")
@@ -68,7 +68,7 @@ public class WeaponDamage : MonoBehaviour
             {
                 collision.gameObject.GetComponent<PlayerStatus>().hp -= damage; 
                 GameObject.FindGameObjectWithTag("MainCamera").transform.parent.GetComponent<camShake>().pressToShake2 = true;
-                if (gameObject.tag != "Bullet")
+                if (gameObject.tag != "Bullet" && collision.GetComponent<PlayerStatus>().hp > 0)
                 {
                     if (gameObject.transform.parent.GetComponent<EnemyMovement>().dir == EnemyMovement.Direction.RIGHT)
                     {

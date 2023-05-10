@@ -16,7 +16,8 @@ public class WeaponDamage : MonoBehaviour
     void Start()
     {
         invulneravilityTime = 1f;
-        Instantiate(sound1);
+        if (gameObject.tag != "fire")
+            Instantiate(sound1);
     }
 
     // Update is called once per frame

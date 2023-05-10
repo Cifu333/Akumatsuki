@@ -137,3 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 7282577688365826939, guid: 473a425951592df45a0ee76595fde052, type: 3}
+  rotate: 50

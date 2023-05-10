@@ -362,7 +362,7 @@ MonoBehaviour:
   maxHP: 100
   respawn: {x: 0, y: 0, z: 0}
   money: 0
-  misery: 200
+  misery: 100
   maxMisery: 1000
   babyParts: 0
   free: 0
@@ -372,9 +372,11 @@ MonoBehaviour:
   colorO: {r: 0, g: 0, b: 0, a: 0}
   invulneravility: 0
   invulneravilityCounter: 0
+  timeHit: 0
   inThorns: 0
   inThornsCount: 0
   babyPartsAudio: {fileID: 5975874692864333038, guid: 01360f493db325548910ca7052c5ec0c, type: 3}
+  win: 0
 --- !u!114 &301363762638583368
 MonoBehaviour:
   m_ObjectHideFlags: 0

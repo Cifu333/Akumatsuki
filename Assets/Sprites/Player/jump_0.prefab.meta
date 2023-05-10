@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/Player/jump_0.prefab.meta
 guid: 06680d9874a95b44085f0977106fd161
+========
+guid: a420c5d0a8cc05b4d96abbec438a44ad
+>>>>>>>> 3f2a9fd2eb762f7ba3e6015758bd00832ad03b03:Assets/Prefabs/cartel.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

@@ -13,8 +13,36 @@ MonoBehaviour:
   m_Name: jogo Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: jogo
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: f2ceb8f3c8e3393429a5181965c6ee37
+  m_Entries:
+  - m_Id: 5944348672
+    m_Key: si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15842906112
+    m_Key: no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24705470464
+    m_Key: pulsax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44368367616
+    m_Key: usahabilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2652176879616
+    m_Key: Win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4492633280512
+    m_Key: lose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4510278717440
+    m_Key: retry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

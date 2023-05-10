@@ -5,29 +5,28 @@ using TMPro;
 
 public class ContadorHp : MonoBehaviour
 {
-    public GameObject player;
     public float hp;
     public float time = 0;
-    private PlayerStatus playerM;
+    private PlayerStatus ps;
     public TextMeshProUGUI text;
     // Start is called before the first frame update
     void Start()
     {
-        playerM = player.GetComponent<PlayerStatus>();
-        hp = playerM.hp;
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
         text = GetComponent<TextMeshProUGUI>();
+        hp = ps.hp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerM.hp > hp)
+        if (ps.hp > hp)
         {
 
-            if (playerM.hp - hp > 100)
+            if (ps.hp - hp > 100)
                 time += 1000 * Time.deltaTime;
 
-            else if (playerM.hp - hp > 10)
+            else if (ps.hp - hp > 10)
                 time += 100 * Time.deltaTime;
 
             else
@@ -40,13 +39,13 @@ public class ContadorHp : MonoBehaviour
                 time = 0;
             }
         }
-        else if (playerM.hp < hp)
+        else if (ps.hp < hp)
         {
 
-            if (hp - playerM.hp > 100)
+            if (hp - ps.hp > 100)
                 time += 1000 * Time.deltaTime;
 
-            else if (hp - playerM.hp > 10)
+            else if (hp - ps.hp > 10)
                 time += 100 * Time.deltaTime;
 
             else
@@ -58,7 +57,7 @@ public class ContadorHp : MonoBehaviour
                 time = 0;
             }
         }
-        text.text = hp.ToString();
+        text.text = hp.ToString() + "/" + ps.maxHP.ToString();
 
     }
 }

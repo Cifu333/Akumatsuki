@@ -9,6 +9,7 @@ public class PlayerStatus : MonoBehaviour
     public Vector3 respawn;
     public int money = 0;
     public int misery = 0;
+    public int maxMisery = 1000;
     public int babyParts;
     public bool free;
 
@@ -29,6 +30,8 @@ public class PlayerStatus : MonoBehaviour
     public float invulneravilityCounter;
 
     private float time;
+
+    private float timeDeath;
 
     public bool inThorns;
     public int inThornsCount;
@@ -66,7 +69,7 @@ public class PlayerStatus : MonoBehaviour
                 stun = false;
             }
         }
-        if (inThorns)
+        if (inThorns && humanA.runeCounter <= 0)
         {
             time += Time.deltaTime;
             if (time >= 1)
@@ -74,6 +77,12 @@ public class PlayerStatus : MonoBehaviour
                 hp -= 30;
                 time = 0;
             }
+        }
+        if (misery > maxMisery)
+            misery = maxMisery;
+        if (hp < 0)
+        {
+            hp = 0;
         }
     }
 
@@ -96,7 +105,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void FreeViability()
     {
-        if (pa.attack == false && demonA.ability == false && stun == false && humanA.ability == false)
+        if (pa.attack == false && demonA.ability == false && stun == false && humanA.ability == false && hp > 0)
             free = true;
         else
             free = false;
@@ -106,7 +115,16 @@ public class PlayerStatus : MonoBehaviour
     {
         if (hp <= 0)
         {
-            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            GetComponent<Animator>().SetBool("Death", true);
+            timeDeath += Time.deltaTime;
+            if (timeDeath >= 2)
+            {
+                timeDeath = 0;
+                hp = maxHP;
+                transform.position = new Vector3(180, 27);
+                GetComponent<Animator>().SetBool("Death", false);
+                GameObject.FindGameObjectWithTag("SpawnerHandler").GetComponent<SpawnerHandler>().spawnAll = true;
+            }
         }
     }
 

@@ -167,7 +167,7 @@ MonoBehaviour:
   playerStun: 0
   invulneravilityTime: 0
   sound1: {fileID: 9202707070773173296, guid: 68dde0e94e69d824da89ffc43a7f14cd, type: 3}
-  sound2: {fileID: 0}
+  sound2: {fileID: 7518057921475581202, guid: 054999e81b5aabb4588dcdabdcda75cc, type: 3}
   sound3: {fileID: 0}
 --- !u!95 &6057907055747803044
 Animator:

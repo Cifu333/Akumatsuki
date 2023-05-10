@@ -51,7 +51,10 @@ public class WeaponDamage : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerStatus>().misery += collision.GetComponent<EnemyStatus>().misery;
                 sound1.gameObject.GetComponent<AudioSource>().Pause();
-                if (collision.GetComponent<EnemyStatus>().type == EnemyStatus.Type.RANGED)
+            }
+            
+            if (gameObject.tag != "fire") {
+                if (collision.GetComponent<EnemyStatus>().type == EnemyStatus.Type.RANGED && gameObject.tag == "Weapon")
                     Instantiate(sound3);
                 else
                     Instantiate(sound2);

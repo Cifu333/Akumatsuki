@@ -103,8 +103,9 @@ MonoBehaviour:
   force: 55
   playerStun: 0
   invulneravilityTime: 0
-  sound1: {fileID: 0}
-  sound2: {fileID: 0}
+  sound1: {fileID: 5606321224908407786, guid: a29093fee94856146ae9f809c750fc8c, type: 3}
+  sound2: {fileID: 8105745003664575069, guid: 25ed5a44fd597914badceac793f1e97a, type: 3}
+  sound3: {fileID: 0}
 --- !u!61 &1380744902465533478
 BoxCollider2D:
   m_ObjectHideFlags: 0

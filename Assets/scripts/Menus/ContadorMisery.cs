@@ -5,29 +5,27 @@ using TMPro;
 
 public class ContadorMisery : MonoBehaviour
 {
-    public GameObject player;
     public int misery;
     public float time = 0;
-    private PlayerStatus playerM;
+    PlayerStatus ps;
     public TextMeshProUGUI text;
     // Start is called before the first frame update
     void Start()
     {
-        playerM = player.GetComponent<PlayerStatus>();
-        misery = playerM.misery;
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
         text = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerM.misery > misery)
+        if (ps.misery > misery)
         {
 
-            if (playerM.misery - misery > 100)
+            if (ps.misery - misery > 100)
                 time += 1000 * Time.deltaTime;
 
-            else if (playerM.misery - misery > 10)
+            else if (ps.misery - misery > 10)
                 time += 100 * Time.deltaTime;
 
             else
@@ -40,13 +38,13 @@ public class ContadorMisery : MonoBehaviour
                 time = 0;
             }
         }
-        else if (playerM.misery < misery)
+        else if (ps.misery < misery)
         {
 
-            if (misery - playerM.misery > 100)
+            if (misery - ps.misery > 100)
                 time += 1000 * Time.deltaTime;
 
-            else if (misery - playerM.misery > 10)
+            else if (misery - ps.misery > 10)
                 time += 100 * Time.deltaTime;
 
             else
@@ -58,7 +56,7 @@ public class ContadorMisery : MonoBehaviour
                 time = 0;
             }
         }
-        text.text = misery.ToString();
+        text.text = misery.ToString() + "/" + ps.maxMisery.ToString();
 
     }
 }

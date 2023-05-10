@@ -54,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 4891607316989263540, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766025348738557673}
     - target: {fileID: 4891607316989263541, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
       propertyPath: m_Size.x
       value: 0.64
@@ -85,3 +85,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
+--- !u!1 &1766025348738557673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9081810608881268951, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
+  m_PrefabInstance: {fileID: 7389065666945900094}
+  m_PrefabAsset: {fileID: 0}

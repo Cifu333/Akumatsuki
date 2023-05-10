@@ -9,6 +9,7 @@ public class GroundDetector : MonoBehaviour
     [SerializeField]
     private float groundDistance = 1.5f;
     public List<Vector3> rays;
+    public Vector3 rayS;
     public LayerMask groundMask;
     public float gravity;
     private bool lastG;
@@ -27,6 +28,7 @@ public class GroundDetector : MonoBehaviour
     void Update()
     {
         int count = 0;
+        int countS = 0;
         if (gameObject.tag == "Player")
         {
             if (gameObject.GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
@@ -48,6 +50,23 @@ public class GroundDetector : MonoBehaviour
                             transform.parent = null;
                         }
                     }
+
+                }
+
+                Debug.DrawRay(transform.position + rayS, transform.up * -1 * groundDistance, Color.red);
+                RaycastHit2D hitS = Physics2D.Raycast(transform.position + rayS, transform.up * -1, groundDistance, groundMask);
+                if (hitS.collider != null)
+                {
+                    countS++;
+                    Debug.DrawRay(transform.position + rayS, transform.up * -1 * hitS.distance, Color.green);
+                    if (hitS.transform.tag == "PlataformaMovil")
+                    {
+                        transform.parent = hitS.transform;
+                    }
+                    else
+                    {
+                        transform.parent = null;
+                    }
                 }
             }
             else
@@ -68,6 +87,22 @@ public class GroundDetector : MonoBehaviour
                         {
                             transform.parent = null;
                         }
+                    }
+                }
+
+                Debug.DrawRay(transform.position + new Vector3(-rayS.x, rayS.y), transform.up * -1 * groundDistance, Color.red);
+                RaycastHit2D hitS = Physics2D.Raycast(transform.position + new Vector3(-rayS.x, rayS.y), transform.up * -1, groundDistance, groundMask);
+                if (hitS.collider != null)
+                {
+                    countS++;
+                    Debug.DrawRay(transform.position + new Vector3(-rayS.x, rayS.y), transform.up * -1 * hitS.distance, Color.green);
+                    if (hitS.transform.tag == "PlataformaMovil")
+                    {
+                        transform.parent = hitS.transform;
+                    }
+                    else
+                    {
+                        transform.parent = null;
                     }
                 }
             }
@@ -98,7 +133,7 @@ public class GroundDetector : MonoBehaviour
             grounded = true;
             lastG = true;
         }
-        if (lastG && count == 3)
+        if (lastG && count == 3 && countS == 1)
         {
             positionS = transform.position;
         }

@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour {
     public float speed = 500.0f;
     Rigidbody2D rb;
     WeaponDamage wp;
+    private bool impact;
 
     // Start is called before the first frame update
     void Start()
@@ -25,20 +26,46 @@ public class Bullet : MonoBehaviour {
             }
             transform.parent = null;
         }
+        impact = false;
     }
+
+    private void Update()
+    {
+        GetComponent<Animator>().SetBool("Impact", impact); 
+    }
+
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Enemy" && wp.hazardus == false) 
         {
-            Destroy(gameObject);
+            impact = true;
         }
         if (collision.tag == "Player" && wp.hazardus == true)
         {
-            Destroy(gameObject);
+            impact = true;
         }
-        if (collision.gameObject.layer == 3) 
+        if (collision.gameObject.layer == 3)
         {
-            Destroy(gameObject);
+            impact = true;
         }
+        if (collision.gameObject.layer == 7)
+        {
+            impact = true;
+        }
+    }
+
+    void Deactivate()
+    {
+        GetComponent<Collider2D>().enabled = false;
+    }
+
+    void Stop()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
+    void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
 

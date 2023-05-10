@@ -12,12 +12,10 @@ public class PowerUpsMenu : MonoBehaviour
     private bool isThere;
     public int d1Cost;
     public int d2Cost;
-    public int d3Cost;
-    public int d4Cost;
     public int h1Cost;
     public int h2Cost;
-    public int h3Cost;
-    public int h4Cost;
+
+    public GameObject audio;
 
     public bool isPaused
     {
@@ -48,6 +46,7 @@ public class PowerUpsMenu : MonoBehaviour
         {
             if (isPaused)
             {
+                Time.timeScale = 1;
                 isPaused = false;
                 pauseMenu.SetActive(false);
             }
@@ -88,33 +87,53 @@ public class PowerUpsMenu : MonoBehaviour
         {
             pa.demon[0] = true;
             status.money -= d1Cost;
+            Time.timeScale = 1;
+            isPaused = false;
+            pauseMenu.SetActive(false);
+            Instantiate(audio);
+            Destroy(gameObject);
         }
     }
-    public void AbilityD2()
+    public void Fire()
     {
         if (pa.human[0] != true && pa.demon[0] == true && status.money >= d2Cost && pa.demon[1] == false)
         {
             pa.demon[1] = true;
             status.money -= d2Cost;
+            Time.timeScale = 1;
+            isPaused = false;
+            pauseMenu.SetActive(false);
+            Instantiate(audio);
+            Destroy(gameObject);
         }
     }
 
 
 
-    public void AbilityH1()
+    public void PEM()
     {
         if (pa.demon[1] != true && status.money >= h1Cost && pa.human[0] == false)
         {
             pa.human[0] = true;
             status.money -= h1Cost;
+            Time.timeScale = 1;
+            isPaused = false;
+            pauseMenu.SetActive(false);
+            Instantiate(audio);
+            Destroy(gameObject);
         }
     }
-    public void AbilityH2()
+    public void Rune()
     {
         if (pa.demon[0] != true && pa.human[0] == true && status.money >= h2Cost && pa.human[1] == false)
         {
             pa.human[1] = true;
             status.money -= h2Cost;
+            Time.timeScale = 1;
+            isPaused = false;
+            pauseMenu.SetActive(false);
+            Instantiate(audio);
+            Destroy(gameObject);
         }
     }
 }

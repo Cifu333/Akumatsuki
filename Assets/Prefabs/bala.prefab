@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6857232421532240298}
   - component: {fileID: 529533886823427535}
   - component: {fileID: -6664146416040290375}
+  - component: {fileID: 6057907055747803044}
   m_Layer: 7
   m_Name: bala
   m_TagString: Bullet
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2267826678335507695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.2497, y: 0.1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,15 +78,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -105723930, guid: 5cc12dfcea55e3540a97f62c3fadaac1, type: 3}
+  m_Sprite: {fileID: 159595674, guid: 8ca64a46d4fdff840826bbe2f9ca4723, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.86, y: 5.6}
+  m_Size: {x: 0.9, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1008867589617027542
@@ -122,18 +123,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000011920929, y: -0.005312413}
+  m_Offset: {x: 0.35, y: -0.005312413}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.14, y: 0.22}
-    newSize: {x: 6.86, y: 5.6}
+    oldSize: {x: 1.8, y: 0.72}
+    newSize: {x: 0.9, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.16, y: 0.24}
+  m_Size: {x: 1.1, y: 0.73}
   m_EdgeRadius: 0
 --- !u!114 &529533886823427535
 MonoBehaviour:
@@ -168,3 +169,23 @@ MonoBehaviour:
   sound1: {fileID: 9202707070773173296, guid: 68dde0e94e69d824da89ffc43a7f14cd, type: 3}
   sound2: {fileID: 0}
   sound3: {fileID: 0}
+--- !u!95 &6057907055747803044
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267826678335507695}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 060df5d5615056d4089a8e95275c59ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

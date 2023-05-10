@@ -235,7 +235,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.61, y: 0}
-  m_Size: {x: 1.98, y: 3.46}
+  m_Size: {x: 1.98, y: 3}
   m_Direction: 0
 --- !u!114 &301363762638583373
 MonoBehaviour:
@@ -255,11 +255,12 @@ MonoBehaviour:
   - {x: 0, y: -1.1, z: 0}
   - {x: -0.6, y: -1.1, z: 0}
   - {x: -1.2, y: -1.1, z: 0}
+  rayS: {x: -5, y: -1.1, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 136
   gravity: 13
-  positionS: {x: 145.67036, y: 13.734998, z: 0}
+  positionS: {x: 192.1713, y: 33.52038, z: 0}
 --- !u!114 &301363762638583410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   invulneravilityCounter: 0
   inThorns: 0
   inThornsCount: 0
+  babyPartsAudio: {fileID: 5975874692864333038, guid: 01360f493db325548910ca7052c5ec0c, type: 3}
 --- !u!114 &301363762638583368
 MonoBehaviour:
   m_ObjectHideFlags: 0

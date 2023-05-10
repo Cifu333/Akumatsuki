@@ -25,14 +25,14 @@ public class HumanAbilities : MonoBehaviour
 
     private GameObject temp;
 
-    private float semtexCoolCounter;
+    public float semtexCoolCounter;
     private float semtexCounter;
     public float semtexDuration = 0.75f;
     public float semtexTime = 3f;
     public float semtexForceX;
     public float semtexForceY;
 
-    private float runeCoolCounter;
+    public float runeCoolCounter;
     public float runeCounter;
     public float runeDuration = 3f;
     public float runeTime = 5f;

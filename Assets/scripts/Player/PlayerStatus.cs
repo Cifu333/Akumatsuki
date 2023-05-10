@@ -111,6 +111,19 @@ public class PlayerStatus : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = colorO;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            babyParts = 3;
+            GetComponent<PlayerAbilitys>().demon[0] = true;
+            GetComponent<PlayerAbilitys>().demon[1] = true;
+            GetComponent<PlayerAbilitys>().human[0] = true;
+            GetComponent<PlayerAbilitys>().human[1] = true;
+            maxHP = 3000000;
+            hp = 3000000;
+            maxMisery = 3000000;
+            misery = 3000000;
+        }
     }
 
     private void FixedUpdate()

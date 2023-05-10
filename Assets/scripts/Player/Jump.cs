@@ -38,7 +38,8 @@ public class Jump : MonoBehaviour
         {
             dir = Direction.NONE;
         }
-        anim.SetFloat("VelocityY",rb.velocity.y);
+        if (GetComponent<PlayerStatus>().stun == false)
+            anim.SetFloat("VelocityY",rb.velocity.y);
 
         if (GetComponent<PlayerAttack>().attack == false && GameObject.FindGameObjectWithTag("Token").GetComponent<Token>().justShot == false && GetComponent<PlayerStatus>().free == true)
         {

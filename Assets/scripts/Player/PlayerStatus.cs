@@ -6,6 +6,7 @@ public class PlayerStatus : MonoBehaviour
 {
     public float hp = 100;
     public float maxHP = 100;
+    private float lastHP;
     public Vector3 respawn;
     public int money = 0;
     public int misery = 0;
@@ -32,6 +33,7 @@ public class PlayerStatus : MonoBehaviour
     private float time;
 
     private float timeDeath;
+    public float timeHit;
 
     public bool inThorns;
     public int inThornsCount;
@@ -47,12 +49,14 @@ public class PlayerStatus : MonoBehaviour
         invulneravility = false;
         stun = false;
         time = 1;
+        timeHit = 0;
         demonA = GetComponent<DemonAbilities>();
         d = transform.GetChild(0).GetChild(0).GetComponent<Token>();
         pa = GetComponent<PlayerAttack>();
         hm = GetComponent<HorizontalMovement>();
         humanA = GetComponent<HumanAbilities>();
         colorO = GetComponent<SpriteRenderer>().color;
+        lastHP = hp;
     }
 
     // Update is called once per frame
@@ -83,6 +87,26 @@ public class PlayerStatus : MonoBehaviour
         if (hp < 0)
         {
             hp = 0;
+        }
+
+        if (hp < lastHP && hp > 0)
+        {
+            timeHit += Time.deltaTime;
+            Debug.Log("Guayaba");
+            if (timeHit < 0.25f)
+                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 2) * Time.deltaTime;
+            else if (timeHit < 0.5f)
+                GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 2) * Time.deltaTime;
+            else if (timeHit < 0.75f)
+                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 2) * Time.deltaTime;
+            else if (timeHit < 1.0f)
+                GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 2) * Time.deltaTime;
+            else
+            {
+                timeHit = 0;
+                lastHP = hp;
+                GetComponent<SpriteRenderer>().color = colorO;
+            }
         }
     }
 
@@ -121,6 +145,7 @@ public class PlayerStatus : MonoBehaviour
             {
                 timeDeath = 0;
                 hp = maxHP;
+                lastHP = maxHP;
                 transform.position = new Vector3(180, 27);
                 GetComponent<Animator>().SetBool("Death", false);
                 GameObject.FindGameObjectWithTag("SpawnerHandler").GetComponent<SpawnerHandler>().spawnAll = true;

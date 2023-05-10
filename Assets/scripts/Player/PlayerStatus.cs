@@ -40,9 +40,12 @@ public class PlayerStatus : MonoBehaviour
 
     public GameObject babyPartsAudio;
 
+    public bool win;
+
     // Start is called before the first frame update
     void Start()
     {
+        win = false;
         free = true;
         inThorns = false;
         respawn = transform.position;
@@ -146,6 +149,7 @@ public class PlayerStatus : MonoBehaviour
                 timeDeath = 0;
                 hp = maxHP;
                 lastHP = maxHP;
+                misery = 0;
                 transform.position = new Vector3(180, 27);
                 GetComponent<Animator>().SetBool("Death", false);
                 GameObject.FindGameObjectWithTag("SpawnerHandler").GetComponent<SpawnerHandler>().spawnAll = true;
@@ -179,6 +183,11 @@ public class PlayerStatus : MonoBehaviour
                 else
                     GetComponent<Rigidbody2D>().AddForce(new Vector2(-300, 300));
             }
+        }
+
+        if (collision.gameObject.tag == "Win")
+        {
+            win = true;
         }
     }
 }

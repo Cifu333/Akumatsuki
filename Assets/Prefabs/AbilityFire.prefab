@@ -60,9 +60,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4891607316989263540, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 3026963941525344697, guid: 6ea8d7c3c77862043b00feb4006520e4, type: 3}
+    - target: {fileID: 4891607316989263540, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 1766025348738557673}
+      objectReference: {fileID: 5874140357978050096}
     - target: {fileID: 4891607316989263541, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
       propertyPath: m_Size.x
       value: 0.64
@@ -95,10 +99,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AbilityFire
       objectReference: {fileID: 0}
+    - target: {fileID: 8774107471916949235, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1031a1cc0fb1b0a48a00481ffbe38eef, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
---- !u!1 &1766025348738557673 stripped
+--- !u!1 &5874140357978050096 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 9081810608881268951, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3967143073586679822, guid: 3c10d1ab22f7e6446955ef46d0a9d3ee, type: 3}
   m_PrefabInstance: {fileID: 7389065666945900094}
   m_PrefabAsset: {fileID: 0}

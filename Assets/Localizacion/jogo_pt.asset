@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: jogo_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: f2ceb8f3c8e3393429a5181965c6ee37, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5944348672
+    m_Localized: sim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15842906112
+    m_Localized: "\rN\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24705470464
+    m_Localized: pressione x
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44368367616
+    m_Localized: "Voc\xEA quer adquirir essa habilidade?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10661917593600
+    m_Localized: "Para atacar um inimigo pressione E ou se quiser atacar \xE0 dist\xE2ncia
+      atire com o bot\xE3o esquerdo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11203892973568
+    m_Localized: "Para se mover pelo mapa pressione A ou D e para chegar a diferentes
+      plataformas, espa\xE7o para pular"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11233353764864
+    m_Localized: "Pressione espa\xE7o novamente para salto duplo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11254627274752
+    m_Localized: "Deslocamento \xE0 esquerda para poder deslizar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11270565629952
+    m_Localized: Muito longe para ir sem melhorar suas habilidades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11294557048832
+    m_Localized: "Com essa muta\xE7\xE3o demon\xEDaca, ele estender\xE1 seu bra\xE7o
+      em forma de tent\xE1culo para se agarrar a paredes ou passar por inimigos,
+      causando dano a eles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11312206680064
+    m_Localized: "Envolva-se em chamas infernais, causando dano em \xE1rea e queimando
+      obst\xE1culos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11327977263104
+    m_Localized: "Com este dispositivo voc\xEA pode atordoar inimigos pequenos e
+      m\xE9dios, tamb\xE9m serve para hackear componentes el\xE9tricos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11341835243520
+    m_Localized: "Com este talism\xE3 voc\xEA ficar\xE1 completamente imune a danos
+      por alguns momentos, muito \xFAtil para passar por \xE1reas perigosas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16474170167296
+    m_Localized: "Eles parecem muito perigosos, voc\xEA n\xE3o deve abord\xE1-los
+      sem prote\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16506583748608
+    m_Localized: "A porta tem fechadura eletr\xF4nica, voc\xEA precisa desativ\xE1-la
+      de alguma forma"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16527551074304
+    m_Localized: "Voc\xEA precisa encontrar todos os frascos com mem\xF3rias para
+      poder destrancar a porta"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -74,7 +74,8 @@ MonoBehaviour:
   damage: 20
   hazardus: 1
   force: 30
-  playerStun: 0.3
+  playerStun: 0.4
   invulneravilityTime: 1
   sound1: {fileID: 3043518989664060219, guid: f9600b9626f2d8441b527d57d0adb3e8, type: 3}
   sound2: {fileID: 3043518989664060219, guid: f161724e2586f2f44aa288610e090ab7, type: 3}
+  sound3: {fileID: 0}

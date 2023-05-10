@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: jogo_ca
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ca
+  m_SharedData: {fileID: 11400000, guid: f2ceb8f3c8e3393429a5181965c6ee37, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5944348672
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15842906112
+    m_Localized: no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24705470464
+    m_Localized: Clica x
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44368367616
+    m_Localized: Vols adquirir aquesta habilitat?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10661917593600
+    m_Localized: "Per atacar un enemic prem E o si vols atacar a dist\xE0ncia dispara
+      amb clic esquerre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11203892973568
+    m_Localized: Per moure't pel mapa prem A o D i per poder arribar a diferents
+      plataformes, espai per saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11233353764864
+    m_Localized: "Torna a pr\xE9mer espai per fer un doble salt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11254627274752
+    m_Localized: Shift esquerre per poder lliscar-te
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11270565629952
+    m_Localized: "Massa dist\xE0ncia per arribar sense millorar les teves habilitats"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11294557048832
+    m_Localized: "Amb aquesta mutaci\xF3 demon\xEDaca allargar\xE0 el teu bra\xE7
+      en forma de tentacle per agafar-te a les parets o travessar els enemics fent-los
+      mal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11312206680064
+    m_Localized: "Emboliqui't en flames infernals fent mal en \xE0rea i cremant obstacles"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11327977263104
+    m_Localized: "Amb aquest dispositiu podr\xE0s atordir enemics petits i mitjans,
+      tamb\xE9 serveix per piratejar components el\xE8ctrics"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11341835243520
+    m_Localized: "Amb aquest talism\xE0 ser\xE0s immune totalment al mal durant uns
+      instants, molt \xFAtil per passar per zones perilloses"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16474170167296
+    m_Localized: "Semblen molt perilloses, no t'hauries d'acostar sense protecci\xF3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16506583748608
+    m_Localized: "La porta t\xE9 pany electr\xF2nic, necessites desactivar-lo d'alguna
+      manera"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16527551074304
+    m_Localized: Necessites trobar tots els flascons amb records per poder desbloquejar
+      la porta
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

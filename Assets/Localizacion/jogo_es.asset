@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: jogo_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: f2ceb8f3c8e3393429a5181965c6ee37, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5944348672
+    m_Localized: si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15842906112
+    m_Localized: no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24705470464
+    m_Localized: Pulsa x
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44368367616
+    m_Localized: Quieres adquirir esta habilidad?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10661917593600
+    m_Localized: Para atacar a un enemigo pulsa E o si deseas atacar a distancia
+      dispara con clic izquierdo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11203892973568
+    m_Localized: Para moverte por el mapa pulsa A o D y para poder llegar a diferentes
+      plataformas, espacio para saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11233353764864
+    m_Localized: Vuelve a pulsar espacio para hacer un doble salto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11254627274752
+    m_Localized: Shift izquierdo para poder deslizarte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11270565629952
+    m_Localized: Demasiada distancia para llegar sin mejorar tus habilidades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11294557048832
+    m_Localized: "Con esta mutaci\xF3n demon\xEDaca alargar\xE1 tu brazo en forma
+      de tent\xE1culo para agarrarte a las paredes o atravesar a los enemigos haci\xE9ndoles
+      da\xF1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11312206680064
+    m_Localized: "Envu\xE9lvete en llamas infernales haciendo da\xF1o en \xE1rea
+      y quemando obst\xE1culos\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11327977263104
+    m_Localized: "Con este dispositivo podr\xE1s aturdir a enemigos peque\xF1os y
+      medianos, tambi\xE9n sirve para piratear componentes el\xE9ctricos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11341835243520
+    m_Localized: "Con este talism\xE1n ser\xE1s inmune totalmente al da\xF1o durante
+      unos instantes, muy \xFAtil para pasar por zonas peligrosas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16474170167296
+    m_Localized: "Parecen muy peligrosas, no deber\xEDas acercarte sin protecci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16506583748608
+    m_Localized: "La puerta tiene cerradura electr\xF3nica, necesitas desactivarla
+      de alguna manera"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16527551074304
+    m_Localized: Necesitas encontrar todos los frascos con recuerdos para poder desbloquear
+      la puerta
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

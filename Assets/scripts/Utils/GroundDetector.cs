@@ -143,7 +143,7 @@ public class GroundDetector : MonoBehaviour
             grounded = false;
             transform.parent = null;
         }
-        if (grounded == true && Input.GetAxis("Horizontal") == 0)
+        if (grounded == true && Input.GetAxis("Horizontal") == 0 && GetComponent<PlayerStatus>().stun != true)
         {
             rb.gravityScale = 0;
         }

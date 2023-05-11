@@ -22,13 +22,13 @@ public class Contador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerM.money > babyParts)
+        if (playerM.babyParts > babyParts)
         {
             
-            if (playerM.money - babyParts > 100)
+            if (playerM.babyParts - babyParts > 100)
                 time += 1000 * Time.deltaTime;
 
-            else if (playerM.money - babyParts > 10)
+            else if (playerM.babyParts - babyParts > 10)
                 time += 100 * Time.deltaTime;
 
             else

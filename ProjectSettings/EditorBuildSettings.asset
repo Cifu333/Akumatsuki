@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/demo 2.unity
     guid: e528faca3a533524aa92235656a0b578
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/demo Dani 3.unity
     guid: 5135c34c6cf2c714bbc1ad895dc709aa
+  - enabled: 1
+    path: Assets/Scenes/demo Dani 4.unity
+    guid: a329f093d8fa56341b786c3aaff05a26
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b46ed3888204b4f4da39f534c000a4a9, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: dc9057f1282acb446ab6d7da6435b6bb, type: 2}

@@ -56,8 +56,8 @@ public class HumanAbilities : MonoBehaviour
 
     private void semtexAtack()
     {
-        if (Input.GetKeyDown(KeyCode.V) && ps.free == true && semtexCooldown == false)
-        if (Input.GetKeyDown(KeyCode.V) && ps.free == true && pa.human[0] == true && semtexCooldown == false)
+        if (Input.GetKeyDown(KeyCode.V) && ps.freeA == true && semtexCooldown == false)
+        if (Input.GetKeyDown(KeyCode.V) && ps.freeA == true && pa.human[0] == true && semtexCooldown == false)
         {
             if (semtexCoolCounter <= 0)
             {
@@ -88,7 +88,7 @@ public class HumanAbilities : MonoBehaviour
 
     private void Rune()
     {
-        if (Input.GetKeyDown(KeyCode.C) && ps.free == true && pa.human[1] == true && runeCooldown == false)
+        if (Input.GetKeyDown(KeyCode.C) && ps.freeA == true && pa.human[1] == true && runeCooldown == false)
         {
             if (runeCoolCounter <= 0)
             {

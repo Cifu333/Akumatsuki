@@ -13,6 +13,7 @@ public class PlayerStatus : MonoBehaviour
     public int maxMisery = 1000;
     public int babyParts;
     public bool free;
+    public bool freeA;
 
     public bool initiate;
 
@@ -95,15 +96,14 @@ public class PlayerStatus : MonoBehaviour
         if (hp < lastHP && hp > 0)
         {
             timeHit += Time.deltaTime;
-            Debug.Log("Guayaba");
             if (timeHit < 0.25f)
-                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 2) * Time.deltaTime;
+                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 3) * Time.deltaTime;
             else if (timeHit < 0.5f)
-                GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 2) * Time.deltaTime;
+                GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3) * Time.deltaTime;
             else if (timeHit < 0.75f)
-                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 2) * Time.deltaTime;
+                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 3) * Time.deltaTime;
             else if (timeHit < 1.0f)
-                GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 2) * Time.deltaTime;
+                GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 3) * Time.deltaTime;
             else
             {
                 timeHit = 0;
@@ -149,6 +149,11 @@ public class PlayerStatus : MonoBehaviour
             free = true;
         else
             free = false;
+
+        if (pa.attack == false && stun == false && hp > 0)
+            freeA = true;
+        else
+            freeA = false;
     }
 
     private void Muerte()

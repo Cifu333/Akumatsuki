@@ -29,7 +29,6 @@ public class DemonAbilities : MonoBehaviour
     public float tentacleTranslation = 0.3f;
     public float groundDistance = 1f;
     public LayerMask groundMask;
-    public bool attach;
 
     public float fireCoolCounter;
     private float fireCounter;
@@ -42,6 +41,7 @@ public class DemonAbilities : MonoBehaviour
 
     GameObject temp;
     GameObject temp2;
+    GameObject temp3;
 
     private bool tentacleCooldown;
     private bool fireCooldown;
@@ -51,7 +51,6 @@ public class DemonAbilities : MonoBehaviour
         fireReiterateCounter = 0;
         tentacleCooldown = false;
         fireCooldown = false;
-        attach = false;
         charge = true;
         ability = false;
         ps = GetComponent<PlayerStatus>();
@@ -69,7 +68,7 @@ public class DemonAbilities : MonoBehaviour
 
     private void TentacleAttack()
     {
-        if (Input.GetKeyDown(KeyCode.F) && ps.free == true && pa.demon[0] == true && tentacleCooldown == false && ps.misery >= tentacleMisery)
+        if (Input.GetKeyDown(KeyCode.F) && ps.freeA == true && pa.demon[0] == true && tentacleCooldown == false && ps.misery >= tentacleMisery)
         {
             if (tentacleAttackCoolCounter <= 0 && tentacleAttackCounter <= 0)
             {
@@ -111,7 +110,7 @@ public class DemonAbilities : MonoBehaviour
         if (tentacleAttackCounter > 0)
         {
             tentacleAttackCounter -= Time.deltaTime;
-            if (tentacleAttackCounter > tentacleAttackDuration / 2 && attach == false)
+            if (tentacleAttackCounter > tentacleAttackDuration / 2 && temp.GetComponent<Tentacle>().attach == false)
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                 {
@@ -124,7 +123,7 @@ public class DemonAbilities : MonoBehaviour
             }
             else if (tentacleAttackCounter < tentacleAttackDuration / 2)
             {
-                if (attach == false)
+                if (temp.GetComponent<Tentacle>().attach == false)
                 {
                     if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Direction.LEFT)
                     {
@@ -163,7 +162,6 @@ public class DemonAbilities : MonoBehaviour
                 Destroy(temp, 0);
                 ability = false;
                 charge = true;
-                attach = false;
             }
         }
 
@@ -179,14 +177,14 @@ public class DemonAbilities : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetKeyDown(KeyCode.G) && ps.free == true && pa.demon[1] == true && fireCooldown == false && ps.misery >= fireMisery)
+        if (Input.GetKeyDown(KeyCode.G) && ps.freeA == true && pa.demon[1] == true && fireCooldown == false && ps.misery >= fireMisery)
         {
             if (fireCoolCounter <= 0)
             {
                 fireCooldown = true;
-                temp = Instantiate(fire, transform.position, transform.rotation);
+                temp3 = Instantiate(fire, transform.position, transform.rotation);
                 temp2 = Instantiate(fireAnim, transform.position, transform.rotation);
-                temp.transform.parent = gameObject.transform;
+                temp3.transform.parent = gameObject.transform;
                 temp2.transform.parent = gameObject.transform;
 
                 fireCounter = fireDuration;
@@ -200,7 +198,7 @@ public class DemonAbilities : MonoBehaviour
             if (fireCounter <= 0)
             {
                 Debug.Log("me cago en tu madre");
-                Destroy(temp,0);
+                Destroy(temp3,0);
 
                 Destroy(temp2,0);
 
@@ -214,18 +212,6 @@ public class DemonAbilities : MonoBehaviour
             if (fireCoolCounter <= 0)
             {
                 fireCooldown = false;
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (transform.childCount > 1)
-        {
-            if (transform.GetChild(1).GetComponent<Collider2D>() != null)
-            {
-                if (collision.gameObject.layer == 3)
-                    attach = true;
             }
         }
     }

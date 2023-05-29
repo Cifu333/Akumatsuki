@@ -115,7 +115,7 @@ public class Token : MonoBehaviour {
                 transform.position += new Vector3(movementX, movementY) * Time.deltaTime;
                 if (timeCounter >= timeForRespawn)
                 {
-                    transform.parent.parent.position = new Vector3(-97, -4);
+                    transform.parent.parent.position = new Vector3(180, 28);
                     transform.parent.parent.GetComponent<PlayerStatus>().hp = transform.parent.parent.GetComponent<PlayerStatus>().maxHP;
                     GameObject.FindGameObjectWithTag("SpawnerHandler").GetComponent<SpawnerHandler>().spawnAll = true;
                 }

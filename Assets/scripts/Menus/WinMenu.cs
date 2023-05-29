@@ -30,6 +30,7 @@ public class WinMenu : MonoBehaviour
         BadMenu.SetActive(false);
         GoodMenu.SetActive(false);
         NeutralMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
